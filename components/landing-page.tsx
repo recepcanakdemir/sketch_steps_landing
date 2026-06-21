@@ -19,8 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const APP_STORE_URL =
-  "https://apps.apple.com/tr/app/sketch-steps-ai-loomis-draw/id6763632360?l=tr";
+const APP_STORE_URL = "https://apps.apple.com/app/id6763632360";
 const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
@@ -225,8 +224,6 @@ function AppStoreBadge({
   return (
     <a
       href={APP_STORE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
       aria-label="Download Sketch Steps on the App Store"
       className={cn(
         "inline-flex max-w-full items-center justify-center rounded-lg bg-[#211d26] text-white transition hover:-translate-y-0.5 hover:bg-[#18141d]",
