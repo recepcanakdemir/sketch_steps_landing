@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Bookmark,
@@ -19,12 +20,52 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const APP_STORE_URL = "https://apps.apple.com/app/id6763632360";
+const APP_STORE_URL =
+  "https://apps.apple.com/us/app/sketch-flow-ai-ar-drawing/id6763632360";
+const IN_APP_BROWSER_PATTERN =
+  /Instagram|FBAN|FBAV|TikTok|musical_ly|Bytedance|ByteLocale|ByteFullLocale|ByteWebView/i;
+const TIKTOK_BROWSER_PATTERN =
+  /TikTok|musical_ly|Bytedance|ByteLocale|ByteFullLocale|ByteWebView/i;
+const INSTAGRAM_BROWSER_PATTERN = /Instagram|FBAN|FBAV/i;
 const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 const SUPPORT_EMAIL = "landmarkaiguide@gmail.com";
+
+type InAppBrowser = "instagram" | "tiktok" | "in-app" | null;
+
+function getInAppBrowser(userAgent: string): InAppBrowser {
+  if (INSTAGRAM_BROWSER_PATTERN.test(userAgent)) {
+    return "instagram";
+  }
+
+  if (TIKTOK_BROWSER_PATTERN.test(userAgent)) {
+    return "tiktok";
+  }
+
+  if (IN_APP_BROWSER_PATTERN.test(userAgent)) {
+    return "in-app";
+  }
+
+  return null;
+}
+
+function useInAppBrowser() {
+  const [browser, setBrowser] = useState<InAppBrowser>(null);
+  const [isAndroid, setIsAndroid] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent || "";
+
+    window.requestAnimationFrame(() => {
+      setBrowser(getInAppBrowser(userAgent));
+      setIsAndroid(/Android/i.test(userAgent));
+    });
+  }, []);
+
+  return { browser, isAndroid };
+}
 
 const processCards = [
   {
@@ -220,58 +261,162 @@ function AppStoreBadge({
 }) {
   const isCompact = size === "compact";
   const isMedium = size === "medium";
+  const { browser, isAndroid } = useInAppBrowser();
+  const [showInAppHelp, setShowInAppHelp] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  function handleAppStoreClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (!browser) {
+      return;
+    }
+
+    event.preventDefault();
+    setShowInAppHelp(true);
+  }
+
+  async function copyAppStoreLink() {
+    try {
+      await navigator.clipboard.writeText(APP_STORE_URL);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.location.href = APP_STORE_URL;
+    }
+  }
+
+  const browserLabel =
+    browser === "instagram" ? "Instagram" : browser === "tiktok" ? "TikTok" : "this app";
 
   return (
-    <a
-      href={APP_STORE_URL}
-      aria-label="Download Sketch Steps on the App Store"
-      className={cn(
-        "inline-flex max-w-full items-center justify-center rounded-lg bg-[#211d26] text-white transition hover:-translate-y-0.5 hover:bg-[#18141d]",
-        isCompact
-          ? "h-10 w-[150px]"
-          : isMedium
-            ? "h-12 w-[180px] sm:h-14 sm:w-[205px]"
-            : "h-16 w-[220px] sm:h-20 sm:w-[270px]",
-        className,
-      )}
-    >
-      <svg
-        viewBox="0 0 384 512"
-        width={isCompact ? 21 : isMedium ? 28 : 45}
-        aria-hidden="true"
+    <>
+      <a
+        href={APP_STORE_URL}
+        aria-label="Download Sketch Steps on the App Store"
+        onClick={handleAppStoreClick}
+        className={cn(
+          "inline-flex max-w-full items-center justify-center rounded-lg bg-[#211d26] text-white transition hover:-translate-y-0.5 hover:bg-[#18141d]",
+          isCompact
+            ? "h-10 w-[150px]"
+            : isMedium
+              ? "h-12 w-[180px] sm:h-14 sm:w-[205px]"
+              : "h-16 w-[220px] sm:h-20 sm:w-[270px]",
+          className,
+        )}
       >
-        <path
-          fill="currentColor"
-          d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
-        />
-      </svg>
-      <span className={cn("leading-none", isCompact ? "ml-2.5" : isMedium ? "ml-2.5 sm:ml-3" : "ml-3 sm:ml-4")}>
-        <span
-          className={cn(
-            "block font-medium leading-none tracking-normal",
-            isCompact
-              ? "text-[9px]"
-              : isMedium
-                ? "text-[11px] sm:text-[13px]"
-                : "text-sm sm:text-[18px]",
-          )}
+        <svg
+          viewBox="0 0 384 512"
+          width={isCompact ? 21 : isMedium ? 28 : 45}
+          aria-hidden="true"
         >
-          Download on the
+          <path
+            fill="currentColor"
+            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+          />
+        </svg>
+        <span className={cn("leading-none", isCompact ? "ml-2.5" : isMedium ? "ml-2.5 sm:ml-3" : "ml-3 sm:ml-4")}>
+          <span
+            className={cn(
+              "block font-medium leading-none tracking-normal",
+              isCompact
+                ? "text-[9px]"
+                : isMedium
+                  ? "text-[11px] sm:text-[13px]"
+                  : "text-sm sm:text-[18px]",
+            )}
+          >
+            Download on the
+          </span>
+          <span
+            className={cn(
+              "block font-sans font-medium leading-none tracking-normal",
+              isCompact
+                ? "mt-0.5 text-[18px]"
+                : isMedium
+                  ? "mt-0.5 text-[23px] sm:mt-1 sm:text-[27px]"
+                  : "mt-1 text-[28px] sm:text-[36px]",
+            )}
+          >
+            App Store
+          </span>
         </span>
-        <span
-          className={cn(
-            "block font-sans font-medium leading-none tracking-normal",
-            isCompact
-              ? "mt-0.5 text-[18px]"
-              : isMedium
-                ? "mt-0.5 text-[23px] sm:mt-1 sm:text-[27px]"
-                : "mt-1 text-[28px] sm:text-[36px]",
-          )}
+      </a>
+
+      {showInAppHelp ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-5 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="open-browser-title"
         >
-          App Store
-        </span>
-      </span>
-    </a>
+          <div className="w-full max-w-sm rounded-[28px] bg-white p-6 text-center shadow-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Open in browser
+            </p>
+            <h2
+              id="open-browser-title"
+              className="mt-3 text-2xl font-semibold tracking-normal text-foreground"
+            >
+              {browserLabel} is blocking the App Store.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Tap the <span className="font-semibold text-foreground">•••</span>{" "}
+              menu in the top-right corner, choose{" "}
+              <span className="font-semibold text-foreground">
+                Open in browser
+              </span>
+              , then tap the App Store button again.
+            </p>
+            {isAndroid ? (
+              <p className="mt-3 rounded-2xl bg-neutral-50 p-3 text-sm leading-6 text-muted">
+                Sketch Steps is currently available for iPhone and iPad.
+                Android visitors can copy the link and open it on an iOS device.
+              </p>
+            ) : null}
+            <div className="mt-5 grid gap-3">
+              <button
+                type="button"
+                onClick={copyAppStoreLink}
+                className="rounded-full bg-[#211d26] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#18141d]"
+              >
+                {copied ? "Copied" : "Copy App Store link"}
+              </button>
+              <a
+                href={APP_STORE_URL}
+                className="rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-neutral-50"
+              >
+                Try opening App Store
+              </a>
+              <button
+                type="button"
+                onClick={() => setShowInAppHelp(false)}
+                className="px-5 py-2 text-sm font-semibold text-muted transition hover:text-foreground"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </>
+  );
+}
+
+function InAppBrowserNotice() {
+  const { browser } = useInAppBrowser();
+
+  if (!browser) {
+    return null;
+  }
+
+  const browserLabel =
+    browser === "instagram" ? "Instagram" : browser === "tiktok" ? "TikTok" : "this app";
+
+  return (
+    <div className="sticky top-0 z-40 border-b border-[#f2d9dc] bg-[#fff4f5] px-4 py-3 text-center text-sm leading-6 text-foreground">
+      You’re viewing this inside {browserLabel}. If the App Store doesn’t open,
+      tap <span className="font-semibold">•••</span> and choose{" "}
+      <span className="font-semibold">Open in browser</span>.
+    </div>
   );
 }
 
@@ -673,6 +818,7 @@ function Footer() {
 export default function LandingPage() {
   return (
     <main className="bg-white">
+      <InAppBrowserNotice />
       <Hero />
       <HowItWorks />
       <Gallery />

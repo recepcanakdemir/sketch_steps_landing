@@ -52,6 +52,9 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "default",
   },
+  other: {
+    "apple-itunes-app": "app-id=6763632360",
+  },
   robots: {
     index: true,
     follow: true,
