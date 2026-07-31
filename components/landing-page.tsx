@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Bookmark,
@@ -18,53 +18,43 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import {
+  type BrowserEnvironment,
+  getBrowserEnvironment,
+  tryOpenInNativeBrowser,
+} from "@/lib/in-app-browser";
 import { cn } from "@/lib/utils";
 
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/sketch-flow-ai-ar-drawing/id6763632360";
-const IN_APP_BROWSER_PATTERN =
-  /Instagram|FBAN|FBAV|TikTok|musical_ly|Bytedance|ByteLocale|ByteFullLocale|ByteWebView/i;
-const TIKTOK_BROWSER_PATTERN =
-  /TikTok|musical_ly|Bytedance|ByteLocale|ByteFullLocale|ByteWebView/i;
-const INSTAGRAM_BROWSER_PATTERN = /Instagram|FBAN|FBAV/i;
 const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 const SUPPORT_EMAIL = "landmarkaiguide@gmail.com";
 
-type InAppBrowser = "instagram" | "tiktok" | "in-app" | null;
-
-function getInAppBrowser(userAgent: string): InAppBrowser {
-  if (INSTAGRAM_BROWSER_PATTERN.test(userAgent)) {
-    return "instagram";
-  }
-
-  if (TIKTOK_BROWSER_PATTERN.test(userAgent)) {
-    return "tiktok";
-  }
-
-  if (IN_APP_BROWSER_PATTERN.test(userAgent)) {
-    return "in-app";
-  }
-
-  return null;
-}
-
 function useInAppBrowser() {
-  const [browser, setBrowser] = useState<InAppBrowser>(null);
-  const [isAndroid, setIsAndroid] = useState(false);
+  const [environment, setEnvironment] = useState<BrowserEnvironment>({
+    browser: null,
+    isAndroid: false,
+    isIOS: false,
+  });
 
   useEffect(() => {
     const userAgent = navigator.userAgent || "";
 
     window.requestAnimationFrame(() => {
-      setBrowser(getInAppBrowser(userAgent));
-      setIsAndroid(/Android/i.test(userAgent));
+      setEnvironment(
+        getBrowserEnvironment(
+          userAgent,
+          navigator.platform,
+          navigator.maxTouchPoints,
+        ),
+      );
     });
   }, []);
 
-  return { browser, isAndroid };
+  return environment;
 }
 
 const processCards = [
@@ -261,9 +251,61 @@ function AppStoreBadge({
 }) {
   const isCompact = size === "compact";
   const isMedium = size === "medium";
-  const { browser, isAndroid } = useInAppBrowser();
+  const environment = useInAppBrowser();
+  const { browser, isAndroid } = environment;
   const [showInAppHelp, setShowInAppHelp] = useState(false);
   const [copied, setCopied] = useState(false);
+  const attemptCleanupRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    return () => attemptCleanupRef.current?.();
+  }, []);
+
+  function attemptNativeBrowserOpen() {
+    attemptCleanupRef.current?.();
+    setShowInAppHelp(false);
+
+    let didLeavePage = false;
+    let fallbackTimer = 0;
+
+    const cleanup = () => {
+      window.clearTimeout(fallbackTimer);
+      window.removeEventListener("pagehide", handlePageLeave);
+      window.removeEventListener("blur", handlePageLeave);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      attemptCleanupRef.current = null;
+    };
+
+    const handlePageLeave = () => {
+      didLeavePage = true;
+      cleanup();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        handlePageLeave();
+      }
+    };
+
+    window.addEventListener("pagehide", handlePageLeave, { once: true });
+    window.addEventListener("blur", handlePageLeave, { once: true });
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    fallbackTimer = window.setTimeout(() => {
+      cleanup();
+      if (!didLeavePage) {
+        setShowInAppHelp(true);
+      }
+    }, 1500);
+    attemptCleanupRef.current = cleanup;
+
+    const attempted = tryOpenInNativeBrowser(environment, APP_STORE_URL);
+
+    if (!attempted) {
+      cleanup();
+      setShowInAppHelp(true);
+    }
+  }
 
   function handleAppStoreClick(event: React.MouseEvent<HTMLAnchorElement>) {
     if (!browser) {
@@ -271,7 +313,7 @@ function AppStoreBadge({
     }
 
     event.preventDefault();
-    setShowInAppHelp(true);
+    attemptNativeBrowserOpen();
   }
 
   async function copyAppStoreLink() {
@@ -285,7 +327,13 @@ function AppStoreBadge({
   }
 
   const browserLabel =
-    browser === "instagram" ? "Instagram" : browser === "tiktok" ? "TikTok" : "this app";
+    browser === "instagram"
+      ? "Instagram"
+      : browser === "facebook"
+        ? "Facebook"
+        : browser === "tiktok"
+          ? "TikTok"
+          : "this app";
 
   return (
     <>
@@ -380,12 +428,13 @@ function AppStoreBadge({
               >
                 {copied ? "Copied" : "Copy App Store link"}
               </button>
-              <a
-                href={APP_STORE_URL}
+              <button
+                type="button"
+                onClick={attemptNativeBrowserOpen}
                 className="rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-neutral-50"
               >
-                Try opening App Store
-              </a>
+                Open in my browser
+              </button>
               <button
                 type="button"
                 onClick={() => setShowInAppHelp(false)}
@@ -409,7 +458,13 @@ function InAppBrowserNotice() {
   }
 
   const browserLabel =
-    browser === "instagram" ? "Instagram" : browser === "tiktok" ? "TikTok" : "this app";
+    browser === "instagram"
+      ? "Instagram"
+      : browser === "facebook"
+        ? "Facebook"
+        : browser === "tiktok"
+          ? "TikTok"
+          : "this app";
 
   return (
     <div className="sticky top-0 z-40 border-b border-[#f2d9dc] bg-[#fff4f5] px-4 py-3 text-center text-sm leading-6 text-foreground">
