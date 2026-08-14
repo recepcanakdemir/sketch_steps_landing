@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -31,7 +32,7 @@ const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
-const SUPPORT_EMAIL = "landmarkaiguide@gmail.com";
+const SUPPORT_EMAIL = "support@sketchsteps.app";
 
 function useInAppBrowser() {
   const [environment, setEnvironment] = useState<BrowserEnvironment>({
@@ -154,8 +155,7 @@ const faqItems = [
   },
   {
     question: "Is there an Android version?",
-    answer:
-      "We are actively working on the Android version. It will be released as soon as possible.",
+    answer: "The Android version is launching soon on Google Play.",
   },
 ];
 
@@ -855,6 +855,12 @@ function Footer() {
           >
             Terms of Use
           </a>
+          <Link
+            className="rounded-sm transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            href="/account-deletion"
+          >
+            Delete Account
+          </Link>
           <a
             className="transition hover:text-foreground"
             href={`mailto:${SUPPORT_EMAIL}`}
