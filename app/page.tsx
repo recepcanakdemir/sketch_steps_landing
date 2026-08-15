@@ -5,7 +5,7 @@ const structuredData = {
   "@type": "SoftwareApplication",
   name: "Sketch Steps",
   applicationCategory: "EducationApplication",
-  operatingSystem: "iOS",
+  operatingSystem: "iOS, Android",
   description:
     "AI drawing app that transforms face photos into step-by-step Loomis Method portrait drawing guides.",
   offers: {

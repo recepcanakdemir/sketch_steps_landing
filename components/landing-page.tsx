@@ -28,6 +28,8 @@ import { cn } from "@/lib/utils";
 
 const APP_STORE_URL =
   "https://apps.apple.com/us/app/sketch-flow-ai-ar-drawing/id6763632360";
+const GOOGLE_PLAY_URL =
+  "https://play.google.com/store/apps/details?id=com.sketchsteps.app";
 const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
@@ -151,11 +153,11 @@ const faqItems = [
   {
     question: "Is the app free?",
     answer:
-      "Sketch Steps can be downloaded from the App Store. Pricing and premium options are shown in the app before any purchase.",
+      "Sketch Steps can be downloaded from the App Store or Google Play. Pricing and premium options are shown in the app before any purchase.",
   },
   {
     question: "Is there an Android version?",
-    answer: "The Android version is launching soon on Google Play.",
+    answer: "Yes. Sketch Steps is available now on Google Play.",
   },
 ];
 
@@ -238,10 +240,6 @@ function Logo() {
   );
 }
 
-function AppStoreButton({ className }: { className?: string }) {
-  return <AppStoreBadge className={className} size="medium" />;
-}
-
 function AppStoreBadge({
   className,
   size = "default",
@@ -313,6 +311,12 @@ function AppStoreBadge({
     }
 
     event.preventDefault();
+
+    if (isAndroid) {
+      setShowInAppHelp(true);
+      return;
+    }
+
     attemptNativeBrowserOpen();
   }
 
@@ -416,8 +420,8 @@ function AppStoreBadge({
             </p>
             {isAndroid ? (
               <p className="mt-3 rounded-2xl bg-neutral-50 p-3 text-sm leading-6 text-muted">
-                Sketch Steps is currently available for iPhone and iPad.
-                Android visitors can copy the link and open it on an iOS device.
+                Sketch Steps is available for Android on Google Play. Close
+                this message and use the Google Play button on this page.
               </p>
             ) : null}
             <div className="mt-5 grid gap-3">
@@ -450,6 +454,95 @@ function AppStoreBadge({
   );
 }
 
+function GooglePlayBadge({
+  className,
+  size = "default",
+}: {
+  className?: string;
+  size?: "default" | "medium" | "compact";
+}) {
+  const isCompact = size === "compact";
+  const isMedium = size === "medium";
+
+  return (
+    <a
+      href={GOOGLE_PLAY_URL}
+      aria-label="Get Sketch Steps on Google Play"
+      className={cn(
+        "inline-flex max-w-full items-center justify-center rounded-lg bg-[#211d26] text-white transition hover:-translate-y-0.5 hover:bg-[#18141d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
+        isCompact
+          ? "h-10 w-[150px]"
+          : isMedium
+            ? "h-12 w-[180px] sm:h-14 sm:w-[205px]"
+            : "h-16 w-[220px] sm:h-20 sm:w-[270px]",
+        className,
+      )}
+    >
+      <svg
+        viewBox="0 0 512 512"
+        width={isCompact ? 23 : isMedium ? 31 : 47}
+        aria-hidden="true"
+      >
+        <path fill="#00D7FE" d="M86 62v388l226-194L86 62Z" />
+        <path fill="#00F076" d="m86 62 268 151-42 43L86 62Z" />
+        <path fill="#FFCE00" d="m354 213 64 36c10 6 10 20 0 26l-64 36-42-55 42-43Z" />
+        <path fill="#F63448" d="M86 450 354 311l-42-55L86 450Z" />
+      </svg>
+      <span
+        className={cn(
+          "text-left leading-none",
+          isCompact ? "ml-2" : isMedium ? "ml-2.5 sm:ml-3" : "ml-3 sm:ml-4",
+        )}
+      >
+        <span
+          className={cn(
+            "block font-medium uppercase leading-none tracking-normal",
+            isCompact
+              ? "text-[8px]"
+              : isMedium
+                ? "text-[9px] sm:text-[11px]"
+                : "text-[11px] sm:text-sm",
+          )}
+        >
+          Get it on
+        </span>
+        <span
+          className={cn(
+            "block font-sans font-medium leading-none tracking-normal",
+            isCompact
+              ? "mt-0.5 text-[17px]"
+              : isMedium
+                ? "mt-0.5 text-[21px] sm:mt-1 sm:text-[25px]"
+                : "mt-1 text-[27px] sm:text-[34px]",
+          )}
+        >
+          Google Play
+        </span>
+      </span>
+    </a>
+  );
+}
+
+function StoreBadges({
+  size = "default",
+  className,
+}: {
+  size?: "default" | "medium" | "compact";
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center gap-3 sm:flex-row",
+        className,
+      )}
+    >
+      <AppStoreBadge size={size} />
+      <GooglePlayBadge size={size} />
+    </div>
+  );
+}
+
 function InAppBrowserNotice() {
   const { browser } = useInAppBrowser();
 
@@ -468,7 +561,7 @@ function InAppBrowserNotice() {
 
   return (
     <div className="sticky top-0 z-40 border-b border-[#f2d9dc] bg-[#fff4f5] px-4 py-3 text-center text-sm leading-6 text-foreground">
-      You’re viewing this inside {browserLabel}. If the App Store doesn’t open,
+      You’re viewing this inside {browserLabel}. If a store link doesn’t open,
       tap <span className="font-semibold">•••</span> and choose{" "}
       <span className="font-semibold">Open in browser</span>.
     </div>
@@ -659,7 +752,7 @@ function Hero() {
             Download
           </a>
         </nav>
-        <AppStoreBadge className="hidden sm:inline-flex" size="compact" />
+        <StoreBadges className="hidden sm:flex" size="compact" />
       </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-6 sm:px-6 md:pt-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-8">
@@ -677,8 +770,8 @@ function Hero() {
             Upload a face and instantly receive guided drawing steps designed
             for beginners and aspiring artists.
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-            <AppStoreButton />
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 lg:items-start lg:justify-start">
+            <StoreBadges size="medium" />
             <Button
               asChild
               variant="secondary"
@@ -815,9 +908,7 @@ function FinalCTA() {
       <Reveal>
         <div className="mx-auto max-w-6xl text-center">
           <FinalTrustWreath />
-          <div className="mt-10 flex justify-center">
-            <AppStoreBadge />
-          </div>
+          <StoreBadges className="mt-10" />
         </div>
       </Reveal>
     </section>
@@ -827,10 +918,10 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5 text-center sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
-        <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center lg:shrink-0">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5 text-center sm:px-6 lg:px-8 xl:flex-row xl:items-center xl:justify-between xl:text-left">
+        <div className="flex flex-col items-center gap-5 xl:shrink-0">
           <Logo />
-          <AppStoreBadge size="compact" />
+          <StoreBadges size="compact" />
         </div>
         <nav className="flex max-w-2xl flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-medium text-muted">
           <a className="transition hover:text-foreground" href="#gallery">
@@ -874,7 +965,7 @@ function Footer() {
             Support
           </a>
         </nav>
-        <p className="text-sm text-muted lg:text-right">
+        <p className="text-sm text-muted xl:text-right">
           © {new Date().getFullYear()} Sketch Steps. All rights reserved.
         </p>
       </div>
