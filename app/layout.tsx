@@ -54,6 +54,7 @@ export const metadata: Metadata = {
   },
   other: {
     "apple-itunes-app": "app-id=6763632360",
+    "p:domain_verify": "b2592709c01c190470ce088444485276",
   },
   robots: {
     index: true,
