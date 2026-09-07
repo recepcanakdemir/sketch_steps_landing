@@ -944,6 +944,12 @@ function Footer() {
           >
             Android Privacy Policy
           </Link>
+          <Link
+            className="rounded-sm transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            href="/ios-privacy-policy"
+          >
+            iOS Privacy Policy
+          </Link>
           <a
             className="transition hover:text-foreground"
             href={TERMS_OF_USE_URL}
