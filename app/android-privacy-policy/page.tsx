@@ -121,7 +121,7 @@ export default function AndroidPrivacyPolicyPage() {
               Sketch Steps Android Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Effective date: August 14, 2026
+              Last updated: October 5, 2026
             </p>
           </div>
         </section>
@@ -285,6 +285,23 @@ export default function AndroidPrivacyPolicyPage() {
               advertising.
             </p>
 
+            <Subheading>Crash reports and diagnostics</Subheading>
+            <p className={textStyles}>
+              In production Android builds, we use Google Firebase Crashlytics
+              to collect crash logs and diagnostic information when the app
+              crashes or encounters an error. This can include stack traces,
+              app and device information, app state at the time of a crash,
+              and identifiers generated for the app installation. Firebase
+              services used by Crashlytics may also process session information
+              to help us understand how many users are affected.
+            </p>
+            <p className={textStyles}>
+              We use this information to monitor app stability, diagnose and
+              fix problems, and improve performance. Crash reporting is
+              enabled in production builds and cannot be turned off in the
+              app. We do not use crash reports for advertising.
+            </p>
+
             <Subheading>Data stored locally on your device</Subheading>
             <p className={textStyles}>
               Some data remains on your device, including saved drawings,
@@ -343,6 +360,7 @@ export default function AndroidPrivacyPolicyPage() {
               <li>Refund coins when an eligible AI generation fails</li>
               <li>Save generation feedback</li>
               <li>Provide customer support</li>
+              <li>Diagnose crashes and improve app stability and performance</li>
               <li>Protect the security and integrity of the service</li>
               <li>Comply with applicable legal obligations</li>
               <li>Process account-deletion requests</li>
@@ -360,8 +378,9 @@ export default function AndroidPrivacyPolicyPage() {
             <Subheading>Google</Subheading>
             <p className={textStyles}>
               Google provides Google Sign-In, Google Play distribution, in-app
-              purchases, subscription management, and certain AI processing
-              functionality.
+              purchases, subscription management, certain AI processing
+              functionality, and Firebase Crashlytics crash reporting and
+              diagnostics.
             </p>
 
             <Subheading>Supabase</Subheading>
@@ -416,8 +435,9 @@ export default function AndroidPrivacyPolicyPage() {
             <p className={textStyles}>
               Information is disclosed to service providers only as needed to
               operate authentication, cloud storage, purchases, subscriptions,
-              account security, and AI generation. We may also disclose
-              information if required by law or necessary to protect users, our
+              account security, crash reporting, diagnostics, and AI generation.
+              We may also disclose information if required by law or necessary
+              to protect users, our
               rights, or the security of the service.
             </p>
           </PolicySection>
@@ -433,6 +453,11 @@ export default function AndroidPrivacyPolicyPage() {
               generation records may remain stored until they are deleted
               through account deletion or removed as part of our operational
               cleanup processes.
+            </p>
+            <p className={textStyles}>
+              Crash and diagnostic information may be retained by Firebase
+              Crashlytics as needed to monitor and resolve app issues, subject
+              to the provider&apos;s retention practices.
             </p>
             <p className={textStyles}>
               Locally saved drawings and gallery files remain on your device
