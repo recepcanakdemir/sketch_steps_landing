@@ -121,7 +121,7 @@ export default function AndroidPrivacyPolicyPage() {
               Sketch Steps Android Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: October 5, 2026
+              Last updated: October 8, 2026
             </p>
           </div>
         </section>
@@ -167,8 +167,11 @@ export default function AndroidPrivacyPolicyPage() {
           <PolicySection number="3" title="Information We Collect">
             <Subheading>Account and profile information</Subheading>
             <p className={textStyles}>
-              The Android application requires Google Sign-In. When you sign
-              in, we may receive and process:
+              You can use the Android application without signing in. We ask
+              you to sign in with Google only when you make a purchase, restore
+              purchases, or choose to sign in from Settings. Before you sign
+              in, the app uses an anonymous identifier generated on your
+              device. When you sign in, we may receive and process:
             </p>
             <ul className={listStyles}>
               <li>Your Google account name</li>
@@ -279,7 +282,16 @@ export default function AndroidPrivacyPolicyPage() {
               <li>Feature selections</li>
               <li>Feedback submitted about generated results</li>
               <li>App version, build number, and platform</li>
+              <li>App opens, device language and region</li>
             </ul>
+            <p className={textStyles}>
+              These app-interaction events are processed by PostHog together
+              with an anonymous identifier generated for your app installation.
+              We do not send your name, email address, or photos to PostHog,
+              and IP addresses are not stored. Purchase and subscription events
+              from RevenueCat may be linked to these events through the same
+              identifier.
+            </p>
             <p className={textStyles}>
               Sketch Steps does not use this information for third-party
               advertising.
@@ -397,6 +409,21 @@ export default function AndroidPrivacyPolicyPage() {
               account identifier used for purchase management.
             </p>
 
+            <Subheading>PostHog</Subheading>
+            <p className={textStyles}>
+              <a
+                href="https://posthog.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+              >
+                PostHog
+              </a>{" "}
+              (EU cloud) provides product analytics. It processes app-interaction
+              events, the app version, device language and region, and the
+              anonymous installation identifier described above.
+            </p>
+
             <Subheading>AI processing providers</Subheading>
             <p className={textStyles}>
               Photos submitted for AI generation may be processed through
@@ -458,6 +485,11 @@ export default function AndroidPrivacyPolicyPage() {
               Crash and diagnostic information may be retained by Firebase
               Crashlytics as needed to monitor and resolve app issues, subject
               to the provider&apos;s retention practices.
+            </p>
+            <p className={textStyles}>
+              Product analytics events are retained by PostHog as needed to
+              measure and improve the app, subject to the provider&apos;s
+              retention practices.
             </p>
             <p className={textStyles}>
               Locally saved drawings and gallery files remain on your device
