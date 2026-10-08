@@ -133,7 +133,7 @@ export default function IOSPrivacyPolicyPage() {
               Sketch Steps iOS Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: September 8, 2026
+              Last updated: October 8, 2026
             </p>
           </div>
         </section>
@@ -225,7 +225,17 @@ export default function IOSPrivacyPolicyPage() {
               <li>App language, device region, and app-store country</li>
               <li>AI job status, error codes, and refund status</li>
               <li>Technical request information that our infrastructure may automatically process, such as IP address and request metadata</li>
+              <li>Crash reports, such as stack traces, device model, operating-system version, app version, and app state at the time of a crash</li>
             </ul>
+            <p className={textStyles}>
+              Product-usage events (for example screens and paywalls viewed,
+              plans selected, generations started or completed, and app opens)
+              are processed by PostHog together with the anonymous Sketch Steps
+              user ID. Purchase and subscription events from RevenueCat may be
+              linked to these events through the same identifier. Crash reports
+              are processed by Google Firebase Crashlytics and do not include a
+              user identifier.
+            </p>
             <p className={textStyles}>
               We do not use this information for third-party advertising, and we
               do not use it to track you across apps or websites owned by other companies.
@@ -273,7 +283,7 @@ export default function IOSPrivacyPolicyPage() {
             <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-muted marker:font-semibold marker:text-accent sm:text-base">
               <li>The image you select is uploaded to private cloud storage associated with an anonymous or account identifier.</li>
               <li>Our backend creates and tracks a generation request.</li>
-              <li>The image and instructions needed to fulfill the request may be sent to third-party AI infrastructure providers, including fal.ai and, for certain image-analysis workflows, Google Gemini.</li>
+              <li>The image and instructions needed to fulfill the request may be sent to third-party AI infrastructure providers, including fal.ai and AI models made available through it, such as models from OpenAI or Google depending on the selected style, and, for certain image-analysis workflows, Google Gemini.</li>
               <li>The generated result is returned to the App and may be stored in our backend to support delivery, reliability, and result recovery.</li>
             </ol>
             <p className={textStyles}>
@@ -334,7 +344,9 @@ export default function IOSPrivacyPolicyPage() {
               <li><ProviderLink href="https://www.revenuecat.com/privacy-policy/">RevenueCat</ProviderLink> for subscription and in-app purchase management</li>
               <li><ProviderLink href="https://www.apple.com/legal/privacy/">Apple</ProviderLink> for App Store distribution, StoreKit purchases, and platform services</li>
               <li><ProviderLink href="https://policies.google.com/privacy">Google</ProviderLink> for Google Sign-In, Google Play services, and certain Gemini-powered image-analysis workflows</li>
-              <li><ProviderLink href="https://fal.ai/legal/privacy-policy">fal.ai</ProviderLink> for AI generation infrastructure</li>
+              <li><ProviderLink href="https://fal.ai/legal/privacy-policy">fal.ai</ProviderLink> for AI generation infrastructure, including models from <ProviderLink href="https://openai.com/policies/privacy-policy/">OpenAI</ProviderLink> and Google made available through it</li>
+              <li><ProviderLink href="https://posthog.com/privacy">PostHog</ProviderLink> (EU cloud) for product analytics: in-app usage events, the app version, device language and region, and the anonymous Sketch Steps user ID. We do not send your name, email address, or photos to PostHog, and IP addresses are not stored</li>
+              <li><ProviderLink href="https://firebase.google.com/support/privacy">Google Firebase Crashlytics</ProviderLink> for crash reporting and diagnostics</li>
             </ul>
             <p className={textStyles}>
               These providers may process information on our behalf as needed to
