@@ -25,9 +25,20 @@ export const metadata: Metadata = {
   creator: "Sketch Steps",
   publisher: "Sketch Steps",
   icons: {
-    icon: "/images/sketch-steps-app-icon.png",
-    shortcut: "/images/sketch-steps-app-icon.png",
-    apple: "/images/sketch-steps-app-icon.png",
+    icon: [
+      {
+        url: "/images/sketch-steps-app-icon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/sketch-steps-app-icon-180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/images/sketch-steps-app-icon-32.png",
+    apple: "/images/sketch-steps-app-icon-180.png",
   },
   alternates: {
     canonical: "/",
