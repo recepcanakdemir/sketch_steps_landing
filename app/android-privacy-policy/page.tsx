@@ -121,7 +121,7 @@ export default function AndroidPrivacyPolicyPage() {
               Sketch Steps Android Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: October 8, 2026
+              Last updated: October 11, 2026
             </p>
           </div>
         </section>
@@ -216,7 +216,12 @@ export default function AndroidPrivacyPolicyPage() {
             </p>
             <p className={textStyles}>
               Photos are collected only when you choose to use a feature that
-              requires them.
+              requires them. Before your first AI generation, the app asks for
+              your explicit permission to send the photo you select to our
+              third-party AI service providers; nothing is uploaded for AI
+              processing until you allow it. You can withdraw this permission
+              at any time in the app&apos;s Settings under Privacy, and the app
+              will ask again before the next AI generation.
             </p>
             <p className={textStyles}>
               Your photos may include images of you or other people. You are
@@ -234,13 +239,16 @@ export default function AndroidPrivacyPolicyPage() {
               <li>Generated images or result references</li>
               <li>Coin usage and refund status associated with a generation</li>
               <li>Feedback or ratings you submit about a generated result</li>
+              <li>Reports you submit about a generated result: the reason you choose, an optional note, the related request, and the app version</li>
               <li>App version and build number associated with a request</li>
             </ul>
             <p className={textStyles}>
               This information is used to perform AI generation, recover
               interrupted jobs, prevent duplicate charges, provide refunds when
               a generation fails, improve reliability, and respond to support
-              requests.
+              requests. If you report a result, we may review the result and
+              the related images to improve quality and to enforce our rules
+              and the rules of our AI providers.
             </p>
 
             <Subheading>Purchase, subscription, and wallet information</Subheading>
@@ -475,11 +483,17 @@ export default function AndroidPrivacyPolicyPage() {
               purchase-related information for as long as your account remains
               active or as needed to provide the service.
             </p>
+            <p className={textStyles}>For AI features we use these retention periods:</p>
+            <ul className={listStyles}>
+              <li>Photos you upload for AI generation: deleted from our storage within one hour after the request finishes, and no later than seven days after upload</li>
+              <li>Loomis AI results: kept in our private storage for 90 days so you can recover them, then deleted</li>
+              <li>Generated outputs held by our AI infrastructure provider (fal.ai): we request automatic deletion after one day for Loomis AI results and after seven days for Trace AI results</li>
+              <li>Photos and instructions sent to AI providers for processing are handled under the providers&apos; own terms and retention practices</li>
+              <li>AI generation records (status, style, timestamps, coin use) and result reports: kept while your account is active or as needed to operate the service, handle support and refunds, and prevent abuse</li>
+            </ul>
             <p className={textStyles}>
-              Uploaded source images, generated account files, and associated
-              generation records may remain stored until they are deleted
-              through account deletion or removed as part of our operational
-              cleanup processes.
+              Account deletion removes your remaining uploaded images and
+              generated results earlier than these periods.
             </p>
             <p className={textStyles}>
               Crash and diagnostic information may be retained by Firebase
@@ -566,7 +580,7 @@ export default function AndroidPrivacyPolicyPage() {
               <li>Supabase authentication record</li>
               <li>Server-side coin wallet and transaction ledger</li>
               <li>Onboarding profile</li>
-              <li>AI generation records and feedback</li>
+              <li>AI generation records, feedback, and result reports</li>
               <li>Uploaded account images and generated account files</li>
               <li>Associated RevenueCat customer record</li>
             </ul>
@@ -628,7 +642,9 @@ export default function AndroidPrivacyPolicyPage() {
             </ul>
             <p className={textStyles}>
               You can avoid uploading photos by not using optional AI features
-              that require a photo.
+              that require a photo, and you can withdraw your AI processing
+              permission in the app&apos;s Settings under Privacy. You can report
+              an AI-generated result that is inappropriate or inaccurate.
             </p>
             <p className={textStyles}>
               You can manage camera and media permissions through Android system

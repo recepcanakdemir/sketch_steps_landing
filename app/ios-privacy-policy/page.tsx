@@ -133,7 +133,7 @@ export default function IOSPrivacyPolicyPage() {
               Sketch Steps iOS Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: October 8, 2026
+              Last updated: October 11, 2026
             </p>
           </div>
         </section>
@@ -160,11 +160,12 @@ export default function IOSPrivacyPolicyPage() {
               <li>Photos or images you select or capture for AI Loomis tutorial generation or AI tracing features</li>
               <li>Generated tutorial images and AI tracing results</li>
               <li>Images, screenshots, or recordings you choose to save on your device</li>
-              <li>Feedback you submit about an AI-generated result</li>
+              <li>Feedback you submit about an AI-generated result, such as a rating</li>
+              <li>Reports you submit about an AI-generated result: the reason you choose, an optional note, the related request, and the app version</li>
             </ul>
             <p className={textStyles}>
-              Camera tracing, screen tracing, and AR-related camera previews
-              generally operate on your device. A photo or image is uploaded to
+              Camera tracing, screen tracing, and tracing video recordings
+              operate on your device. A photo or image is uploaded to
               our backend and AI service providers only when you choose a feature
               that requires cloud or AI processing.
             </p>
@@ -251,7 +252,8 @@ export default function IOSPrivacyPolicyPage() {
             <Subheading>G. Device permissions</Subheading>
             <p className={textStyles}>Depending on the features you choose, the App may request access to:</p>
             <ul className={listStyles}>
-              <li>The camera, for capturing images, camera tracing, or AR-related features</li>
+              <li>The camera, for capturing images and for camera tracing</li>
+              <li>The microphone, only if you choose to record a tracing video with sound; the recording stays on your device</li>
               <li>The photo library, for importing or saving images, screenshots, or recordings</li>
             </ul>
             <p className={textStyles}>You can manage these permissions in your device settings.</p>
@@ -260,12 +262,14 @@ export default function IOSPrivacyPolicyPage() {
           <PolicySection number="2" title="How We Use Information">
             <p className={textStyles}>We use information to:</p>
             <ul className={listStyles}>
-              <li>Provide drawing, tracing, camera, AR, AI Loomis, and AI tracing features</li>
+              <li>Provide drawing, tracing, camera, AI Loomis, and AI tracing features</li>
               <li>Upload and process images when you request an AI feature</li>
               <li>Generate, deliver, and recover AI results</li>
               <li>Operate accounts, subscriptions, purchases, coin balances, and restores</li>
               <li>Verify purchase entitlements and prevent duplicate or unauthorized coin grants</li>
               <li>Process appropriate coin refunds after failed AI requests</li>
+              <li>Move your subscription and coin balances to your new App identity when you restore purchases on a new device or after reinstalling</li>
+              <li>Review reported AI results to improve quality and enforce our rules</li>
               <li>Remember settings, favorites, onboarding progress, and locally saved content</li>
               <li>Measure feature usage and improve the App</li>
               <li>Diagnose errors, protect the App, prevent abuse, and maintain reliability</li>
@@ -279,6 +283,14 @@ export default function IOSPrivacyPolicyPage() {
               Sketch Steps provides AI-powered features, including AI Loomis
               tutorial generation and AI tracing style generation.
             </p>
+            <p className={textStyles}>
+              Before your first AI generation, the App asks for your explicit
+              permission to send the photo you select to our third-party AI
+              service providers. Nothing is uploaded for AI processing until you
+              allow it. You can withdraw this permission at any time in the
+              App&apos;s Settings under Privacy; the App will then ask again
+              before the next AI generation.
+            </p>
             <p className={textStyles}>When you choose to use an AI feature:</p>
             <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-muted marker:font-semibold marker:text-accent sm:text-base">
               <li>The image you select is uploaded to private cloud storage associated with an anonymous or account identifier.</li>
@@ -286,6 +298,18 @@ export default function IOSPrivacyPolicyPage() {
               <li>The image and instructions needed to fulfill the request may be sent to third-party AI infrastructure providers, including fal.ai and AI models made available through it, such as models from OpenAI or Google depending on the selected style, and, for certain image-analysis workflows, Google Gemini.</li>
               <li>The generated result is returned to the App and may be stored in our backend to support delivery, reliability, and result recovery.</li>
             </ol>
+            <p className={textStyles}>
+              We delete the photo you uploaded from our storage within one hour
+              after the request finishes, and in any case no later than seven
+              days after upload. How long each kind of AI data is kept is
+              described in Data Retention below.
+            </p>
+            <p className={textStyles}>
+              Each AI result has a Report option. If you report a result, we
+              store your report and may review the result and the related images
+              to improve quality and to enforce our rules and the rules of our
+              AI providers.
+            </p>
             <p className={textStyles}>
               AI providers may apply automated safety checks and may reject
               content that violates their rules. AI-generated results may be
@@ -329,6 +353,7 @@ export default function IOSPrivacyPolicyPage() {
               <li>Subscription and purchase processing</li>
               <li>AI-generation job records</li>
               <li>Source-image and generated-result storage used by AI features</li>
+              <li>Reports you submit about AI results</li>
             </ul>
             <Subheading>Purchase and platform services</Subheading>
             <p className={textStyles}>
@@ -396,11 +421,17 @@ export default function IOSPrivacyPolicyPage() {
               <li>Investigate errors, fraud, abuse, and support issues</li>
               <li>Satisfy accounting, legal, and regulatory obligations</li>
             </ul>
+            <p className={textStyles}>For AI features we use these retention periods:</p>
+            <ul className={listStyles}>
+              <li>Photos you upload for AI generation: deleted from our storage within one hour after the request finishes, and no later than seven days after upload</li>
+              <li>AI Loomis tutorial results: kept in our private storage for 90 days so you can recover them, then deleted</li>
+              <li>Generated outputs held by our AI infrastructure provider (fal.ai): we request automatic deletion after one day for AI Loomis results and after seven days for AI tracing results</li>
+              <li>Photos and instructions sent to AI providers for processing are handled under the providers&apos; own terms and retention practices</li>
+              <li>AI job records (status, style, timestamps, coin use) and result reports: kept while needed to operate the service, handle support and refunds, and prevent abuse</li>
+            </ul>
             <p className={textStyles}>
-              AI source images, generated results, and associated job records may
-              remain in private backend storage for operational, recovery,
-              security, and support purposes. Purchase, coin-ledger, and
-              fraud-prevention records may be retained longer where reasonably necessary.
+              Purchase, coin-ledger, and fraud-prevention records may be retained
+              longer where reasonably necessary.
             </p>
             <p className={textStyles}>
               Content saved only on your device remains there until you delete
@@ -419,7 +450,9 @@ export default function IOSPrivacyPolicyPage() {
             <p className={textStyles}>You may:</p>
             <ul className={listStyles}>
               <li>Choose not to use AI features if you do not want an image uploaded and processed by AI providers</li>
-              <li>Deny or revoke camera and photo-library permissions in device settings</li>
+              <li>Withdraw your AI processing permission in the App&apos;s Settings under Privacy</li>
+              <li>Report an AI-generated result that is inappropriate or inaccurate</li>
+              <li>Deny or revoke camera, microphone, and photo-library permissions in device settings</li>
               <li>Reset supported categories of local App data</li>
               <li>Restore eligible purchases through the App</li>
               <li>Delete an authenticated Android account using the account-deletion option in Settings</li>
@@ -444,7 +477,7 @@ export default function IOSPrivacyPolicyPage() {
             <p className={textStyles}>Where applicable law requires a legal basis, we process information:</p>
             <ul className={listStyles}>
               <li>To perform our contract with you and provide features you request</li>
-              <li>With your consent, including when you choose to upload an image for AI processing or grant device permissions</li>
+              <li>With your consent, including the permission the App asks for before sending a photo to AI providers, and device permissions you grant</li>
               <li>For legitimate interests such as securing, maintaining, analyzing, and improving the App, provided those interests are not overridden by your rights</li>
               <li>To comply with legal obligations</li>
             </ul>
