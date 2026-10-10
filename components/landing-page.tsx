@@ -5,9 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
-  Bookmark,
-  Layers,
-  Library,
   Star,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -60,47 +57,45 @@ function useInAppBrowser() {
   return environment;
 }
 
-const processCards = [
-  {
-    icon: Bookmark,
-    title: "Upload, Draw, Save",
-    description: "Upload a photo, draw step by step, or save your guide.",
-  },
-  {
-    icon: Layers,
-    title: "Follow Each Step",
-    description: "Move through clean, guided portrait construction stages.",
-  },
-  {
-    icon: Library,
-    title: "Practice Daily",
-    description: "Build a personal library of references and exercises.",
-  },
-];
+const tutorialPhoto = {
+  src: "/images/tutorialexample/Modern Evde Doğal Işıklı Selfie.png",
+  alt: "Original portrait uploaded to Sketch Steps",
+};
 
-const howScreenshots = [
-  {
-    label: "Capture",
-    src: "/images/how-collections.png",
-    alt: "Sketch Steps collections screen with saved Loomis guides",
-    width: 828,
-    height: 1792,
-  },
-  {
-    label: "Analyze",
-    src: "/images/how-step-inspect.jpeg",
-    alt: "Sketch Steps guided drawing step with navigation controls",
-    width: 739,
-    height: 1600,
-  },
-  {
-    label: "Practice",
-    src: "/images/how-cute-animals.jpeg",
-    alt: "Sketch Steps drawing reference library with practice templates",
-    width: 828,
-    height: 1792,
-  },
-];
+const tutorialSteps = Array.from({ length: 9 }, (_, index) => {
+  const imageNumber = 62 + index;
+
+  return {
+    label: `Step ${index + 1}`,
+    src: `/images/tutorialexample/IMG_00${imageNumber}.JPG`,
+    alt: `Sketch Steps Loomis drawing guide step ${index + 1}`,
+  };
+});
+
+const drawingEffectsOriginal = {
+  src: "/images/drawing_effects/original_photo.jpeg",
+  alt: "Original photo before drawing effects",
+};
+
+const drawingEffects = [
+  "Anime_cartoon.JPG",
+  "Architectural_line.JPG",
+  "Bold_charcoal.JPG",
+  "Clean_pencil.JPG",
+  "Soft_sketch.JPG",
+  "Watercolor.JPG",
+].map((filename) => {
+  const label = filename
+    .replace(/\.[^.]+$/, "")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+  return {
+    label,
+    src: `/images/drawing_effects/${filename}`,
+    alt: `${label} drawing effect preview`,
+  };
+});
 
 const gallery = [
   {
@@ -227,6 +222,7 @@ function Logo() {
         height={40}
         className="block h-10 w-10 rounded-2xl object-cover"
         priority
+        sizes="40px"
       />
       <Image
         src="/images/sketch-steps-wordmark.png"
@@ -235,6 +231,7 @@ function Logo() {
         height={40}
         className="block h-8 w-[96px] object-contain sm:h-9 sm:w-[108px]"
         priority
+        sizes="(min-width: 640px) 108px, 96px"
       />
     </a>
   );
@@ -583,6 +580,7 @@ function LaurelBranch({ side }: { side: "left" | "right" }) {
           ? "left-0 2xl:-left-8"
           : "right-0 2xl:-right-8",
       )}
+      sizes="160px"
       aria-hidden="true"
     />
   );
@@ -619,6 +617,7 @@ function FinalTrustWreath() {
         width={600}
         height={300}
         className="absolute -left-20 top-1/2 hidden h-52 w-auto -translate-y-1/2 object-contain lg:block xl:-left-10 xl:h-60"
+        sizes="(min-width: 1280px) 480px, 416px"
         aria-hidden="true"
       />
       <Image
@@ -627,6 +626,7 @@ function FinalTrustWreath() {
         width={600}
         height={300}
         className="absolute -right-20 top-1/2 hidden h-52 w-auto -translate-y-1/2 object-contain lg:block xl:-right-10 xl:h-60"
+        sizes="(min-width: 1280px) 480px, 416px"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-xl">
@@ -636,6 +636,7 @@ function FinalTrustWreath() {
           width={72}
           height={72}
           className="mx-auto mb-5 h-16 w-16 rounded-[22px] object-cover shadow-sm sm:h-[72px] sm:w-[72px]"
+          sizes="72px"
         />
         <div className="flex items-center justify-center gap-1.5">
           {Array.from({ length: 5 }).map((_, index) => (
@@ -659,12 +660,14 @@ function HeroPhoneFrame({
   className,
   imageClassName,
   priority = false,
+  sizes = "(min-width: 1024px) 286px, (min-width: 640px) 270px, 250px",
 }: {
   src: string;
   alt: string;
   className?: string;
   imageClassName?: string;
   priority?: boolean;
+  sizes?: string;
 }) {
   return (
     <div
@@ -681,6 +684,7 @@ function HeroPhoneFrame({
           width={828}
           height={1792}
           priority={priority}
+          sizes={sizes}
           className={cn(
             "block aspect-[828/1792] h-auto w-full object-cover",
             imageClassName,
@@ -694,44 +698,64 @@ function HeroPhoneFrame({
 
 function HeroMockups() {
   return (
-    <div className="relative mx-auto h-[430px] w-full max-w-[340px] sm:h-[670px] sm:max-w-[560px] lg:h-[620px] lg:max-w-[600px]">
-      <div className="absolute inset-x-4 top-14 h-64 rounded-[48px] bg-[#fff4f5] blur-3xl sm:inset-x-10 sm:top-20 sm:h-96" />
-      <div className="pointer-events-none absolute left-[52%] top-[44%] z-30 hidden -translate-x-1/2 -translate-y-1/2 sm:block">
+    <div className="relative mx-auto h-[430px] w-full max-w-[360px] sm:h-[640px] sm:max-w-[600px] lg:h-[610px] lg:max-w-[620px] xl:h-[660px] xl:max-w-[680px]">
+      <div className="absolute inset-x-2 top-16 h-64 rounded-[48px] bg-[#fff4f5] blur-3xl sm:inset-x-8 sm:top-24 sm:h-96" />
+
+      <Image
+        src="/images/hero/572shots_so.png"
+        alt="Sketch Steps camera screen capturing a portrait"
+        width={1284}
+        height={2778}
+        priority
+        sizes="(min-width: 1280px) 252px, (min-width: 1024px) 230px, (min-width: 640px) 228px, 151px"
+        className="absolute left-0 top-14 z-20 w-[42%] -rotate-[7deg] drop-shadow-[0_34px_48px_rgba(17,17,17,0.18)] sm:left-1 sm:top-24 sm:w-[38%] lg:left-2 lg:top-20 lg:w-[37%] xl:top-24"
+        draggable={false}
+      />
+
+      <Image
+        src="/images/hero/978shots_so.png"
+        alt="Sketch Steps tutorial ready screen with generated drawing steps"
+        width={1284}
+        height={2778}
+        sizes="(min-width: 1280px) 211px, (min-width: 1024px) 192px, (min-width: 640px) 192px, 130px"
+        className="absolute -right-5 top-[5.5rem] z-30 w-[36%] rotate-[8deg] drop-shadow-[0_34px_48px_rgba(17,17,17,0.16)] sm:-right-7 sm:top-32 sm:w-[32%] lg:-right-8 lg:top-28 lg:w-[31%] xl:-right-12 xl:top-[7.5rem]"
+        draggable={false}
+      />
+
+      <Image
+        src="/images/hero/284shots_so.png"
+        alt="Sketch Steps final drawing step screen"
+        width={1284}
+        height={2778}
+        sizes="(min-width: 1280px) 211px, (min-width: 1024px) 192px, (min-width: 640px) 192px, 130px"
+        className="absolute right-[21%] top-[5.5rem] z-10 w-[36%] -rotate-[8deg] drop-shadow-[0_30px_44px_rgba(17,17,17,0.14)] sm:right-[18%] sm:top-32 sm:w-[32%] lg:right-[17%] lg:top-28 lg:w-[31%] xl:right-[14%] xl:top-[7.5rem]"
+        draggable={false}
+      />
+
+      <div className="pointer-events-none absolute left-[48%] top-[44%] z-40 hidden -translate-x-1/2 -translate-y-1/2 sm:left-[46%] sm:top-[46%] sm:block lg:left-[46%]">
         <svg
-          width="150"
-          height="118"
-          viewBox="0 0 150 118"
+          width="176"
+          height="134"
+          viewBox="0 0 176 134"
           fill="none"
           aria-hidden="true"
-          className="drop-shadow-sm"
+          className="h-[58px] w-[78px] drop-shadow-sm sm:h-[88px] sm:w-[116px]"
         >
           <path
-            d="M17 63C45 100 93 108 91 64C89 25 50 31 62 69C70 96 112 91 132 62"
+            d="M18 79C47 109 91 107 88 73C85 41 58 42 69 76C78 103 119 94 140 62"
             stroke="#111111"
-            strokeWidth="5"
+            strokeWidth="7"
             strokeLinecap="round"
           />
           <path
-            d="M124 62L136 58L132 72"
+            d="M132 63L145 56L143 72"
             stroke="#111111"
-            strokeWidth="5"
+            strokeWidth="7"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
       </div>
-      <HeroPhoneFrame
-        src="/images/sketchsteps-home-latest.jpeg"
-        alt="Sketch Steps home screen showing AI Loomis Studio and Tracing Studio"
-        className="absolute left-1 top-20 z-10 w-[46%] -rotate-6 sm:left-0 sm:top-28 sm:w-[250px] lg:left-8 lg:top-12 lg:w-[240px] 2xl:left-0"
-        priority
-      />
-      <HeroPhoneFrame
-        src="/images/sketchflow-tutorial-ready.jpeg"
-        alt="Sketch Steps tutorial ready screen with 8 drawing steps"
-        className="absolute right-1 top-6 z-20 w-[46%] rotate-6 sm:right-0 sm:top-4 sm:w-[250px] lg:right-8 lg:w-[240px] 2xl:right-0"
-        priority
-      />
     </div>
   );
 }
@@ -755,18 +779,18 @@ function Hero() {
         <StoreBadges className="hidden sm:flex" size="compact" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-6 sm:px-6 md:pt-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-6 sm:px-6 md:pt-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8 lg:px-8 xl:gap-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-4xl text-center lg:mx-0 lg:text-left"
+          className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-2xl lg:text-left"
         >
           <HeroTrustWreath />
-          <h1 className="text-balance text-4xl font-semibold leading-[1.02] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-[54px] xl:text-[60px]">
+          <h1 className="text-balance text-4xl font-semibold leading-[1.02] tracking-normal text-foreground sm:text-5xl md:text-6xl lg:text-[50px] xl:text-[58px]">
             Step-by-Step Loomis Drawing Guide
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base leading-7 text-muted sm:text-lg lg:mx-0">
+          <p className="mx-auto mt-5 max-w-lg text-pretty text-base leading-7 text-muted sm:text-lg lg:mx-0 lg:max-w-xl">
             Upload a face and instantly receive guided drawing steps designed
             for beginners and aspiring artists.
           </p>
@@ -785,7 +809,7 @@ function Hero() {
             </Button>
           </div>
         </motion.div>
-        <div className="min-w-0 xl:translate-x-8">
+        <div className="min-w-0 lg:translate-x-2 xl:translate-x-6">
           <HeroMockups />
         </div>
       </div>
@@ -794,59 +818,220 @@ function Hero() {
 }
 
 function HowItWorks() {
+  const [activeStep, setActiveStep] = useState(0);
+  const lastManualScrollRef = useRef(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      if (Date.now() - lastManualScrollRef.current < 1400) return;
+
+      setActiveStep((current) => (current + 1) % tutorialSteps.length);
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const selectedStep = tutorialSteps[activeStep];
+
   return (
     <section id="how-it-works" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="How it works"
-          title="From portrait to practice plan in seconds."
-          description="Sketch Steps turns one photo into a clear drawing workflow, so every session starts with structure."
+          eyebrow="Live demo"
+          title="What does Sketch Steps actually do?"
+          description="Upload one portrait and Sketch Steps turns it into a clean Loomis drawing lesson, from simple construction lines to a finished sketch you can practice at your own pace."
         />
-        <div className="mx-auto mt-14 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {processCards.map((card, index) => (
-            <Reveal key={card.title} delay={index * 0.08}>
+
+        <Reveal className="mt-14">
+          <div className="relative overflow-hidden rounded-[32px] border border-border bg-[#fffdfc] shadow-premium">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(228,56,68,0.08),transparent_34%),radial-gradient(circle_at_78%_28%,rgba(17,17,17,0.045),transparent_32%)]" />
+            <div className="relative grid gap-8 p-4 sm:p-6 md:gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-16 lg:p-8">
               <motion.div
-                whileHover={{ y: -6 }}
+                whileHover={{ rotate: -1.5, y: -4 }}
                 transition={{ duration: 0.25 }}
-                className="h-full rounded-[24px] border border-border bg-white p-5 shadow-sm"
+                className="relative mx-auto w-full max-w-[350px] self-center rounded-[28px] border border-neutral-200 bg-white p-3 shadow-[0_24px_70px_rgba(17,17,17,0.10)] sm:max-w-[420px] lg:max-w-none lg:-translate-y-8 lg:-rotate-2"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-neutral-50">
-                  <card.icon className="h-5 w-5 text-accent" />
+                <div className="absolute left-7 top-7 z-10 rounded-full bg-[#211d26] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white shadow-lg">
+                  Your photo
                 </div>
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-muted">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold tracking-normal">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-muted">
-                  {card.description}
+                <div className="overflow-hidden rounded-[22px] bg-neutral-100">
+                  <Image
+                    src={tutorialPhoto.src}
+                    alt={tutorialPhoto.alt}
+                    width={941}
+                    height={1672}
+                    sizes="(min-width: 1024px) 310px, (min-width: 640px) 420px, 350px"
+                    className="aspect-[4/5] h-auto w-full object-cover object-top"
+                  />
+                </div>
+                <p className="px-3 pb-2 pt-4 text-sm font-medium leading-6 text-foreground sm:text-base">
+                  A single selfie becomes a structured portrait study, ready to
+                  draw step by step.
                 </p>
               </motion.div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="mt-12">
-          <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {howScreenshots.map((item, index) => (
-              <motion.div
-                key={item.label}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.25 }}
-                className={cn(
-                  "mx-auto w-full max-w-[250px] sm:max-w-[270px] lg:max-w-[286px]",
-                  index === 1 && "lg:mt-8",
-                  index === 2 && "lg:mt-4",
-                )}
-              >
-                <HeroPhoneFrame
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full rounded-[40px] p-2 shadow-[0_30px_80px_rgba(17,17,17,0.12)]"
-                  imageClassName="object-cover"
-                />
-              </motion.div>
-            ))}
+
+              <div className="pointer-events-none absolute left-[43%] top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
+                <svg
+                  width="102"
+                  height="102"
+                  viewBox="0 0 92 92"
+                  fill="none"
+                  aria-hidden="true"
+                  className="drop-shadow-[0_8px_16px_rgba(228,56,68,0.16)]"
+                >
+                  <path
+                    d="M12 58C30 38 58 38 78 50"
+                    stroke="#e43844"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M66 38L80 50L64 59"
+                    stroke="#e43844"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div className="min-w-0">
+                <motion.div
+                  key={selectedStep.src}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="relative mx-auto w-full max-w-[340px] rounded-[28px] border border-neutral-200 bg-white p-3 shadow-[0_24px_70px_rgba(17,17,17,0.10)] sm:max-w-[390px] lg:max-w-[430px]"
+                >
+                  <div className="absolute left-7 top-7 z-10 rounded-full bg-[#fff4f5] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-accent shadow-lg">
+                    {selectedStep.label}
+                  </div>
+                  <div className="overflow-hidden rounded-[22px] border-2 border-accent/65 bg-white shadow-[0_18px_50px_rgba(228,56,68,0.12)]">
+                    <Image
+                      src={selectedStep.src}
+                      alt={selectedStep.alt}
+                      width={309}
+                      height={384}
+                      sizes="(min-width: 1024px) 430px, (min-width: 640px) 390px, 340px"
+                      className="aspect-[309/384] h-auto w-full object-cover"
+                    />
+                  </div>
+                </motion.div>
+
+                <div className="mx-auto mt-4 grid max-w-[540px] grid-cols-9 gap-1 sm:gap-1.5">
+                  {tutorialSteps.map((step, index) => (
+                    <button
+                      key={step.src}
+                      type="button"
+                      onClick={() => {
+                        lastManualScrollRef.current = Date.now();
+                        setActiveStep(index);
+                      }}
+                      aria-label={`Show ${step.label}`}
+                      className={cn(
+                        "relative h-11 min-w-0 overflow-hidden rounded-xl border bg-white transition min-[380px]:h-12 sm:h-16 lg:h-[70px]",
+                        activeStep === index
+                          ? "border-accent shadow-[0_10px_28px_rgba(228,56,68,0.18)]"
+                          : "border-accent/25 opacity-70 hover:border-accent/60 hover:opacity-100",
+                      )}
+                    >
+                      <span className="absolute left-1 top-1 z-10 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-bold text-white">
+                        {index + 1}
+                      </span>
+                      <Image
+                        src={step.src}
+                        alt=""
+                        width={309}
+                        height={384}
+                        sizes="(min-width: 1024px) 54px, (min-width: 640px) 60px, 11vw"
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function DrawingEffects() {
+  return (
+    <section className="overflow-hidden bg-[#fffdfc] py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow="Drawing effects"
+          title="Apply different drawing effects to your photo, save it, then try drawing it yourself."
+        />
+
+        <Reveal className="mt-14">
+          <div className="relative mx-auto flex min-h-[520px] max-w-6xl items-center justify-center overflow-hidden sm:min-h-[700px] md:min-h-[760px] lg:min-h-[840px]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(228,56,68,0.10),transparent_34%),radial-gradient(circle_at_18%_22%,rgba(17,17,17,0.045),transparent_30%),radial-gradient(circle_at_82%_76%,rgba(228,56,68,0.07),transparent_28%)]" />
+
+            {drawingEffects.map((effect, index) => {
+              const angle =
+                ((360 / drawingEffects.length) * index - 90) * (Math.PI / 180);
+              const x = `calc(cos(${angle}rad) * clamp(104px, 31vw, 330px))`;
+              const y = `calc(sin(${angle}rad) * clamp(104px, 31vw, 330px))`;
+
+              return (
+                <motion.div
+                  key={effect.src}
+                  className={cn(
+                    "absolute left-1/2 top-1/2",
+                    effect.label === "Clean Pencil" ? "z-20" : "z-0",
+                  )}
+                  initial={{ opacity: 0, scale: 0.82, x, y }}
+                  animate={{ opacity: 1, scale: 1, x, y }}
+                  transition={{
+                    delay: index,
+                    duration: 0.65,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <div className="-translate-x-1/2 -translate-y-1/2">
+                    <motion.div
+                      whileHover={{ y: -5, scale: 1.03 }}
+                      transition={{ duration: 0.25 }}
+                      className="relative w-[88px] rounded-[20px] border-2 border-accent/70 bg-white p-1.5 shadow-[0_22px_56px_rgba(17,17,17,0.12)] sm:w-[124px] md:w-[136px] lg:w-[172px]"
+                    >
+                      <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#fff4f5] px-2 py-1 text-[8px] font-bold uppercase tracking-[0.1em] text-accent shadow-md min-[420px]:px-3 min-[420px]:text-[10px] sm:text-[11px]">
+                        {effect.label}
+                      </div>
+                      <Image
+                        src={effect.src}
+                        alt={effect.alt}
+                        width={1024}
+                        height={1024}
+                        sizes="(min-width: 1024px) 172px, (min-width: 768px) 136px, (min-width: 640px) 124px, 88px"
+                        className="aspect-square w-full rounded-[14px] object-cover sm:rounded-[16px]"
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.25 }}
+              className="relative z-10 w-[138px] rounded-[24px] border border-neutral-200 bg-white p-2.5 shadow-[0_30px_90px_rgba(17,17,17,0.16)] sm:w-[200px] sm:rounded-[28px] sm:p-3 lg:w-[270px]"
+            >
+              <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#211d26] px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white shadow-md min-[420px]:px-4 min-[420px]:text-[10px] sm:text-[11px]">
+                Original photo
+              </div>
+              <Image
+                src={drawingEffectsOriginal.src}
+                alt={drawingEffectsOriginal.alt}
+                width={736}
+                height={920}
+                sizes="(min-width: 1024px) 270px, (min-width: 640px) 200px, 138px"
+                className="aspect-[4/5] w-full rounded-[18px] object-cover object-top sm:rounded-[22px]"
+              />
+            </motion.div>
           </div>
         </Reveal>
       </div>
@@ -870,6 +1055,7 @@ function Gallery() {
                 alt={item.alt}
                 className="mx-auto w-full max-w-[286px] rounded-[40px] p-2 shadow-[0_30px_80px_rgba(17,17,17,0.12)]"
                 imageClassName="object-cover"
+                sizes="(min-width: 1024px) 286px, (min-width: 640px) 286px, 286px"
               />
             </Reveal>
           ))}
@@ -985,6 +1171,7 @@ export default function LandingPage() {
       <InAppBrowserNotice />
       <Hero />
       <HowItWorks />
+      <DrawingEffects />
       <Gallery />
       <FAQ />
       <FinalCTA />
