@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, Mail, ShieldAlert, Trash2 } from "lucide-react";
+import { ExternalLink, Globe, ShieldAlert, Trash2 } from "lucide-react";
+import { AccountDeletionPanel } from "@/components/account-deletion-panel";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
 const SUPPORT_SUBJECT = "Sketch Steps Account Deletion Request";
@@ -140,30 +141,24 @@ export default function AccountDeletionPage() {
           </section>
 
           <section
-            aria-labelledby="no-access"
+            aria-labelledby="delete-on-web"
             className="rounded-[28px] border border-[#f2d9dc] bg-[#fff4f5] p-6 sm:p-8"
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-accent shadow-sm">
-              <Mail className="h-5 w-5" aria-hidden="true" />
+              <Globe className="h-5 w-5" aria-hidden="true" />
             </div>
             <h2
-              id="no-access"
+              id="delete-on-web"
               className="mt-5 text-2xl font-semibold tracking-normal sm:text-3xl"
             >
-              Can&apos;t access the app?
+              Can&apos;t access the app? Delete it here
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-              Email us from the Google email address used for your Sketch Steps
-              account. This helps us identify the correct account and process
-              your deletion request securely.
+              Sign in with the Google account you use in Sketch Steps, confirm,
+              and your account is deleted right away, exactly as it would be
+              from the app.
             </p>
-            <a
-              href={SUPPORT_MAILTO}
-              className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-accent transition hover:-translate-y-0.5 hover:bg-[#d92f3e] sm:w-auto ${focusStyles}`}
-            >
-              Request account deletion
-              <Mail className="h-4 w-4" aria-hidden="true" />
-            </a>
+            <AccountDeletionPanel supportMailto={SUPPORT_MAILTO} />
           </section>
 
           <div className="grid gap-6 lg:grid-cols-2">
