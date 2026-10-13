@@ -121,7 +121,7 @@ export default function AndroidPrivacyPolicyPage() {
               Sketch Steps Android Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: October 11, 2026
+              Last updated: October 13, 2026
             </p>
           </div>
         </section>
@@ -429,7 +429,9 @@ export default function AndroidPrivacyPolicyPage() {
               </a>{" "}
               (EU cloud) provides product analytics. It processes app-interaction
               events, the app version, device language and region, and the
-              anonymous installation identifier described above.
+              anonymous installation identifier described above. PostHog derives
+              an approximate location (country and city) from the request&apos;s IP
+              address; the IP address itself is not stored.
             </p>
 
             <Subheading>AI processing providers</Subheading>
