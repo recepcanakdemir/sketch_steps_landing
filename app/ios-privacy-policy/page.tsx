@@ -133,7 +133,7 @@ export default function IOSPrivacyPolicyPage() {
               Sketch Steps iOS Privacy Policy
             </h1>
             <p className="mt-5 text-base font-medium text-muted sm:text-lg">
-              Last updated: October 16, 2026
+              Last updated: November 11, 2026
             </p>
           </div>
         </section>
@@ -183,6 +183,14 @@ export default function IOSPrivacyPolicyPage() {
               Earlier versions of the App asked for an age-range selection.
               Historical responses from those versions may remain in our records,
               but current versions no longer ask this question.
+            </p>
+            <p className={textStyles}>
+              We use your answer to &quot;How you discovered Sketch Steps&quot; to
+              understand which channels bring people who use and subscribe to
+              the App. The answer is attached to the product-usage events sent
+              to PostHog and stored with your RevenueCat customer record.
+              Current versions ask only this question; answers to the other
+              questions from earlier versions may remain in our records.
             </p>
 
             <Subheading>C. Identifiers and account information</Subheading>
@@ -296,7 +304,7 @@ export default function IOSPrivacyPolicyPage() {
               <li>The image you select is uploaded to private cloud storage associated with an anonymous or account identifier.</li>
               <li>Our backend creates and tracks a generation request.</li>
               <li>The image and instructions needed to fulfill the request may be sent to third-party AI infrastructure providers, including fal.ai and AI models made available through it, such as models from OpenAI or Google depending on the selected style, and, for certain image-analysis workflows, Google Gemini.</li>
-              <li>The generated result is returned to the App and may be stored in our backend to support delivery, reliability, and result recovery.</li>
+              <li>The generated result is returned to the App and stored in our backend to support delivery, reliability, and result recovery, and so you can open it again from My Generations.</li>
             </ol>
             <p className={textStyles}>
               We delete the photo you uploaded from our storage within one hour
@@ -366,7 +374,7 @@ export default function IOSPrivacyPolicyPage() {
             <p className={textStyles}>We use service providers to operate the App, including:</p>
             <ul className={listStyles}>
               <li><ProviderLink href="https://supabase.com/privacy">Supabase</ProviderLink> for database, backend functions, authentication, and storage</li>
-              <li><ProviderLink href="https://www.revenuecat.com/privacy-policy/">RevenueCat</ProviderLink> for subscription and in-app purchase management</li>
+              <li><ProviderLink href="https://www.revenuecat.com/privacy-policy/">RevenueCat</ProviderLink> for subscription and in-app purchase management, and the onboarding answer about how you discovered Sketch Steps, to measure which channels lead to subscriptions</li>
               <li><ProviderLink href="https://www.apple.com/legal/privacy/">Apple</ProviderLink> for App Store distribution, StoreKit purchases, and platform services</li>
               <li><ProviderLink href="https://policies.google.com/privacy">Google</ProviderLink> for Google Sign-In, Google Play services, and certain Gemini-powered image-analysis workflows</li>
               <li><ProviderLink href="https://fal.ai/legal/privacy-policy">fal.ai</ProviderLink> for AI generation infrastructure, including models from <ProviderLink href="https://openai.com/policies/privacy-policy/">OpenAI</ProviderLink> and Google made available through it</li>
@@ -424,8 +432,8 @@ export default function IOSPrivacyPolicyPage() {
             <p className={textStyles}>For AI features we use these retention periods:</p>
             <ul className={listStyles}>
               <li>Photos you upload for AI generation: deleted from our storage within one hour after the request finishes, and no later than seven days after upload</li>
-              <li>AI Loomis tutorial results: kept in our private storage for 90 days so you can recover them, then deleted</li>
-              <li>Generated outputs held by our AI infrastructure provider (fal.ai): we request automatic deletion after one day for AI Loomis results and after seven days for AI tracing results</li>
+              <li>AI results (AI Loomis tutorials and, from version 2.0 of the App, AI tracing results): kept in our private storage for 90 days so you can open them again from My Generations, then deleted. From version 2.0 you can delete a result earlier in My Generations, which also removes it from our storage</li>
+              <li>Generated outputs held by our AI infrastructure provider (fal.ai): we request automatic deletion after one day for AI Loomis results and within seven days for AI tracing results</li>
               <li>Photos and instructions sent to AI providers for processing are handled under the providers&apos; own terms and retention practices</li>
               <li>AI job records (status, style, timestamps, coin use) and result reports: kept while needed to operate the service, handle support and refunds, and prevent abuse</li>
             </ul>
@@ -452,6 +460,7 @@ export default function IOSPrivacyPolicyPage() {
               <li>Choose not to use AI features if you do not want an image uploaded and processed by AI providers</li>
               <li>Withdraw your AI processing permission in the App&apos;s Settings under Privacy</li>
               <li>Report an AI-generated result that is inappropriate or inaccurate</li>
+              <li>Delete an AI result from My Generations, which also removes it from our storage (version 2.0 and later)</li>
               <li>Deny or revoke camera, microphone, and photo-library permissions in device settings</li>
               <li>Reset supported categories of local App data</li>
               <li>Restore eligible purchases through the App</li>
