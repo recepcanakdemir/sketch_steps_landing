@@ -31,7 +31,6 @@ const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
-const SUPPORT_EMAIL = "support@sketchsteps.app";
 
 function useInAppBrowser() {
   const [environment, setEnvironment] = useState<BrowserEnvironment>({
@@ -1150,12 +1149,12 @@ function Footer() {
           >
             Delete Account
           </Link>
-          <a
-            className="transition hover:text-foreground"
-            href={`mailto:${SUPPORT_EMAIL}`}
+          <Link
+            className="rounded-sm transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            href="/support"
           >
             Support
-          </a>
+          </Link>
         </nav>
         <p className="text-sm text-muted xl:text-right">
           © {new Date().getFullYear()} Sketch Steps. All rights reserved.
