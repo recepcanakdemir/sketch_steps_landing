@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Globe, ShieldAlert, Trash2 } from "lucide-react";
 import { AccountDeletionPanel } from "@/components/account-deletion-panel";
+import { pageMetadata } from "@/lib/metadata";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
 const SUPPORT_SUBJECT = "Sketch Steps Account Deletion Request";
@@ -10,20 +11,12 @@ const SUPPORT_MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(SUP
 const GOOGLE_PLAY_SUBSCRIPTIONS_URL =
   "https://play.google.com/store/account/subscriptions";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Delete Your Sketch Steps Account",
-  },
+export const metadata: Metadata = pageMetadata({
+  title: "Delete Your Sketch Steps Account",
   description:
     "Learn how to permanently delete your Sketch Steps account and associated data.",
-  alternates: {
-    canonical: "/account-deletion",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  path: "/account-deletion",
+});
 
 const deletionSteps = [
   "Open Sketch Steps",

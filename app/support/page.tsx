@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { LifeBuoy } from "lucide-react";
+import { pageMetadata } from "@/lib/metadata";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
 const focusStyles =
@@ -12,20 +13,12 @@ const listStyles =
   "mt-2 list-disc space-y-2 pl-6 text-sm leading-7 text-muted marker:text-accent sm:text-base";
 const linkStyles = `rounded-sm font-semibold text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent ${focusStyles}`;
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Support | Sketch Steps",
-  },
+export const metadata: Metadata = pageMetadata({
+  title: "Support | Sketch Steps",
   description:
     "Help for the Sketch Steps app: contact, coins and subscriptions, refunds, restoring purchases, and deleting your data.",
-  alternates: {
-    canonical: "/support",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  path: "/support",
+});
 
 function BrandLogo() {
   return (

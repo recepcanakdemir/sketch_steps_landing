@@ -40,9 +40,6 @@ export const metadata: Metadata = {
     shortcut: "/images/sketch-steps-app-icon-32.png",
     apple: "/images/sketch-steps-app-icon-180.png",
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Sketch Steps - Turn Photos Into Loomis Drawing Guides",
     description:

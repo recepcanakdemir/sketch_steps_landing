@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ShieldCheck } from "lucide-react";
+import { pageMetadata } from "@/lib/metadata";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
 const focusStyles =
@@ -11,19 +12,12 @@ const textStyles = "text-sm leading-7 text-muted sm:text-base";
 const listStyles =
   "mt-4 list-disc space-y-2 pl-6 text-sm leading-7 text-muted marker:text-accent sm:text-base";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "iOS Privacy Policy | Sketch Steps",
-  },
-  description: "Privacy Policy for the Sketch Steps iOS application.",
-  alternates: {
-    canonical: "/ios-privacy-policy",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "iOS Privacy Policy | Sketch Steps",
+  description:
+    "Privacy Policy for the Sketch Steps iOS app: what data is collected, how it is used and shared, and how to delete it.",
+  path: "/ios-privacy-policy",
+});
 
 function BrandLogo() {
   return (
