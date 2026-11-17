@@ -60,6 +60,16 @@ body {
   }
 }
 
+/* German hero headline: the highlighted "Schritt für Schritt." never wraps
+   (it carries the underline) and is wider than a 360px phone column at the
+   42px used for other languages, so German phones get a slightly smaller
+   size. Other languages are unaffected. */
+@media (max-width: 639.98px) {
+  :lang(de) #hero-title {
+    font-size: 38px;
+  }
+}
+
 /* Faint sketchbook grid used behind the hero and demo. */
 .sketchbook-grid {
   background-image:
