@@ -20,6 +20,20 @@ export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${
 
 export const LOGO_PATH = "/images/sketch-steps-app-icon.png";
 
+/**
+ * Cumulative all-time downloads, App Store + Google Play combined. This is a
+ * download milestone, NOT a count of active users, and must never be worded
+ * as one. It is shown as "{count}+ downloads worldwide", so always round DOWN.
+ *
+ * Source: owner-supplied store data (2026-11-17). Public cross-check: the
+ * Google Play listing alone shows "500K+" downloads; Apple publishes no count.
+ * Update `count` and `asOf` together when a new milestone is reached.
+ */
+export const DOWNLOAD_MILESTONE = {
+  count: 619_000,
+  asOf: "2026-11-17",
+} as const;
+
 /** Builds an absolute URL on the production origin. */
 export function absoluteUrl(path = "/"): string {
   if (path === "/" || path === "") return SITE_URL;

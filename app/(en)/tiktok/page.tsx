@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
-import LandingPage from "@/components/landing-page";
+import { HomePage } from "@/components/home/home-page";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 
 export const metadata: Metadata = {
   alternates: {
@@ -13,5 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function TikTokLandingPage() {
-  return <LandingPage />;
+  setRequestLocale(DEFAULT_LOCALE);
+
+  return <HomePage />;
 }
