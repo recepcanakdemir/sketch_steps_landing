@@ -9,6 +9,7 @@ import {
   localizePath,
   type Locale,
 } from "@/i18n/config";
+import { rememberLocale } from "@/lib/locale-detection";
 import { cn } from "@/lib/utils";
 
 /**
@@ -183,7 +184,13 @@ export function LanguageSwitcher({
                 hrefLang={code}
                 lang={code}
                 aria-current={active ? "page" : undefined}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  // A manual choice overrides browser-language detection on
+                  // "/" from now on (English included). Stored before the
+                  // browser follows the link.
+                  rememberLocale(code);
+                  setOpen(false);
+                }}
                 className={cn(
                   "flex min-h-11 items-center justify-between gap-3 rounded-xl px-3 text-sm font-semibold outline-none transition-colors hover:bg-cream focus-visible:bg-cream",
                   active ? "text-crimson" : "text-ink",

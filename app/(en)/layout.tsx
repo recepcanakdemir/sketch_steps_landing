@@ -4,6 +4,7 @@ import "../globals.css";
 
 import { RootDocument } from "@/components/root-document";
 import { DEFAULT_LOCALE } from "@/i18n/config";
+import { localeDetectionScript } from "@/lib/locale-detection";
 import { rootViewport, sharedRootMetadata } from "@/lib/metadata";
 
 /**
@@ -59,5 +60,10 @@ export default function EnglishRootLayout({
 }>) {
   setRequestLocale(DEFAULT_LOCALE);
 
-  return <RootDocument locale={DEFAULT_LOCALE}>{children}</RootDocument>;
+  // Browser-language detection; it only ever acts on "/" (lib/locale-detection).
+  return (
+    <RootDocument locale={DEFAULT_LOCALE} headScript={localeDetectionScript()}>
+      {children}
+    </RootDocument>
+  );
 }

@@ -16,9 +16,12 @@ import { fontVariables } from "@/lib/fonts";
  */
 export async function RootDocument({
   locale,
+  headScript,
   children,
 }: Readonly<{
   locale: Locale;
+  /** Inline script run in <head>, before the page renders. */
+  headScript?: string;
   children: React.ReactNode;
 }>) {
   const messages = (await getMessages()) as AbstractIntlMessages;
@@ -28,6 +31,12 @@ export async function RootDocument({
 
   return (
     <html lang={locale} className={fontVariables}>
+      {headScript ? (
+        // eslint-disable-next-line @next/next/no-head-element -- App Router root layout: a plain <head> is the supported way to add an inline script that runs before the body renders (the rule targets pages/).
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: headScript }} />
+        </head>
+      ) : null}
       <body>
         <NextIntlClientProvider messages={clientMessages}>
           {children}
