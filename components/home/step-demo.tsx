@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { type CSSProperties, useState } from "react";
+import { type CSSProperties, type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
 type DemoImage = { src: string; alt: string };
 type Size = { width: number; height: number };
 type DemoPhoto = DemoImage & Size;
+/** Uniform scale and shift (source pixels) that puts a step in a common frame. */
+export type StepFraming = { scale: number; x: number; y: number };
 
 export type StepDemoLabels = {
   photoLabel: string;
@@ -37,19 +39,33 @@ export function StepDemo({
   photo,
   steps,
   stepSize,
+  framing,
   labels,
+  cta,
 }: {
   photo: DemoPhoto;
   steps: DemoImage[];
   /** Natural pixel size of every step image. */
   stepSize: Size;
+  /** Optional per-step framing, one entry per step (see assets.ts). */
+  framing?: readonly StepFraming[];
   labels: StepDemoLabels;
+  /** Call to action rendered under the step controls. */
+  cta?: ReactNode;
 }) {
   // The stage never grows past the images' natural width, so the browser
   // never enlarges them on standard displays.
   const stageStyle = {
     maxWidth: stepSize.width,
     aspectRatio: `${stepSize.width} / ${stepSize.height}`,
+  };
+
+  const frameStyle = (i: number): CSSProperties | undefined => {
+    const f = framing?.[i];
+    if (!f) return undefined;
+    const x = (f.x / stepSize.width) * 100;
+    const y = (f.y / stepSize.height) * 100;
+    return { transform: `translate(${x.toFixed(2)}%, ${y.toFixed(2)}%) scale(${f.scale})` };
   };
 
   const [index, setIndex] = useState(0);
@@ -142,12 +158,18 @@ export function StepDemo({
             </li>
           ))}
         </ol>
+
+        {cta ? (
+          <div className="mt-8 flex justify-center border-t border-line pt-6 lg:justify-start">
+            {cta}
+          </div>
+        ) : null}
       </div>
 
       <div className="order-1 min-w-0 lg:order-2">
         <div className="relative mx-auto w-full" style={{ maxWidth: stepSize.width }}>
           <div
-            className="relative w-full overflow-hidden rounded-[24px] border border-line bg-white shadow-device"
+            className="relative w-full overflow-hidden rounded-[24px] border border-line bg-[#F4F4F4] shadow-device"
             style={stageStyle}
           >
             {steps.map((step, i) => (
@@ -158,6 +180,7 @@ export function StepDemo({
                 fill
                 unoptimized
                 aria-hidden={i === index ? undefined : true}
+                style={frameStyle(i)}
                 className={cn(
                   "object-cover transition-opacity duration-200",
                   i === index ? "opacity-100" : "opacity-0",

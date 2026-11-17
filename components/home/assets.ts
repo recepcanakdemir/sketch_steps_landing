@@ -41,6 +41,27 @@ export const demo = {
     { length: 9 },
     (_, i) => `/images/v2/demo/portrait-step-${i + 1}.jpg`,
   ),
+  /**
+   * Per-step framing that puts every step in step 9's frame, so the head keeps
+   * the same size, eye line and centreline as the user moves through the steps.
+   * The exports were not framed consistently: steps 1-6 are drawn ~5-7% larger
+   * and lower. Values were measured by correlating each step's pencil lines
+   * with the next one (scale + shift, in source pixels), then chained to step 9.
+   * Applied as a CSS transform: files are untouched, nothing is stretched
+   * (uniform scale), and scale <= 1 so no step is ever enlarged. Only blank
+   * paper leaves the frame; the gap is filled by the paper-coloured stage.
+   */
+  stepFraming: [
+    { scale: 0.931, x: 3.8, y: -23.5 },
+    { scale: 0.936, x: 2.8, y: -23.5 },
+    { scale: 0.94, x: 1.9, y: -23.5 },
+    { scale: 0.955, x: -1, y: -14.9 },
+    { scale: 0.95, x: 0, y: -14.9 },
+    { scale: 0.945, x: 0, y: -13.9 },
+    { scale: 0.995, x: -3, y: 0 },
+    { scale: 1, x: -1, y: 0 },
+    { scale: 1, x: 0, y: 0 },
+  ],
 } as const;
 
 /** Largest CSS width a step is drawn at: its natural pixel width. */

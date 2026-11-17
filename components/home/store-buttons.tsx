@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
  *
  * Every store link carries GA4-ready attributes:
  *   data-cta="app_store" | "google_play"
- *   data-cta-location="hero" | "how_it_works" | "sticky" | "final" | "footer" | "header"
+ *   data-cta-location="hero" | "how_it_works" | "sticky" | "final" | "footer" | "header" | "interactive_demo"
  * Nothing is tracked yet.
  */
 
@@ -28,7 +28,8 @@ export type CtaLocation =
   | "sticky"
   | "final"
   | "footer"
-  | "header";
+  | "header"
+  | "interactive_demo";
 
 /**
  * "header" is responsive: an icon-only square button on phones (so both
@@ -78,19 +79,13 @@ const bold = (chunks: React.ReactNode) => (
   <span className="font-semibold text-foreground">{chunks}</span>
 );
 
-export function AppStoreBadge({
-  className,
-  size = "default",
-  location,
-}: {
-  className?: string;
-  size?: BadgeSize;
-  location: CtaLocation;
-}) {
+/**
+ * App Store click handling for in-app browsers (Instagram, Facebook, TikTok):
+ * tries to hand the link to the real browser and, if that does not happen,
+ * shows the help dialog. Shared by every App Store link on the page.
+ */
+function useAppStoreLink() {
   const t = useTranslations("Client");
-  const isHeader = size === "header";
-  const isCompact = size === "compact" || isHeader;
-  const isMedium = size === "medium";
   const environment = useBrowserEnvironment();
   const { browser, isAndroid } = environment;
   const browserLabel = useBrowserLabel(browser);
@@ -173,6 +168,85 @@ export function AppStoreBadge({
     }
   }
 
+  const dialog = showInAppHelp ? (
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-5"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="open-browser-title"
+    >
+      <div className="w-full max-w-sm rounded-[28px] bg-white p-6 text-center shadow-2xl">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-crimson">
+          {t("inApp.eyebrow")}
+        </p>
+        <h2
+          id="open-browser-title"
+          className="mt-3 font-display text-2xl font-bold text-ink"
+        >
+          {t("inApp.title", { browser: browserLabel })}
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-muted">
+          {t.rich("inApp.body", { b: bold })}
+        </p>
+        {isAndroid ? (
+          <p className="mt-3 rounded-2xl bg-neutral-50 p-3 text-sm leading-6 text-muted">
+            {t("inApp.android")}
+          </p>
+        ) : null}
+        <div className="mt-5 grid gap-3">
+          <button
+            type="button"
+            onClick={copyAppStoreLink}
+            className={cn(
+              "min-h-11 rounded-full bg-[#211d26] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#18141d]",
+              focusRing,
+            )}
+          >
+            {copied ? t("inApp.copied") : t("inApp.copy")}
+          </button>
+          <button
+            type="button"
+            onClick={attemptNativeBrowserOpen}
+            className={cn(
+              "min-h-11 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-neutral-50",
+              focusRing,
+            )}
+          >
+            {t("inApp.openBrowser")}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowInAppHelp(false)}
+            className={cn(
+              "min-h-11 px-5 py-2 text-sm font-semibold text-muted transition hover:text-foreground",
+              focusRing,
+            )}
+          >
+            {t("inApp.close")}
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : null;
+
+  return { environment, onClick: handleAppStoreClick, dialog };
+}
+
+export function AppStoreBadge({
+  className,
+  size = "default",
+  location,
+}: {
+  className?: string;
+  size?: BadgeSize;
+  location: CtaLocation;
+}) {
+  const t = useTranslations("Client");
+  const isHeader = size === "header";
+  const isCompact = size === "compact" || isHeader;
+  const isMedium = size === "medium";
+  const { onClick: handleAppStoreClick, dialog } = useAppStoreLink();
+
   return (
     <>
       <a
@@ -238,66 +312,7 @@ export function AppStoreBadge({
         </span>
       </a>
 
-      {showInAppHelp ? (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 px-5"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="open-browser-title"
-        >
-          <div className="w-full max-w-sm rounded-[28px] bg-white p-6 text-center shadow-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-crimson">
-              {t("inApp.eyebrow")}
-            </p>
-            <h2
-              id="open-browser-title"
-              className="mt-3 font-display text-2xl font-bold text-ink"
-            >
-              {t("inApp.title", { browser: browserLabel })}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              {t.rich("inApp.body", { b: bold })}
-            </p>
-            {isAndroid ? (
-              <p className="mt-3 rounded-2xl bg-neutral-50 p-3 text-sm leading-6 text-muted">
-                {t("inApp.android")}
-              </p>
-            ) : null}
-            <div className="mt-5 grid gap-3">
-              <button
-                type="button"
-                onClick={copyAppStoreLink}
-                className={cn(
-                  "min-h-11 rounded-full bg-[#211d26] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#18141d]",
-                  focusRing,
-                )}
-              >
-                {copied ? t("inApp.copied") : t("inApp.copy")}
-              </button>
-              <button
-                type="button"
-                onClick={attemptNativeBrowserOpen}
-                className={cn(
-                  "min-h-11 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-neutral-50",
-                  focusRing,
-                )}
-              >
-                {t("inApp.openBrowser")}
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowInAppHelp(false)}
-                className={cn(
-                  "min-h-11 px-5 py-2 text-sm font-semibold text-muted transition hover:text-foreground",
-                  focusRing,
-                )}
-              >
-                {t("inApp.close")}
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {dialog}
     </>
   );
 }
@@ -431,5 +446,49 @@ export function InAppBrowserNotice() {
     <div className="sticky top-0 z-40 border-b border-[#f2d9dc] bg-[#fff4f5] px-4 py-3 text-center text-sm leading-6 text-foreground">
       {t.rich("notice", { browser: browserLabel, b: bold })}
     </div>
+  );
+}
+
+/**
+ * Single "Try Sketch Steps" button for the interactive demo. It points at the
+ * App Store by default (and in the server HTML) and at Google Play once the
+ * visitor is detected as Android. App Store clicks go through the same
+ * in-app browser handling as the badges.
+ */
+export function TryAppButton({
+  location,
+  className,
+}: {
+  location: CtaLocation;
+  className?: string;
+}) {
+  const t = useTranslations("Client.store");
+  const { environment, onClick, dialog } = useAppStoreLink();
+  const isAndroid = environment.isAndroid;
+
+  return (
+    <>
+      <a
+        href={isAndroid ? GOOGLE_PLAY_URL : APP_STORE_URL}
+        onClick={isAndroid ? undefined : onClick}
+        data-cta={isAndroid ? "google_play" : "app_store"}
+        data-cta-location={location}
+        className={cn(
+          "inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-crimson px-6 py-3 font-display text-base font-bold text-white shadow-[0_4px_0_#89242F] transition hover:-translate-y-0.5 hover:bg-crimson-deep active:translate-y-0 active:shadow-[0_2px_0_#89242F]",
+          focusRing,
+          className,
+        )}
+      >
+        {t("tryApp")}
+        <span className="sr-only">
+          {" "}
+          ({isAndroid ? t("onGooglePlay") : t("onAppStore")})
+        </span>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M5 12h14m0 0-6-6m6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
+      {dialog}
+    </>
   );
 }

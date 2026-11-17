@@ -69,6 +69,8 @@ export async function Hero() {
     >
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8 lg:px-8">
         <div className="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
+          {/* Download milestone leads the hero, centred in the text column. */}
+          <SocialProof className="mb-5 sm:mb-7" />
           <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white/80 px-3.5 py-1.5 text-xs font-semibold text-ink-soft sm:text-sm">
             <span className="h-2 w-2 rounded-full bg-crimson" aria-hidden="true" />
             {t("eyebrow")}
@@ -99,14 +101,10 @@ export async function Hero() {
               ),
             })}
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-pretty text-base leading-7 text-ink-soft sm:text-lg sm:leading-8 lg:mx-0">
-            {t("lead")}
-          </p>
 
           <div id={HERO_CTA_ID} className="mt-8">
             <StoreBadges size="medium" location="hero" align="start" />
           </div>
-          <SocialProof className="mt-5" />
           <a
             href="#how-it-works"
             className={cn(

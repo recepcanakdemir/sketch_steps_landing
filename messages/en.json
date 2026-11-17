@@ -10,7 +10,6 @@
     "hero": {
       "eyebrow": "Guided drawing lessons from your photos",
       "title": "Learn to Draw Anything, <accent>Step by Step.</accent>",
-      "lead": "Turn your photos into guided drawing lessons. Draw faces with the Loomis method, sketch your pet, or turn a photo into a sketch-style image with Trace AI — one clear step at a time.",
       "secondaryCta": "See how it works",
       "tags": [
         "Portraits",
@@ -22,8 +21,8 @@
       "backAlt": "Sketch Steps tutorial ready screen: a portrait photo turned into a 9-step pencil drawing tutorial"
     },
     "socialProof": {
-      "title": "<number>{count, number}+</number> downloads worldwide",
-      "body": "Join a growing community of people learning to draw."
+      "number": "{count, number}+",
+      "label": "Downloads worldwide"
     },
     "howItWorks": {
       "eyebrow": "How it works",
@@ -221,7 +220,10 @@
       "googlePlayLabel": "Get it on Google Play",
       "googlePlayTop": "Get it on",
       "googlePlayBottom": "Google Play",
-      "storesLabel": "Download Sketch Steps"
+      "storesLabel": "Download Sketch Steps",
+      "tryApp": "Try Sketch Steps",
+      "onAppStore": "on the App Store",
+      "onGooglePlay": "on Google Play"
     },
     "inApp": {
       "thisApp": "this app",

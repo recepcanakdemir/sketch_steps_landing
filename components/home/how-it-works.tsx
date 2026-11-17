@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { SCREEN, demo, screens } from "@/components/home/assets";
 import { SCREEN_QUALITY, SectionHeading } from "@/components/home/primitives";
 import { StepDemo } from "@/components/home/step-demo";
-import { StoreBadges } from "@/components/home/store-buttons";
+import { StoreBadges, TryAppButton } from "@/components/home/store-buttons";
 
 type Step = { title: string; body: string; alt: string };
 
@@ -96,6 +96,8 @@ export async function DrawingDemo() {
           <StepDemo
             photo={{ src: demo.photo, alt: t("photoAlt"), ...demo.photoSize }}
             stepSize={demo.stepSize}
+            framing={demo.stepFraming}
+            cta={<TryAppButton location="interactive_demo" />}
             steps={demo.steps.map((src, i) => ({
               src,
               alt: t("stepAlt", { step: i + 1, total }),

@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import type { Locale } from "@/i18n/config";
+import { fontVariables } from "@/lib/fonts";
 
 /**
  * The <html>/<body> shell shared by every root layout (English at the root,
@@ -26,7 +27,7 @@ export async function RootDocument({
     : {};
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={fontVariables}>
       <body>
         <NextIntlClientProvider messages={clientMessages}>
           {children}

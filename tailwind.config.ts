@@ -1,5 +1,23 @@
 import type { Config } from "tailwindcss";
 
+const ROUNDED_STACK = [
+  "ui-rounded",
+  "SF Pro Rounded",
+  "var(--font-nunito)",
+  // Japanese: M PLUS Rounded 1c on every platform, because it has the bold
+  // weights the headings use; Hiragino Maru Gothic (Apple) has only one.
+  "var(--font-mplus-rounded)",
+  "Hiragino Maru Gothic ProN",
+  "Hiragino Sans",
+  "Noto Sans JP",
+  "Noto Sans KR",
+  "system-ui",
+  "-apple-system",
+  "Segoe UI",
+  "Roboto",
+  "sans-serif",
+];
+
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -37,32 +55,14 @@ const config: Config = {
         device:
           "0 40px 80px rgba(39, 21, 10, 0.16), 0 12px 24px rgba(39, 21, 10, 0.08)",
       },
+      // One rounded stack for everything (see lib/fonts.ts for licensing):
+      // SF Pro Rounded from the visitor's own Apple device, then the
+      // self-hosted OFL fallbacks (Nunito for Latin, M PLUS Rounded 1c for
+      // Japanese), then system fonts so no script is ever left without glyphs.
+      // `display` is kept as an alias so existing classes stay valid.
       fontFamily: {
-        sans: [
-          "var(--font-inter)",
-          "Inter",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Hiragino Sans",
-          "Noto Sans JP",
-          "Noto Sans KR",
-          "sans-serif",
-        ],
-        // Rounded system font (SF Pro Rounded on Apple devices) to echo the
-        // app UI with zero font downloads; CJK fallbacks for ja/ko.
-        display: [
-          "ui-rounded",
-          "SF Pro Rounded",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Hiragino Maru Gothic ProN",
-          "Hiragino Sans",
-          "Noto Sans JP",
-          "Noto Sans KR",
-          "sans-serif",
-        ],
+        sans: ROUNDED_STACK,
+        display: ROUNDED_STACK,
       },
       keyframes: {
         "soft-pulse": {

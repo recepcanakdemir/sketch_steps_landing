@@ -25,12 +25,14 @@ export const LOGO_PATH = "/images/sketch-steps-app-icon.png";
  * download milestone, NOT a count of active users, and must never be worded
  * as one. It is shown as "{count}+ downloads worldwide", so always round DOWN.
  *
- * Source: owner-supplied store data (2026-11-17). Public cross-check: the
- * Google Play listing alone shows "500K+" downloads; Apple publishes no count.
+ * Source: owner-supplied store data (2026-11-17: 619,000 total, displayed
+ * rounded down to the 600,000 milestone at the owner's request). Public
+ * cross-check: the Google Play listing alone shows "500K+" downloads; Apple
+ * publishes no count.
  * Update `count` and `asOf` together when a new milestone is reached.
  */
 export const DOWNLOAD_MILESTONE = {
-  count: 619_000,
+  count: 600_000,
   asOf: "2026-11-17",
 } as const;
 
