@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { demo, screens } from "@/components/home/assets";
+import { LanguageSwitcher } from "@/components/home/language-switcher";
 import { PhoneFrame, SectionHeading, focusRing } from "@/components/home/primitives";
 import { StoreBadges } from "@/components/home/store-buttons";
 import { DEFAULT_LOCALE, localizePath, type Locale } from "@/i18n/config";
@@ -183,6 +184,13 @@ export async function SiteFooter() {
             <Image src="/images/sketch-steps-wordmark.png" alt="Sketch Steps" width={120} height={40} sizes="108px" className="h-9 w-[108px] object-contain" />
           </Link>
           <StoreBadges size="compact" location="footer" />
+          {/* Phones only: from sm up the switcher is in the header. */}
+          <LanguageSwitcher
+            locale={locale}
+            label={tNav("language")}
+            placement="footer"
+            className="sm:hidden"
+          />
         </div>
         <nav aria-label={t("label")} className="flex max-w-2xl flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-medium text-ink-soft">
           <a className={linkClass} href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">

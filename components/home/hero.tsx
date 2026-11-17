@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { screens } from "@/components/home/assets";
+import { LanguageSwitcher } from "@/components/home/language-switcher";
 import { PhoneFrame, focusRing } from "@/components/home/primitives";
 import { SocialProof } from "@/components/home/social-proof";
 import { StoreBadges } from "@/components/home/store-buttons";
@@ -20,7 +21,7 @@ export async function SiteHeader() {
   );
 
   return (
-    <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
+    <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 sm:gap-4 py-4 sm:px-6 lg:px-8">
       <Link
         href={localizePath(locale, "/")}
         aria-label={t("home")}
@@ -55,7 +56,18 @@ export async function SiteHeader() {
           {t("faq")}
         </a>
       </nav>
-      <StoreBadges size="header" location="header" className="shrink-0 flex-nowrap gap-2" />
+      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        {/* Phones get a 44x44 globe-only button; below 360px there is no
+            room for it next to the logo and store buttons, and the footer
+            switcher is the way to change language. */}
+        <LanguageSwitcher
+          locale={locale}
+          label={t("language")}
+          placement="header"
+          className="hidden min-[360px]:block"
+        />
+        <StoreBadges size="header" location="header" className="shrink-0 flex-nowrap gap-2" />
+      </div>
     </header>
   );
 }
