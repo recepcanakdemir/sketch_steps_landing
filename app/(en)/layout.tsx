@@ -1,9 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
+import { setRequestLocale } from "next-intl/server";
+import "../globals.css";
+
+import { RootDocument } from "@/components/root-document";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import { rootViewport, sharedRootMetadata } from "@/lib/metadata";
+
+/**
+ * Root layout for English, the default locale, served on the root domain
+ * (`/`, `/support`, ...). The `(en)` route group does not appear in URLs.
+ */
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sketchsteps.app"),
+  ...sharedRootMetadata,
   title: {
     default: "Sketch Steps - AI Loomis Drawing Guides for Portrait Artists",
     template: "%s | Sketch Steps",
@@ -20,26 +29,6 @@ export const metadata: Metadata = {
     "portrait drawing app",
     "Loomis drawing guide",
   ],
-  applicationName: "Sketch Steps",
-  authors: [{ name: "Sketch Steps" }],
-  creator: "Sketch Steps",
-  publisher: "Sketch Steps",
-  icons: {
-    icon: [
-      {
-        url: "/images/sketch-steps-app-icon-32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/images/sketch-steps-app-icon-180.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-    shortcut: "/images/sketch-steps-app-icon-32.png",
-    apple: "/images/sketch-steps-app-icon-180.png",
-  },
   openGraph: {
     title: "Sketch Steps - Turn Photos Into Loomis Drawing Guides",
     description:
@@ -55,39 +44,20 @@ export const metadata: Metadata = {
     description:
       "Learn portrait drawing faster with AI-generated step-by-step Loomis guides from your own photos.",
   },
-  appleWebApp: {
-    title: "Sketch Steps",
-    capable: true,
-    statusBarStyle: "default",
-  },
-  other: {
-    "apple-itunes-app": "app-id=6763632360",
-    "p:domain_verify": "b2592709c01c190470ce088444485276",
-  },
   robots: {
     index: true,
     follow: true,
   },
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  themeColor: "#FFFFFF",
-};
+export const viewport: Viewport = rootViewport;
 
-export default function RootLayout({
+export default function EnglishRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  );
+  setRequestLocale(DEFAULT_LOCALE);
+
+  return <RootDocument locale={DEFAULT_LOCALE}>{children}</RootDocument>;
 }

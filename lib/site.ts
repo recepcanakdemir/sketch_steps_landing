@@ -1,3 +1,5 @@
+import type { Locale } from "@/i18n/config";
+
 /**
  * Single source of truth for site-wide facts used by metadata, the sitemap,
  * robots.txt and structured data. Keep these values factual: they are read by
@@ -18,14 +20,6 @@ export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${
 
 export const LOGO_PATH = "/images/sketch-steps-app-icon.png";
 
-/**
- * Locales. Only `en` is live today. Phase 2 adds es, fr and ja under
- * `/{locale}/`; English stays on the root. Korean is planned later.
- */
-export const DEFAULT_LOCALE = "en";
-export const ACTIVE_LOCALES = ["en"] as const;
-export type Locale = (typeof ACTIVE_LOCALES)[number];
-
 /** Builds an absolute URL on the production origin. */
 export function absoluteUrl(path = "/"): string {
   if (path === "/" || path === "") return SITE_URL;
@@ -39,9 +33,18 @@ export function absoluteUrl(path = "/"): string {
  *
  * `lastModified` is intentionally omitted unless a real, maintained date is
  * known; a fabricated date is worse than none.
+ *
+ * `locales` lists the languages a page has actually been translated into.
+ * It defaults to English only, so a page never appears in another locale's
+ * sitemap or hreflang until its translation exists AND that locale is live
+ * (see i18n/config.ts).
  */
 export type SitePage = {
+  /** Locale-neutral path, e.g. "/support". */
   path: string;
+  locales?: readonly Locale[];
+  /** Per-locale path overrides for localized slugs. */
+  localizedPaths?: Partial<Record<Locale, string>>;
   changeFrequency?: "daily" | "weekly" | "monthly" | "yearly";
   priority?: number;
   lastModified?: string;

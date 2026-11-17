@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   compress: true,
@@ -8,6 +11,11 @@ const nextConfig: NextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  experimental: {
+    // One root layout per locale group means there is no top-level layout;
+    // app/global-not-found.tsx renders the site-wide 404 instead.
+    globalNotFound: true,
+  },
   async headers() {
     return [
       {
@@ -31,4 +39,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
