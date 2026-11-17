@@ -67,9 +67,18 @@ export type SitePage = {
 };
 
 export const INDEXABLE_PAGES: SitePage[] = [
-  { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/", locales: ["en", "es"], changeFrequency: "weekly", priority: 1 },
   { path: "/support", changeFrequency: "monthly", priority: 0.5 },
   { path: "/ios-privacy-policy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/android-privacy-policy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/account-deletion", changeFrequency: "yearly", priority: 0.3 },
 ];
+
+/**
+ * Languages a page is translated into, from INDEXABLE_PAGES. Pages that are
+ * not registered (or have no `locales`) are English only, so a page is never
+ * advertised in a language it does not have.
+ */
+export function pageLocales(path: string): readonly Locale[] {
+  return INDEXABLE_PAGES.find((page) => page.path === path)?.locales ?? ["en"];
+}

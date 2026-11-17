@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { demo, screens } from "@/components/home/assets";
 import { PhoneFrame, SectionHeading, focusRing } from "@/components/home/primitives";
 import { StoreBadges } from "@/components/home/store-buttons";
+import { DEFAULT_LOCALE, localizePath, type Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 export const FINAL_CTA_ID = "download";
@@ -164,6 +165,10 @@ export async function FinalCta() {
 export async function SiteFooter() {
   const t = await getTranslations("Home.footer");
   const tNav = await getTranslations("Home.nav");
+  const locale = (await getLocale()) as Locale;
+  // Support and policy pages exist in English only: mark those links as
+  // English on translated homepages (no attribute on the English site).
+  const englishOnly = locale === DEFAULT_LOCALE ? {} : { hrefLang: DEFAULT_LOCALE };
   const linkClass = cn(
     "rounded-sm transition hover:text-ink",
     focusRing,
@@ -173,7 +178,7 @@ export async function SiteFooter() {
     <footer className="border-t border-line bg-cream py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-5 text-center sm:px-6 lg:px-8 xl:flex-row xl:justify-between xl:text-left">
         <div className="flex flex-col items-center gap-5 xl:shrink-0 xl:items-start">
-          <Link href="/" className={cn("flex items-center gap-2.5 rounded-2xl", focusRing)} aria-label={tNav("home")}>
+          <Link href={localizePath(locale, "/")} className={cn("flex items-center gap-2.5 rounded-2xl", focusRing)} aria-label={tNav("home")}>
             <Image src="/images/sketch-steps-app-icon-180.png" alt="" width={40} height={40} className="h-10 w-10 rounded-xl" />
             <Image src="/images/sketch-steps-wordmark.png" alt="Sketch Steps" width={120} height={40} sizes="108px" className="h-9 w-[108px] object-contain" />
           </Link>
@@ -183,19 +188,19 @@ export async function SiteFooter() {
           <a className={linkClass} href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
             {t("privacyPolicy")}
           </a>
-          <Link className={linkClass} href="/android-privacy-policy">
+          <Link className={linkClass} href="/android-privacy-policy" {...englishOnly}>
             {t("androidPrivacy")}
           </Link>
-          <Link className={linkClass} href="/ios-privacy-policy">
+          <Link className={linkClass} href="/ios-privacy-policy" {...englishOnly}>
             {t("iosPrivacy")}
           </Link>
           <a className={linkClass} href={TERMS_OF_USE_URL} target="_blank" rel="noopener noreferrer">
             {t("terms")}
           </a>
-          <Link className={linkClass} href="/account-deletion">
+          <Link className={linkClass} href="/account-deletion" {...englishOnly}>
             {t("deleteAccount")}
           </Link>
-          <Link className={linkClass} href="/support">
+          <Link className={linkClass} href="/support" {...englishOnly}>
             {t("support")}
           </Link>
         </nav>

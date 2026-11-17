@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { screens } from "@/components/home/assets";
 import { PhoneFrame, focusRing } from "@/components/home/primitives";
 import { SocialProof } from "@/components/home/social-proof";
 import { StoreBadges } from "@/components/home/store-buttons";
+import { localizePath, type Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 export const HERO_CTA_ID = "hero-cta";
 
 export async function SiteHeader() {
   const t = await getTranslations("Home.nav");
+  const locale = (await getLocale()) as Locale;
   const linkClass = cn(
     "rounded-full px-3 py-2 text-sm font-semibold text-ink-soft transition hover:text-ink",
     focusRing,
@@ -20,7 +22,7 @@ export async function SiteHeader() {
   return (
     <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
       <Link
-        href="/"
+        href={localizePath(locale, "/")}
         aria-label={t("home")}
         className={cn("flex min-w-0 items-center gap-2.5 rounded-2xl", focusRing)}
       >

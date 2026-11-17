@@ -1,0 +1,261 @@
+{
+  "Home": {
+    "nav": {
+      "label": "Principal",
+      "home": "Inicio de Sketch Steps",
+      "howItWorks": "Cómo funciona",
+      "features": "Funciones",
+      "faq": "Preguntas"
+    },
+    "hero": {
+      "eyebrow": "Clases de dibujo guiadas a partir de tus fotos",
+      "title": "Aprende a dibujar lo que quieras, <accent>paso a paso.</accent>",
+      "secondaryCta": "Mira cómo funciona",
+      "tags": [
+        "Retratos",
+        "Mascotas y animales",
+        "Tutoriales gratis"
+      ],
+      "tagsLabel": "Qué puedes dibujar",
+      "frontAlt": "Visor de pasos de Sketch Steps con el paso 9 de 9 de un tutorial de retrato a lápiz",
+      "backAlt": "Pantalla de tutorial listo de Sketch Steps: una foto de retrato convertida en un tutorial de dibujo a lápiz de 9 pasos"
+    },
+    "socialProof": {
+      "number": "{count, number}+",
+      "label": "Descargas en <line>todo el mundo</line>"
+    },
+    "howItWorks": {
+      "eyebrow": "Cómo funciona",
+      "title": "De la foto al dibujo terminado.",
+      "lead": "Sketch Steps convierte una foto en una clase de dibujo que puedes seguir a tu ritmo.",
+      "steps": [
+        {
+          "title": "Empieza con una foto",
+          "body": "Toca Create from photo en la pantalla de inicio y elige la imagen que quieras dibujar.",
+          "alt": "Pantalla de inicio de Sketch Steps con el botón Create from photo y tutoriales gratis"
+        },
+        {
+          "title": "Elige un estilo",
+          "body": "Escoge Realistic Paper Portrait, Digital Clean Portrait o Animal Drawing.",
+          "alt": "Selector de estilos con Realistic Paper Portrait, Digital Clean Portrait y Animal Drawing"
+        },
+        {
+          "title": "Recibe tu tutorial",
+          "body": "Tu foto se convierte en un tutorial de dibujo de 8 o 9 pasos, con la foto original al lado.",
+          "alt": "Pantalla de tutorial listo con un retrato a lápiz de 9 pasos junto a la foto original"
+        },
+        {
+          "title": "Dibuja paso a paso",
+          "body": "Avanza por los pasos de uno en uno o en una lista continua, hasta terminar tu dibujo.",
+          "alt": "Visor de pasos con el último paso de un tutorial de retrato a lápiz"
+        }
+      ],
+      "ctaTitle": "¿Quieres probarlo con tu propia foto?"
+    },
+    "demo": {
+      "eyebrow": "Demo interactiva",
+      "title": "Mira cómo se construye un dibujo.",
+      "lead": "Estos son los pasos reales que Sketch Steps generó a partir de esta foto de retrato, desde las primeras líneas de construcción hasta el boceto terminado. Recórrelos a tu ritmo.",
+      "photoLabel": "Foto original",
+      "photoAlt": "Foto de retrato original usada para generar el tutorial de dibujo",
+      "stepAlt": "Tutorial de dibujo de retrato, paso {step} de {total}",
+      "stepCounter": "Paso {step} de {total}",
+      "previous": "Paso anterior",
+      "next": "Paso siguiente",
+      "sliderLabel": "Paso del dibujo",
+      "stepButton": "Ver el paso {step}",
+      "stepsLabel": "Pasos del tutorial"
+    },
+    "features": {
+      "eyebrow": "Funciones",
+      "title": "Todo lo que necesitas para practicar dibujo.",
+      "lead": "Tutoriales guiados, herramientas de calco y una galería para tus trabajos, todo en una sola app.",
+      "loomis": {
+        "title": "Retratos con el método Loomis",
+        "body": "Los tutoriales de retrato empiezan con líneas de construcción sencillas para la cabeza y las proporciones del rostro, y avanzan hasta un boceto terminado.",
+        "alt": "Todos los pasos de un tutorial de retrato, desde el primer círculo de construcción hasta el dibujo terminado"
+      },
+      "styles": {
+        "title": "Tres estilos de tutorial",
+        "body": "Elige el estilo que mejor encaje con tu foto y con tu forma de dibujar.",
+        "items": [
+          {
+            "name": "Realistic Paper Portrait",
+            "detail": "Lápiz sobre papel · 9 pasos"
+          },
+          {
+            "name": "Digital Clean Portrait",
+            "detail": "Líneas limpias · 8 pasos"
+          },
+          {
+            "name": "Animal Drawing",
+            "detail": "Mascotas y fauna · 9 pasos"
+          }
+        ]
+      },
+      "animals": {
+        "title": "También mascotas y animales",
+        "body": "El estilo Animal Drawing convierte fotos de mascotas y animales salvajes en tutoriales paso a paso.",
+        "alt": "Los nueve pasos de un tutorial de dibujo de un golden retriever"
+      },
+      "traceAi": {
+        "title": "Trace AI",
+        "body": "Convierte una foto en una imagen con uno de seis efectos y luego guárdala en Fotos o cálcala.",
+        "effects": [
+          "Clean Pencil",
+          "Bold Charcoal",
+          "Anime Ink",
+          "Architectural Line",
+          "Soft Sketch",
+          "Watercolor"
+        ],
+        "effectsLabel": "Efectos de Trace AI",
+        "alt": "Selector de efectos de Trace AI con Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch y Watercolor"
+      },
+      "tracingStudio": {
+        "title": "Tracing Studio",
+        "body": "Explora dibujos de líneas listos para calcar en categorías como animales, anime y vehículos, y guarda tus favoritos.",
+        "alt": "Tracing Studio con plantillas de dibujos de líneas en las categorías Animals, Anime y Cars"
+      },
+      "freeTutorials": {
+        "title": "Tutoriales gratis",
+        "body": "Empieza a practicar ya con tutoriales listos para usar, desde retratos hasta animales.",
+        "alt": "Biblioteca de tutoriales gratis con tutoriales de dibujo de retratos y animales"
+      },
+      "gallery": {
+        "title": "Tu galería personal",
+        "body": "Tus tutoriales y tus resultados de Trace AI se guardan en tu galería, con filtros para tutoriales, Trace AI y favoritos guardados.",
+        "alt": "Galería personal con los filtros All, Tutorials, Trace AI y Saved"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Galería de la app",
+      "title": "Un vistazo de cerca a Sketch Steps.",
+      "scrollHint": "Desliza para ver más pantallas",
+      "items": [
+        {
+          "caption": "Paso final del retrato",
+          "alt": "Paso 9 de 9 de un tutorial de retrato a lápiz"
+        },
+        {
+          "caption": "Visor de pasos del retrato",
+          "alt": "Visor de pasos con el último paso de un tutorial de retrato y las miniaturas de los pasos"
+        },
+        {
+          "caption": "Resultado de Trace AI",
+          "alt": "Resultado de Trace AI en estilo anime con los botones Trace it y Save to Photos"
+        },
+        {
+          "caption": "Plantillas de anime",
+          "alt": "Colección de anime en Tracing Studio"
+        },
+        {
+          "caption": "Pantalla de inicio",
+          "alt": "Pantalla de inicio de Sketch Steps"
+        },
+        {
+          "caption": "Tutorial de animales",
+          "alt": "Pantalla de tutorial listo para dibujar un golden retriever"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas antes de tu primer dibujo.",
+      "items": [
+        {
+          "question": "¿Qué es el método Loomis?",
+          "answer": "El método Loomis es un sistema para dibujar retratos que parte de una forma simplificada de la cabeza y luego añade líneas centrales, puntos de referencia del rostro y proporciones, para dibujar la cara con estructura en lugar de a ojo."
+        },
+        {
+          "question": "¿Qué puedo aprender a dibujar con Sketch Steps?",
+          "answer": "Retratos y caras con el método Loomis, mascotas y otros animales con el estilo Animal Drawing, y dibujos de líneas de Tracing Studio en categorías como animales, anime y vehículos."
+        },
+        {
+          "question": "¿Sketch Steps es adecuado para principiantes?",
+          "answer": "Sí. Sketch Steps está pensado para principiantes y artistas en formación que quieren pasos de dibujo claros y repetibles sin tener que buscar entre tutoriales sueltos."
+        },
+        {
+          "question": "¿Puedo usar mis propias fotos?",
+          "answer": "Sí. Puedes generar guías a partir de fotos de caras de tu galería o de una foto nueva tomada con la cámara, para que cada sesión de práctica sea personal."
+        },
+        {
+          "question": "¿Qué es Trace AI?",
+          "answer": "Trace AI convierte una foto en una imagen con uno de seis efectos: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch o Watercolor. Puedes guardar el resultado en Fotos o usarlo para calcar."
+        },
+        {
+          "question": "¿La app permite calcar?",
+          "answer": "Sí. El estudio de calco te permite practicar directamente sobre referencias guiadas mientras aprendes la construcción de cada retrato."
+        },
+        {
+          "question": "¿La app es gratis?",
+          "answer": "Sketch Steps se puede descargar desde el App Store o Google Play e incluye tutoriales gratis. Los precios y las opciones premium se muestran en la app antes de cualquier compra."
+        },
+        {
+          "question": "¿Hay versión para Android?",
+          "answer": "Sí. Sketch Steps ya está disponible en Google Play."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Tu próximo retrato empieza aquí.",
+      "lead": "Descarga Sketch Steps y convierte tu próxima foto en una clase de dibujo paso a paso."
+    },
+    "footer": {
+      "label": "Pie de página",
+      "privacyPolicy": "Política de privacidad",
+      "androidPrivacy": "Política de privacidad de Android",
+      "iosPrivacy": "Política de privacidad de iOS",
+      "terms": "Términos de uso",
+      "deleteAccount": "Eliminar cuenta",
+      "support": "Soporte",
+      "copyright": "© {year} Sketch Steps. Todos los derechos reservados."
+    }
+  },
+  "Client": {
+    "store": {
+      "appStoreLabel": "Descárgalo en el App Store",
+      "appStoreTop": "Descárgalo en el",
+      "appStoreBottom": "App Store",
+      "googlePlayLabel": "Disponible en Google Play",
+      "googlePlayTop": "Disponible en",
+      "googlePlayBottom": "Google Play",
+      "storesLabel": "Descarga Sketch Steps",
+      "tryApp": "Prueba Sketch Steps",
+      "onAppStore": "en el App Store",
+      "onGooglePlay": "en Google Play"
+    },
+    "inApp": {
+      "thisApp": "esta app",
+      "notice": "Estás viendo esta página dentro de {browser}. Si un enlace de la tienda no se abre, toca <b>•••</b> y elige <b>Abrir en el navegador</b>.",
+      "eyebrow": "Abrir en el navegador",
+      "title": "{browser} está bloqueando el App Store.",
+      "body": "Toca el menú <b>•••</b> en la esquina superior derecha, elige <b>Abrir en el navegador</b> y vuelve a tocar el botón del App Store.",
+      "android": "Sketch Steps está disponible para Android en Google Play. Cierra este mensaje y usa el botón de Google Play de esta página.",
+      "copy": "Copiar el enlace del App Store",
+      "copied": "Copiado",
+      "openBrowser": "Abrir en mi navegador",
+      "close": "Cerrar"
+    },
+    "sticky": {
+      "label": "Descarga Sketch Steps",
+      "title": "Sketch Steps",
+      "subtitle": "Aprende a dibujar paso a paso"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "Sketch Steps: guías de dibujo Loomis paso a paso con IA",
+      "description": "Convierte una foto de un rostro en una guía de dibujo Loomis paso a paso generada con IA. Aprende a dibujar retratos, mascotas y más a tu ritmo.",
+      "socialTitle": "Sketch Steps: convierte tus fotos en guías de dibujo Loomis",
+      "appDescription": "App de dibujo con IA que convierte fotos de rostros en guías paso a paso para dibujar retratos con el método Loomis.",
+      "offerDescription": "Descarga gratuita. Las opciones premium se muestran en la app."
+    },
+    "socialImage": {
+      "alt": "Sketch Steps: una foto de un rostro convertida en una guía de dibujo Loomis paso a paso",
+      "heading": "Dibujo Loomis paso a paso",
+      "body": "Sube una foto de un rostro y recibe al instante pasos de dibujo guiados.",
+      "step": "Paso {step}"
+    }
+  }
+}

@@ -7,7 +7,13 @@ import {
   localizePath,
   type Locale,
 } from "@/i18n/config";
-import { APP_STORE_ID, SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/site";
+import {
+  APP_STORE_ID,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+  pageLocales,
+} from "@/lib/site";
 
 /**
  * Metadata shared by every root layout, whatever the locale: icons, app
@@ -94,10 +100,12 @@ type PageMetadataInput = {
   locale?: Locale;
   /** Per-locale path overrides (localized slugs). */
   localizedPaths?: LocalizedPaths;
-  /** Locales this page exists in; defaults to every live locale. */
+  /** Locales this page exists in; defaults to its INDEXABLE_PAGES entry. */
   availableLocales?: readonly Locale[];
   /** Shorter title for social cards; defaults to `title`. */
   socialTitle?: string;
+  /** Translated alt text for the social image; defaults to English. */
+  socialImageAlt?: string;
   index?: boolean;
 };
 
@@ -127,11 +135,17 @@ export function pageMetadata({
   localizedPaths = {},
   availableLocales,
   socialTitle,
+  socialImageAlt,
   index = true,
 }: PageMetadataInput): Metadata {
+  const image = socialImageAlt ? { ...SOCIAL_IMAGE, alt: socialImageAlt } : SOCIAL_IMAGE;
   const url = absoluteUrl(localizePath(locale, localizedPaths[locale] ?? path));
   const shareTitle = socialTitle ?? title;
-  const languages = languageAlternates(path, localizedPaths, availableLocales);
+  const languages = languageAlternates(
+    path,
+    localizedPaths,
+    availableLocales ?? pageLocales(path),
+  );
 
   return {
     title: { absolute: title },
@@ -145,7 +159,7 @@ export function pageMetadata({
       type: "website",
       locale: getLocaleDefinition(locale).ogLocale,
       images: [
-        { url: localizePath(locale, "/opengraph-image"), ...SOCIAL_IMAGE },
+        { url: localizePath(locale, "/opengraph-image"), ...image },
       ],
     },
     twitter: {
@@ -153,7 +167,7 @@ export function pageMetadata({
       title: shareTitle,
       description,
       images: [
-        { url: localizePath(locale, "/twitter-image"), ...SOCIAL_IMAGE },
+        { url: localizePath(locale, "/twitter-image"), ...image },
       ],
     },
     robots: { index, follow: true },

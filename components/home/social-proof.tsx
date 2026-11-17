@@ -9,7 +9,10 @@ import { cn } from "@/lib/utils";
  * No card, border or shadow. A static, verified figure (see DOWNLOAD_MILESTONE
  * in lib/site.ts): no live counter, no ratings, and worded as downloads, never
  * as active users. The number is formatted per locale by next-intl
- * ({count, number}), so translations only change wording.
+ * ({count, number}), so translations only change wording. A label too wide
+ * for one line can mark its second line with <line>…</line> (as Spanish
+ * does), so the column never grows wider than the number and the laurels stay
+ * put; labels without the tag render as a single line.
  *
  * Entrance: a short CSS fade-up (`.social-proof-in` in globals.css), switched
  * off under prefers-reduced-motion; no JavaScript.
@@ -30,7 +33,9 @@ export async function SocialProof({ className }: { className?: string }) {
           {t("number", { count: DOWNLOAD_MILESTONE.count })}
         </span>{" "}
         <span className="mt-[1.8vw] whitespace-nowrap text-[3.5vw] font-semibold uppercase leading-none tracking-[0.13em] text-ink-soft sm:mt-3 sm:text-[22px] lg:text-[24px]">
-          {t("label")}
+          {t.rich("label", {
+            line: (chunks) => <span className="mt-[0.3em] block">{chunks}</span>,
+          })}
         </span>
       </span>
       <Laurel mirrored />

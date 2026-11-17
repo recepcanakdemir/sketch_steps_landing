@@ -72,6 +72,53 @@ export const homeStructuredData = {
   ],
 };
 
+/**
+ * JSON-LD for a translated homepage (e.g. /es). Same organization, website and
+ * app as English (shared @ids), plus a WebPage node in the page's language;
+ * only the app/offer descriptions are translated. The English homepage keeps
+ * `homeStructuredData` unchanged.
+ */
+export function localizedHomeStructuredData({
+  locale,
+  url,
+  title,
+  description,
+  appDescription,
+  offerDescription,
+}: {
+  locale: string;
+  url: string;
+  title: string;
+  description: string;
+  appDescription: string;
+  offerDescription: string;
+}) {
+  const [organization, website, app] = homeStructuredData["@graph"];
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organization,
+      website,
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: title,
+        description,
+        inLanguage: locale,
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": APP_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+      },
+      {
+        ...app,
+        description: appDescription,
+        offers: { ...(app as { offers: object }).offers, description: offerDescription },
+      },
+    ],
+  };
+}
+
 /** Serializes JSON-LD safely for inline <script> tags. */
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
