@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import { PREFIXED_LIVE_LOCALES, type Locale } from "@/i18n/config";
-import { SOCIAL_IMAGE_SIZE, renderSocialImage } from "@/lib/social-image";
+import { SOCIAL_IMAGE_FONTS, SOCIAL_IMAGE_SIZE, renderSocialImage } from "@/lib/social-image";
 
 /**
  * Translated social image for a localized homepage, served at
@@ -27,9 +27,12 @@ export default async function LocalizedOpenGraphImage({
   const locale = (await params).locale as Locale;
   const t = await getTranslations({ locale, namespace: "Metadata.socialImage" });
 
-  return renderSocialImage({
-    heading: t("heading"),
-    body: t("body"),
-    stepLabel: (step) => t("step", { step }),
-  });
+  return renderSocialImage(
+    {
+      heading: t("heading"),
+      body: t("body"),
+      stepLabel: (step) => t("step", { step }),
+    },
+    SOCIAL_IMAGE_FONTS[locale],
+  );
 }

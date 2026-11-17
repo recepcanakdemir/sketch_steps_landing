@@ -30,7 +30,7 @@ export const LOCALES = [
   { code: "en", nativeName: "English", ogLocale: "en_US", status: "live" },
   { code: "es", nativeName: "Español", ogLocale: "es_ES", status: "live" },
   { code: "fr", nativeName: "Français", ogLocale: "fr_FR", status: "live" },
-  { code: "ja", nativeName: "日本語", ogLocale: "ja_JP", status: "planned" },
+  { code: "ja", nativeName: "日本語", ogLocale: "ja_JP", status: "live" },
   { code: "ko", nativeName: "한국어", ogLocale: "ko_KR", status: "planned" },
 ] as const satisfies readonly LocaleDefinition[];
 

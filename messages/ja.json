@@ -1,0 +1,261 @@
+{
+  "Home": {
+    "nav": {
+      "label": "メイン",
+      "home": "Sketch Steps ホーム",
+      "howItWorks": "使い方",
+      "features": "機能",
+      "faq": "よくある質問"
+    },
+    "hero": {
+      "eyebrow": "写真から学べる、ガイド付きお絵かきレッスン",
+      "title": "描きたいものを、\u200b<accent>ステップごとに。</accent>",
+      "secondaryCta": "使い方を見る",
+      "tags": [
+        "人物画",
+        "ペット・動物",
+        "無料チュートリアル"
+      ],
+      "tagsLabel": "描けるもの",
+      "frontAlt": "Sketch Stepsのステップビューア。鉛筆で描く人物画チュートリアルの最終ステップ（9/9）を表示",
+      "backAlt": "Sketch Stepsのチュートリアル完成画面。人物の写真が9ステップの鉛筆画チュートリアルに変換されている"
+    },
+    "socialProof": {
+      "number": "{count, number, ::compact-short}+",
+      "label": "累計ダウンロード"
+    },
+    "howItWorks": {
+      "eyebrow": "使い方",
+      "title": "写真から、\u200b完成した絵まで。",
+      "lead": "Sketch Stepsは、1枚の写真を、自分のペースで進められるお絵かきレッスンに変えます。",
+      "steps": [
+        {
+          "title": "写真を選ぶ",
+          "body": "ホーム画面で「Create from photo」をタップして、描きたい写真を選びます。",
+          "alt": "「Create from photo」ボタンと無料チュートリアルが並ぶSketch Stepsのホーム画面"
+        },
+        {
+          "title": "スタイルを選ぶ",
+          "body": "「Realistic Paper Portrait」「Digital Clean Portrait」「Animal Drawing」から選べます。",
+          "alt": "Realistic Paper Portrait、Digital Clean Portrait、Animal Drawingを選べるスタイル選択画面"
+        },
+        {
+          "title": "チュートリアルが完成",
+          "body": "写真が8〜9ステップのお絵かきチュートリアルになります。元の写真と並べて確認できます。",
+          "alt": "元の写真の横に9ステップの鉛筆画が表示されたチュートリアル完成画面"
+        },
+        {
+          "title": "ステップごとに描く",
+          "body": "1ステップずつ、または一覧をスクロールしながら、絵が完成するまで描き進めます。",
+          "alt": "鉛筆で描く人物画チュートリアルの最終ステップを表示したステップビューア"
+        }
+      ],
+      "ctaTitle": "あなたの写真で\u200b試してみませんか？"
+    },
+    "demo": {
+      "eyebrow": "インタラクティブデモ",
+      "title": "1枚の絵が\u200bできあがるまで。",
+      "lead": "このポートレート写真からSketch Stepsが実際に生成したステップです。最初のアタリ線から完成したスケッチまで、自分のペースで見てみましょう。",
+      "photoLabel": "元の写真",
+      "photoAlt": "お絵かきチュートリアルの生成に使った元のポートレート写真",
+      "stepAlt": "人物画チュートリアル（ステップ{step}/{total}）",
+      "stepCounter": "ステップ{step}/{total}",
+      "previous": "前のステップ",
+      "next": "次のステップ",
+      "sliderLabel": "描画ステップ",
+      "stepButton": "ステップ{step}を表示",
+      "stepsLabel": "チュートリアルのステップ"
+    },
+    "features": {
+      "eyebrow": "機能",
+      "title": "上達に必要なものを、\u200bひとつに。",
+      "lead": "ガイド付きチュートリアル、トレース機能、作品を保存するギャラリー。すべてひとつのアプリで使えます。",
+      "loomis": {
+        "title": "ルーミス法で\u200b描く人物画",
+        "body": "人物画のチュートリアルは、頭部と顔のバランスをとるシンプルなアタリ線から始まり、完成したスケッチまで少しずつ描き進めます。",
+        "alt": "最初のアタリの円から完成した絵まで、人物画チュートリアルの全ステップ"
+      },
+      "styles": {
+        "title": "3つの\u200bチュートリアルスタイル",
+        "body": "写真や好みの描き方に合わせて、スタイルを選べます。",
+        "items": [
+          {
+            "name": "Realistic Paper Portrait",
+            "detail": "紙に鉛筆・9ステップ"
+          },
+          {
+            "name": "Digital Clean Portrait",
+            "detail": "すっきりした線・8ステップ"
+          },
+          {
+            "name": "Animal Drawing",
+            "detail": "ペット・野生動物・9ステップ"
+          }
+        ]
+      },
+      "animals": {
+        "title": "ペットや動物も",
+        "body": "「Animal Drawing」スタイルなら、ペットや野生動物の写真も、ステップごとのチュートリアルになります。",
+        "alt": "ゴールデンレトリバーを描くチュートリアルの全9ステップ"
+      },
+      "traceAi": {
+        "title": "Trace AI",
+        "body": "写真を6種類のエフェクトで画像に変換。写真アプリに保存したり、トレースに使ったりできます。",
+        "effects": [
+          "Clean Pencil",
+          "Bold Charcoal",
+          "Anime Ink",
+          "Architectural Line",
+          "Soft Sketch",
+          "Watercolor"
+        ],
+        "effectsLabel": "Trace AIのエフェクト",
+        "alt": "Clean Pencil、Bold Charcoal、Anime Ink、Architectural Line、Soft Sketch、Watercolorを選べるTrace AIのエフェクト選択画面"
+      },
+      "tracingStudio": {
+        "title": "Tracing Studio",
+        "body": "動物、アニメ、乗り物などのカテゴリから、トレース用の線画を選べます。お気に入りの保存もできます。",
+        "alt": "Animals、Anime、Carsのカテゴリに線画テンプレートが並ぶTracing Studio"
+      },
+      "freeTutorials": {
+        "title": "無料チュートリアル",
+        "body": "人物画から動物まで、用意されたチュートリアルですぐに練習を始められます。",
+        "alt": "人物画と動物のお絵かきチュートリアルが並ぶ無料チュートリアルのライブラリ"
+      },
+      "gallery": {
+        "title": "あなただけの\u200bギャラリー",
+        "body": "チュートリアルやTrace AIの作品はギャラリーに保存され、チュートリアル、Trace AI、お気に入りで絞り込めます。",
+        "alt": "All、Tutorials、Trace AI、Savedのフィルタがあるギャラリー画面"
+      }
+    },
+    "gallery": {
+      "eyebrow": "アプリのギャラリー",
+      "title": "Sketch\u00a0Stepsを\u200bもっと詳しく。",
+      "scrollHint": "スワイプしてほかの画面を見る",
+      "items": [
+        {
+          "caption": "完成した人物画",
+          "alt": "鉛筆で描く人物画チュートリアルのステップ9/9"
+        },
+        {
+          "caption": "人物画のステップビューア",
+          "alt": "ステップのサムネイル付きで、人物画チュートリアルの最終ステップを表示したステップビューア"
+        },
+        {
+          "caption": "Trace AIの作品",
+          "alt": "「Trace it」と「Save to Photos」ボタンが付いた、アニメ風のTrace AIの作品"
+        },
+        {
+          "caption": "アニメのテンプレート",
+          "alt": "Tracing Studioのアニメコレクション"
+        },
+        {
+          "caption": "ホーム画面",
+          "alt": "Sketch Stepsのホーム画面"
+        },
+        {
+          "caption": "動物のチュートリアル",
+          "alt": "ゴールデンレトリバーを描くチュートリアルの完成画面"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "よくある質問",
+      "title": "はじめて描く前に。",
+      "items": [
+        {
+          "question": "ルーミス法とは？",
+          "answer": "ルーミス法は、頭部をシンプルな形でとらえ、中心線や顔のパーツの位置、バランスを加えていく人物画の描き方です。感覚に頼らず、構造をもとに顔を描けるようになります。"
+        },
+        {
+          "question": "Sketch\u00a0Stepsで\u200b何を\u200b描けるように\u200bなりますか？",
+          "answer": "ルーミス法による人物画や顔、「Animal Drawing」スタイルによるペットや動物、そしてTracing Studioの動物・アニメ・乗り物などのカテゴリにある線画です。"
+        },
+        {
+          "question": "初心者でも\u200b使えますか？",
+          "answer": "はい。Sketch Stepsは、バラバラのチュートリアルを探し回ることなく、わかりやすく繰り返し練習できるステップがほしい初心者や、絵を学びたい人のために作られています。"
+        },
+        {
+          "question": "自分の写真を\u200b使えますか？",
+          "answer": "はい。写真ライブラリにある顔写真や、カメラで撮影した写真からガイドを作成できるので、毎回の練習をあなただけのものにできます。"
+        },
+        {
+          "question": "Trace AIとは？",
+          "answer": "Trace AIは、写真をClean Pencil、Bold Charcoal、Anime Ink、Architectural Line、Soft Sketch、Watercolorの6種類のエフェクトのいずれかで画像に変換する機能です。結果は写真アプリに保存したり、トレースに使ったりできます。"
+        },
+        {
+          "question": "トレース機能は\u200bありますか？",
+          "answer": "はい。トレーススタジオでは、ガイド付きの参考画像の上から直接練習しながら、人物画の構造を学べます。"
+        },
+        {
+          "question": "アプリは\u200b無料ですか？",
+          "answer": "Sketch StepsはApp StoreまたはGoogle Playからダウンロードでき、無料チュートリアルも利用できます。料金やプレミアムオプションは、購入前にアプリ内で表示されます。"
+        },
+        {
+          "question": "Android版は\u200bありますか？",
+          "answer": "はい。Sketch StepsはGoogle Playで配信中です。"
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "次の1枚は、\u200bここから。",
+      "lead": "Sketch Stepsをダウンロードして、次の写真をステップごとのお絵かきレッスンにしましょう。"
+    },
+    "footer": {
+      "label": "フッター",
+      "privacyPolicy": "プライバシーポリシー",
+      "androidPrivacy": "Androidプライバシーポリシー",
+      "iosPrivacy": "iOSプライバシーポリシー",
+      "terms": "利用規約",
+      "deleteAccount": "アカウントの削除",
+      "support": "サポート",
+      "copyright": "© {year} Sketch Steps. All rights reserved."
+    }
+  },
+  "Client": {
+    "store": {
+      "appStoreLabel": "App Storeからダウンロード",
+      "appStoreTop": "App Storeから",
+      "appStoreBottom": "ダウンロード",
+      "googlePlayLabel": "Google Playで手に入れよう",
+      "googlePlayTop": "今すぐ手に入れよう",
+      "googlePlayBottom": "Google Play",
+      "storesLabel": "Sketch Stepsをダウンロード",
+      "tryApp": "Sketch Stepsを試す",
+      "onAppStore": "App Store",
+      "onGooglePlay": "Google Play"
+    },
+    "inApp": {
+      "thisApp": "このアプリ",
+      "notice": "{browser}の中でこのページを表示しています。ストアのリンクが開かない場合は、<b>•••</b>をタップして<b>ブラウザで開く</b>を選んでください。",
+      "eyebrow": "ブラウザで開く",
+      "title": "{browser}がApp Storeへの移動をブロックしています。",
+      "body": "右上の<b>•••</b>メニューをタップし、<b>ブラウザで開く</b>を選んでから、もう一度App Storeのボタンをタップしてください。",
+      "android": "Sketch StepsのAndroid版はGoogle Playで配信中です。このメッセージを閉じて、ページ内のGoogle Playボタンを使ってください。",
+      "copy": "App Storeのリンクをコピー",
+      "copied": "コピーしました",
+      "openBrowser": "ブラウザで開く",
+      "close": "閉じる"
+    },
+    "sticky": {
+      "label": "Sketch Stepsをダウンロード",
+      "title": "Sketch Steps",
+      "subtitle": "ステップごとに絵が描ける"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "Sketch Steps｜写真からAIがルーミス法の描き方ガイドを作成",
+      "description": "顔写真をもとに、AIがルーミス法にもとづくステップごとの描き方ガイドを作成。人物画やペット・動物の絵を、自分のペースで練習できます。",
+      "socialTitle": "Sketch Steps｜写真をルーミス法の描き方ガイドに",
+      "appDescription": "顔写真を、ルーミス法にもとづくステップごとの人物画ガイドに変換するAIお絵かきアプリ。",
+      "offerDescription": "無料でダウンロードできます。プレミアムオプションはアプリ内で表示されます。"
+    },
+    "socialImage": {
+      "alt": "Sketch Steps：顔写真をルーミス法のステップごとの描き方ガイドに変換",
+      "heading": "ルーミス法で描く\nステップガイド",
+      "body": "顔写真をアップロードするだけで、\n描き方のステップをすぐに作成。",
+      "step": "ステップ{step}"
+    }
+  }
+}

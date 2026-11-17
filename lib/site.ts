@@ -67,7 +67,7 @@ export type SitePage = {
 };
 
 export const INDEXABLE_PAGES: SitePage[] = [
-  { path: "/", locales: ["en", "es", "fr"], changeFrequency: "weekly", priority: 1 },
+  { path: "/", locales: ["en", "es", "fr", "ja"], changeFrequency: "weekly", priority: 1 },
   { path: "/support", changeFrequency: "monthly", priority: 0.5 },
   { path: "/ios-privacy-policy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/android-privacy-policy", changeFrequency: "yearly", priority: 0.3 },

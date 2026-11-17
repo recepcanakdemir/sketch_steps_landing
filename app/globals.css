@@ -35,6 +35,31 @@ body {
   line-break: strict;
 }
 
+/* Browsers without auto-phrase (Safari) would break Japanese headings between
+   any two characters, splitting words. There, headings only break at
+   punctuation and at the phrase boundaries marked with zero-width spaces in
+   messages/ja.json; overflow-wrap is the safety net against overflow. */
+@supports not (word-break: auto-phrase) {
+  :lang(ja) :is(h1, h2, h3) {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Japanese hero headline. Full-width glyphs are wider than Latin letters, so
+   phones get a slightly smaller size that keeps each phrase on its own line
+   (the 42px used for other languages overflows a 360px screen), and kanji and
+   kana get more line height than the tight Latin setting. Other languages are
+   unaffected. */
+:lang(ja) #hero-title {
+  line-height: 1.18;
+}
+@media (max-width: 639.98px) {
+  :lang(ja) #hero-title {
+    font-size: 38px;
+  }
+}
+
 /* Faint sketchbook grid used behind the hero and demo. */
 .sketchbook-grid {
   background-image:
