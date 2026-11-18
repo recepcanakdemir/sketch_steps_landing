@@ -1,5 +1,7 @@
 import type { Article } from "@/lib/blog/types";
 
+import howToDrawAFace from "./how-to-draw-a-face";
+
 /**
  * Published blog articles. To add one:
  *
@@ -10,4 +12,4 @@ import type { Article } from "@/lib/blog/types";
  * The build checks every article (required fields, dates, slugs, image files,
  * related ids) and fails with a clear message if something is wrong.
  */
-export const ARTICLES: Article[] = [];
+export const ARTICLES: Article[] = [howToDrawAFace];

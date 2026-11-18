@@ -1,7 +1,5 @@
 import type { Article } from "@/lib/blog/types";
 
-import howToDrawAFace from "./how-to-draw-a-face";
-
 /**
  * Drafts that can be previewed locally. NOT the public registry
  * (content/blog/index.ts): nothing here is built, listed or indexed unless
@@ -9,4 +7,4 @@ import howToDrawAFace from "./how-to-draw-a-face";
  * (Vercel, CI) ignore that flag. Every translation must stay
  * status: "draft" (the build fails otherwise). See docs/blog.md.
  */
-export const DRAFT_ARTICLES: Article[] = [howToDrawAFace];
+export const DRAFT_ARTICLES: Article[] = [];

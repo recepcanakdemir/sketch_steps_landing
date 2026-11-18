@@ -1,13 +1,16 @@
 # Review notes: How to Draw a Face Step by Step
 
-Status: **draft, not approved for publication.** `status: "draft"`, no
-`publishedAt`, not in `content/blog/index.ts`. Local only, uncommitted.
+Status: **published 2026-11-18** (`status: "published"`, registered in
+`content/blog/index.ts`). The owner read the article and approved
+publication; the drawing-accuracy checklist below was not completed
+separately. Corrections from it go in as normal content updates (set
+`updatedAt`).
 
 | Role | Name | Date | Result |
 |---|---|---|---|
 | Editorial / technical pre-review (AI-assisted) | — | 2026-11-18 | Done; see below |
-| Drawing accuracy reviewer | _to be named_ | | **Open** |
-| Owner publication approval | | | **Open** |
+| Drawing accuracy reviewer | _to be named_ | | Not done before publication |
+| Owner publication approval | Owner | 2026-11-18 | Approved |
 
 ## Pre-review results (2026-11-18)
 
