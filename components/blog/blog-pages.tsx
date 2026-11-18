@@ -3,7 +3,13 @@ import { getTranslations } from "next-intl/server";
 
 import { ArticleBody, ArticleFigure } from "@/components/blog/article-body";
 import { ArticleCard, formatDate } from "@/components/blog/article-card";
-import { BlogCta, BlogShell, Breadcrumbs, FixtureNotice } from "@/components/blog/blog-shell";
+import {
+  BlogCta,
+  BlogShell,
+  Breadcrumbs,
+  DraftPreviewNotice,
+  FixtureNotice,
+} from "@/components/blog/blog-shell";
 import { focusRing } from "@/components/home/primitives";
 import { localizePath, type Locale } from "@/i18n/config";
 import {
@@ -37,6 +43,7 @@ export async function BlogIndexPage({ locale }: { locale: Locale }) {
     entries: entries.filter((entry) => entry.article.category === id),
   })).filter((topic) => topic.entries.length > 0);
   const hasFixtures = entries.some((entry) => entry.article.fixture);
+  const hasDraftPreviews = entries.some((entry) => entry.article.draftPreview);
 
   return (
     <BlogShell languageHrefs={blogLanguageHrefs()}>
@@ -50,6 +57,7 @@ export async function BlogIndexPage({ locale }: { locale: Locale }) {
       />
       <div className="mx-auto max-w-7xl px-5 pt-6 sm:px-6 lg:px-8 lg:pt-10">
         {hasFixtures ? <FixtureNotice /> : null}
+        {hasDraftPreviews ? <DraftPreviewNotice /> : null}
         <Breadcrumbs
           label={t("article.breadcrumb")}
           items={[
@@ -142,6 +150,7 @@ export async function BlogArticlePage({ entry }: { entry: BlogEntry }) {
       />
       <div className="mx-auto max-w-7xl px-5 pt-6 sm:px-6 lg:px-8 lg:pt-10">
         {article.fixture ? <FixtureNotice /> : null}
+        {article.draftPreview ? <DraftPreviewNotice /> : null}
         <article className="mx-auto max-w-3xl">
           <Breadcrumbs
             label={t("article.breadcrumb")}

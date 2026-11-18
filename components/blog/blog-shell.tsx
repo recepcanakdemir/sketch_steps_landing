@@ -56,6 +56,22 @@ export function BlogCta({
   );
 }
 
+/**
+ * Visible marker on local draft previews (BLOG_DRAFT_PREVIEW=1, local builds
+ * only). English only on purpose: it is an internal review banner.
+ */
+export function DraftPreviewNotice() {
+  return (
+    <p
+      role="note"
+      className="mx-auto mb-6 max-w-3xl rounded-2xl border-2 border-dashed border-crimson bg-blush px-4 py-3 text-center text-sm font-bold text-crimson"
+    >
+      Local draft preview, not published. This page is not indexed, not in the sitemap and
+      only exists in local preview builds.
+    </p>
+  );
+}
+
 /** Visible marker on local fixture pages (never shown on real articles). */
 export async function FixtureNotice() {
   const t = await getTranslations("Blog.article");

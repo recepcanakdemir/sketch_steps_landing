@@ -15,6 +15,13 @@ export type BlogImage = {
   /** Intrinsic pixel size of the file. */
   width: number;
   height: number;
+  /**
+   * Optional uniform scale (<= 1, never enlarges) and shift in source pixels
+   * that puts a step image in a common frame, as on the homepage demo
+   * (components/home/assets.ts `stepFraming`). Applied as a CSS transform; the
+   * file is untouched. Only for images whose cropped edges are blank paper.
+   */
+  framing?: { scale: number; x: number; y: number };
 };
 
 /**
@@ -74,6 +81,12 @@ export type ArticleTranslation = {
   /** YYYY-MM-DD, only for a real content update. */
   updatedAt?: string;
   heroImage: BlogImage;
+  /**
+   * Optional 1200x630 image for Open Graph / Twitter cards, when the hero
+   * does not work as a social card. Defaults to `heroImage`. Not shown on the
+   * page; also listed in the BlogPosting `image`.
+   */
+  socialImage?: BlogImage;
   body: Block[];
 };
 
@@ -97,6 +110,13 @@ export type Article = {
    * never in the sitemap. Ids and slugs start with "fixture-".
    */
   fixture?: boolean;
+  /**
+   * Set by the loader for articles in content/blog/drafts.ts when
+   * BLOG_DRAFT_PREVIEW=1 on a local machine (never hosted/CI builds): their
+   * draft translations render for review, noindex, never in the sitemap or
+   * the blog JSON-LD. Never set this by hand.
+   */
+  draftPreview?: boolean;
 };
 
 /**

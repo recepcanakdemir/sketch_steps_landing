@@ -70,11 +70,11 @@ const portraitStepsFixture: Article = {
           type: "image",
           image: {
             src: "/images/v2/all-steps-portrait.jpg",
-            alt: "Sketch Steps screen listing all nine steps of the portrait tutorial",
+            alt: "Sketch Steps screen listing all nine steps of a different portrait tutorial",
             width: 826,
             height: 1692,
           },
-          caption: "All nine steps of this tutorial in the app.",
+          caption: "The app's step list (shown here with a different portrait tutorial).",
         },
         { type: "heading", level: 2, text: "The nine steps" },
         {

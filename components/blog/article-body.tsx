@@ -153,15 +153,19 @@ export function ArticleFigure({
   return (
     <figure className={cn("mt-8", className)}>
       <div className="flex justify-center overflow-hidden rounded-3xl border border-line bg-white p-2 shadow-card">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          priority={priority}
-          sizes="(min-width: 768px) 720px, 100vw"
-          className="h-auto max-h-[640px] w-auto max-w-full rounded-[18px] object-contain"
-        />
+        {image.framing ? (
+          <FramedImage image={image} framing={image.framing} priority={priority} />
+        ) : (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            priority={priority}
+            sizes="(min-width: 768px) 720px, 100vw"
+            className="h-auto max-h-[640px] w-auto max-w-full rounded-[18px] object-contain"
+          />
+        )}
       </div>
       {caption ? (
         <figcaption className="mt-3 text-center text-sm leading-6 text-ink-soft">
@@ -169,5 +173,46 @@ export function ArticleFigure({
         </figcaption>
       ) : null}
     </figure>
+  );
+}
+
+/**
+ * A step image shown in a common frame (same idea as the homepage demo): a
+ * uniform scale <= 1 plus a shift, as a CSS transform. The stage keeps the
+ * image's natural size and is never wider than the file, so nothing is
+ * stretched or enlarged; only blank paper leaves the frame and the gap is
+ * filled with the paper colour.
+ */
+function FramedImage({
+  image,
+  framing,
+  priority,
+}: {
+  image: BlogImage;
+  framing: NonNullable<BlogImage["framing"]>;
+  priority: boolean;
+}) {
+  const x = (framing.x / image.width) * 100;
+  const y = (framing.y / image.height) * 100;
+  return (
+    <div
+      className="relative w-full overflow-hidden rounded-[18px] bg-[#F4F4F4]"
+      style={{
+        maxWidth: image.width,
+        aspectRatio: `${image.width} / ${image.height}`,
+      }}
+    >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        priority={priority}
+        sizes={`${image.width}px`}
+        className="object-cover"
+        style={{
+          transform: `translate(${x.toFixed(2)}%, ${y.toFixed(2)}%) scale(${framing.scale})`,
+        }}
+      />
+    </div>
   );
 }

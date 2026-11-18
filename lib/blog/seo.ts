@@ -59,11 +59,12 @@ export function articleMetadata(entry: BlogEntry): Metadata {
     socialTitle: translation.seoTitle ?? translation.title,
     index: indexable,
   });
+  const shared = translation.socialImage ?? translation.heroImage;
   const image = {
-    url: translation.heroImage.src,
-    width: translation.heroImage.width,
-    height: translation.heroImage.height,
-    alt: translation.heroImage.alt,
+    url: shared.src,
+    width: shared.width,
+    height: shared.height,
+    alt: shared.alt,
   };
 
   return {
@@ -152,7 +153,9 @@ export function articleStructuredData(
         mainEntityOfPage: url,
         headline: translation.title,
         description: translation.description,
-        image: [absoluteUrl(translation.heroImage.src)],
+        image: [translation.heroImage, translation.socialImage]
+          .filter((img) => img !== undefined)
+          .map((img) => absoluteUrl(img.src)),
         ...(translation.publishedAt ? { datePublished: translation.publishedAt } : {}),
         ...(translation.publishedAt
           ? { dateModified: translation.updatedAt ?? translation.publishedAt }

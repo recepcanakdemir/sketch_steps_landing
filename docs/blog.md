@@ -73,6 +73,11 @@ export default article;
 3. Import it in `content/blog/index.ts` and add it to `ARTICLES`.
 4. Run `pnpm build`. The build lists anything to fix.
 
+Optional image fields: `framing` (uniform scale <= 1 and shift, CSS only, to keep
+a step sequence in one frame; see the homepage `stepFraming`) and, per
+translation, `socialImage` (1200x630 Open Graph / Twitter image; defaults to
+the hero).
+
 Rules:
 
 - **Translations belong to one entry.** Only versions of the same article go
@@ -138,6 +143,22 @@ BLOG_FIXTURES=1 pnpm build && pnpm start
 
 A normal build (and every Vercel or CI build) contains no fixture pages, so
 `/blog/fixture-*` is a 404 and the blog indexes do not list them.
+
+## Local draft preview
+
+Drafts listed in `content/blog/drafts.ts` (not the public registry) can be
+reviewed locally:
+
+```bash
+BLOG_DRAFT_PREVIEW=1 pnpm build && BLOG_DRAFT_PREVIEW=1 pnpm start
+```
+
+Same gate as fixtures: local builds only (`VERCEL`, `VERCEL_ENV` or `CI` set
+means the flag is ignored). Previewed drafts show a "Local draft preview"
+banner, are `noindex, nofollow`, have no dates and never appear in the sitemap
+or the blog JSON-LD. Every translation in that list must stay
+`status: "draft"` without `publishedAt`, or the build fails. To publish, move
+the article to `content/blog/index.ts` (see "Adding an article").
 
 ## Known framework note
 

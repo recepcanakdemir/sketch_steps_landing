@@ -5,5 +5,5 @@ import type { Author } from "@/lib/blog/types";
  * shown (and their consent). Never invent personas or credentials.
  */
 export const AUTHORS: Record<string, Author> = {
-  team: { kind: "organization", name: "Sketch Steps" },
+  team: { kind: "organization", name: "Sketch Steps Team" },
 };

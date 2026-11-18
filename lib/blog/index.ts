@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 
 import { ARTICLES } from "@/content/blog";
+import { DRAFT_ARTICLES } from "@/content/blog/drafts";
 import { AUTHORS } from "@/content/blog/authors";
 import { FIXTURE_ARTICLES } from "@/content/blog/fixtures";
 import {
@@ -55,6 +56,21 @@ if (fixturesRequested && hostedBuild) {
   );
 }
 
+/**
+ * Local draft preview (content/blog/drafts.ts): same gate as fixtures. Drafts
+ * render with a visible "draft preview" notice, noindex, no dates, and are
+ * never in the sitemap or the blog JSON-LD. The public registry is untouched.
+ */
+const draftPreviewRequested = process.env.BLOG_DRAFT_PREVIEW === "1";
+
+export const DRAFT_PREVIEW_ENABLED = draftPreviewRequested && !hostedBuild;
+
+if (draftPreviewRequested && hostedBuild) {
+  console.warn(
+    "[blog] BLOG_DRAFT_PREVIEW=1 is ignored in hosted/CI builds: drafts are never built here.",
+  );
+}
+
 /** One published language version of an article. */
 export type BlogEntry = {
   article: Article;
@@ -101,6 +117,10 @@ function validate(articles: Article[]): void {
     if (!image.alt.trim()) errors.push(`${where}: image "${image.src}" needs alt text`);
     if (!(image.width > 0 && image.height > 0)) {
       errors.push(`${where}: image "${image.src}" needs its pixel width and height`);
+    }
+    const f = image.framing;
+    if (f && !(f.scale > 0 && f.scale <= 1 && Number.isFinite(f.x) && Number.isFinite(f.y))) {
+      errors.push(`${where}: image "${image.src}" framing scale must be > 0 and <= 1 (never enlarge)`);
     }
   };
 
@@ -160,6 +180,9 @@ function validate(articles: Article[]): void {
       if (!translation.title.trim()) errors.push(`${where}: missing title`);
       if (!translation.description.trim()) errors.push(`${where}: missing description`);
 
+      if (article.draftPreview && (translation.status !== "draft" || translation.publishedAt)) {
+        errors.push(`${where}: preview drafts must stay status "draft" with no publishedAt`);
+      }
       if (article.fixture) {
         // Fixtures are test content: no dates, so nothing looks published.
         if (translation.publishedAt || translation.updatedAt) {
@@ -181,6 +204,7 @@ function validate(articles: Article[]): void {
       }
 
       checkImage(`${where} hero`, translation.heroImage);
+      if (translation.socialImage) checkImage(`${where} social image`, translation.socialImage);
       translation.body.forEach((block, index) => {
         const blockAt = `${where} block ${index + 1}`;
         if (block.type === "image") checkImage(blockAt, block.image);
@@ -211,13 +235,17 @@ function validate(articles: Article[]): void {
 const ALL_ARTICLES: Article[] = [
   ...ARTICLES,
   ...(FIXTURES_ENABLED ? FIXTURE_ARTICLES.map((article) => ({ ...article, fixture: true })) : []),
+  ...(DRAFT_PREVIEW_ENABLED
+    ? DRAFT_ARTICLES.map((article) => ({ ...article, draftPreview: true }))
+    : []),
 ];
 
 validate(ALL_ARTICLES);
 
 function toEntry(article: Article, locale: Locale): BlogEntry | undefined {
   const translation = article.translations[locale];
-  if (!translation || translation.status !== "published") return undefined;
+  if (!translation) return undefined;
+  if (translation.status !== "published" && !article.draftPreview) return undefined;
   const entryPath = `${BLOG_PATH}/${translation.slug}`;
   return {
     article,
@@ -257,9 +285,9 @@ export function articleLocalizedPaths(article: Article): Partial<Record<Locale, 
   );
 }
 
-/** True when the entry may be indexed (fixtures never are). */
+/** True when the entry may be indexed (fixtures and draft previews never are). */
 export function isIndexable(entry: BlogEntry): boolean {
-  return !entry.article.fixture;
+  return !entry.article.fixture && !entry.article.draftPreview;
 }
 
 /**
@@ -314,7 +342,7 @@ export function blogLanguageHrefs(article?: Article): Partial<Record<Locale, str
 
 /** Real (non-fixture) articles, for the sitemap. */
 export function sitemapArticles(): { article: Article; entries: BlogEntry[] }[] {
-  return ALL_ARTICLES.filter((article) => !article.fixture)
+  return ALL_ARTICLES.filter((article) => !article.fixture && !article.draftPreview)
     .map((article) => ({
       article,
       entries: articleLocales(article).map((locale) => toEntry(article, locale)!),
