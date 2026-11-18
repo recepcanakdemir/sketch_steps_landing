@@ -25,8 +25,8 @@ const LEGACY_PATHS: Record<string, string> = {
   "/instagram": "instagram",
 };
 
-/** Lowercase, safe characters only, short (App Store ct allows 40 chars). */
-function clean(value: string | null, max = 40) {
+/** Lowercase, safe characters only, short (App Store ct allows 30 chars). */
+function clean(value: string | null, max = 30) {
   return (value ?? "")
     .trim()
     .toLowerCase()
@@ -47,7 +47,7 @@ export function getSource(): string | null {
   const utmSource = clean(params.get("utm_source"));
   const utmCampaign = clean(params.get("utm_campaign"));
   const utm = utmSource && utmCampaign ? `${utmSource}/${utmCampaign}` : utmSource;
-  cached = (code || utm || LEGACY_PATHS[window.location.pathname] || "").slice(0, 40) || null;
+  cached = (code || utm || LEGACY_PATHS[window.location.pathname] || "").slice(0, 30) || null;
 
   return cached;
 }

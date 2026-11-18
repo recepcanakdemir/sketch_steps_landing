@@ -18,10 +18,10 @@ export const APP_STORE_URL = `https://apps.apple.com/us/app/sketch-steps-ai-loom
 /**
  * App Store Connect provider token (the `pt` in Campaign Link Generator links;
  * App Store Connect → Analytics → Sources). With it, store links carry a
- * campaign token per link (lib/attribution). Empty = App Store
- * links stay plain; Google Play attribution works without it.
+ * campaign token per link (lib/attribution). Public: it appears in every
+ * App Store campaign link. Empty = App Store links stay plain.
  */
-export const APP_STORE_PROVIDER_TOKEN = "";
+export const APP_STORE_PROVIDER_TOKEN = "128082353";
 export const GOOGLE_PLAY_ID = "com.sketchsteps.app";
 export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${GOOGLE_PLAY_ID}`;
 
