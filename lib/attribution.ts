@@ -1,24 +1,24 @@
 import { APP_STORE_PROVIDER_TOKEN, APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site";
 
 /**
- * Which social account sent a visitor, so store clicks and installs can be
- * counted per account. See docs/attribution.md.
+ * Which link sent a visitor, so store clicks and installs can be counted per
+ * link. See docs/attribution.md.
  *
- * - Read from the address bar only (utm_source / utm_medium / utm_campaign on
- *   the bio links), kept in memory for this page load. Nothing is stored on
- *   the device, so no consent is needed.
- * - The legacy /tiktok and /instagram pages count as tiktok / instagram when
- *   the link has no UTM tags.
- * - Store links carry the source on to the stores: App Store campaign token
- *   (ct, needs APP_STORE_PROVIDER_TOKEN) and Google Play referrer, so App
- *   Store Connect and Play Console report installs per account.
+ * - Links carry a short opaque code: `?s=<code>`. The site never knows what
+ *   a code stands for (this repository is public); the code-to-account table
+ *   is kept privately by the owner. Standard `utm_source` / `utm_campaign`
+ *   tags work too, for links where the source can be public.
+ * - Read from the address bar once and kept in memory for this page load.
+ *   Nothing is stored on the device, so no consent is needed. The code is
+ *   left in the address bar: rewriting the URL makes Vercel count a second
+ *   page view.
+ * - The legacy /tiktok and /instagram pages count as "tiktok" / "instagram".
+ * - Store links carry the source on to the stores: Google Play referrer, and
+ *   App Store campaign token once APP_STORE_PROVIDER_TOKEN is set, so Play
+ *   Console and App Store Connect report installs per link.
  */
 
-export type Attribution = {
-  source: string;
-  medium: string;
-  campaign: string;
-};
+export const SOURCE_PARAM = "s";
 
 const LEGACY_PATHS: Record<string, string> = {
   "/tiktok": "tiktok",
@@ -34,34 +34,22 @@ function clean(value: string | null, max = 40) {
     .slice(0, max);
 }
 
-let cached: Attribution | null | undefined;
+let cached: string | null | undefined;
 
-/** This page load's attribution, or null for untagged visits. Client only. */
-export function getAttribution(): Attribution | null {
+/**
+ * This page load's source ("k7", "tiktok", "newsletter/may"...), or null
+ * for untagged visits. Client only.
+ */
+export function getSource(): string | null {
   if (cached !== undefined) return cached;
   const params = new URLSearchParams(window.location.search);
-  const source = clean(params.get("utm_source")) || LEGACY_PATHS[window.location.pathname] || "";
-  cached = source
-    ? {
-        source,
-        medium: clean(params.get("utm_medium")) || "social",
-        campaign: clean(params.get("utm_campaign")),
-      }
-    : null;
+  const code = clean(params.get(SOURCE_PARAM), 20);
+  const utmSource = clean(params.get("utm_source"));
+  const utmCampaign = clean(params.get("utm_campaign"));
+  const utm = utmSource && utmCampaign ? `${utmSource}/${utmCampaign}` : utmSource;
+  cached = (code || utm || LEGACY_PATHS[window.location.pathname] || "").slice(0, 40) || null;
+
   return cached;
-}
-
-/** "instagram/andrew_drawing1", or "instagram" without a campaign. */
-export function attributionLabel(attribution: Attribution | null) {
-  if (!attribution) return "(none)";
-  return attribution.campaign
-    ? `${attribution.source}/${attribution.campaign}`
-    : attribution.source;
-}
-
-/** App Store campaign token: "ig_andrew_drawing1"-style, max 40 chars. */
-function campaignToken({ source, campaign }: Attribution) {
-  return (campaign ? `${source}_${campaign}` : source).slice(0, 40);
 }
 
 export type StoreUrls = { appStore: string; googlePlay: string };
@@ -72,21 +60,22 @@ export const PLAIN_STORE_URLS: StoreUrls = {
 };
 
 /** Store URLs carrying the visitor's source, or the plain URLs if untagged. */
-export function attributedStoreUrls(attribution: Attribution | null): StoreUrls {
-  if (!attribution) return PLAIN_STORE_URLS;
+export function attributedStoreUrls(source: string | null): StoreUrls {
+  if (!source) return PLAIN_STORE_URLS;
+  const token = source.replace(/\//g, "_");
 
   const appStore = APP_STORE_PROVIDER_TOKEN
     ? `${APP_STORE_URL}?${new URLSearchParams({
         pt: APP_STORE_PROVIDER_TOKEN,
-        ct: campaignToken(attribution),
+        ct: token,
         mt: "8",
       })}`
     : APP_STORE_URL;
 
   const referrer = new URLSearchParams({
-    utm_source: attribution.source,
-    utm_medium: attribution.medium,
-    ...(attribution.campaign ? { utm_campaign: attribution.campaign } : {}),
+    utm_source: "sketchsteps.app",
+    utm_medium: "referral",
+    utm_campaign: token,
   }).toString();
   const googlePlay = `${GOOGLE_PLAY_URL}&${new URLSearchParams({ referrer })}`;
 
@@ -97,6 +86,6 @@ let cachedUrls: StoreUrls | undefined;
 
 /** Stable snapshot of this page load's store URLs (for useSyncExternalStore). */
 export function getStoreUrls(): StoreUrls {
-  cachedUrls ??= attributedStoreUrls(getAttribution());
+  cachedUrls ??= attributedStoreUrls(getSource());
   return cachedUrls;
 }
