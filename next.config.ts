@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   poweredByHeader: false,
+  // The social image routes read fonts and images via process.cwd(), so the
+  // file tracer cannot narrow them down and bundles the whole project into the
+  // function, including the build cache. On Vercel that exceeded the 250 MB
+  // function limit. These are never needed at runtime.
+  outputFileTracingExcludes: {
+    "*": [
+      ".next/cache/**",
+      ".git/**",
+      "docs/**",
+      "scripts/**",
+      "public/images/v2/**",
+      "public/blog/**",
+    ],
+  },
   reactStrictMode: true,
   experimental: {
     // One root layout per locale group means there is no top-level layout;
