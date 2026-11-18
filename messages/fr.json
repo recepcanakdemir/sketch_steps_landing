@@ -267,5 +267,42 @@
       "body": "Importez la photo d’un visage et recevez instantanément des étapes de dessin guidées.",
       "step": "Étape {step}"
     }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Blog Sketch Steps : tutoriels et conseils de dessin",
+      "description": "Guides de dessin pas à pas, bases de la méthode Loomis et conseils pour tirer le meilleur de Sketch Steps.",
+      "heading": "Apprenez à dessiner, pas à pas.",
+      "lead": "Guides de dessin pas à pas, bases de la méthode Loomis et conseils pour tirer le meilleur de Sketch Steps.",
+      "topics": "Thèmes",
+      "count": "{count, plural, one {# article} other {# articles}}",
+      "empty": "De nouveaux articles arrivent bientôt. En attendant, essayez un tutoriel pas à pas dans l’app.",
+      "ctaTitle": "Transformez votre propre photo en tutoriel de dessin",
+      "ctaBody": "Téléchargez Sketch Steps sur l’App Store ou Google Play."
+    },
+    "categories": {
+      "portraits": "Portraits",
+      "loomisMethod": "Méthode Loomis",
+      "drawingBasics": "Bases du dessin",
+      "animals": "Animaux",
+      "appGuides": "Guides de l’app"
+    },
+    "article": {
+      "breadcrumb": "Fil d’Ariane",
+      "home": "Accueil",
+      "blog": "Blog",
+      "published": "Publié le {date}",
+      "updated": "Mis à jour le {date}",
+      "by": "Par {name}",
+      "readingTime": "{minutes} min de lecture",
+      "related": "Articles similaires",
+      "backToBlog": "Retour au blog",
+      "ctaTitle": "Essayez avec votre propre photo",
+      "ctaBody": "Sketch Steps transforme une photo en tutoriel de dessin pas à pas. Téléchargement gratuit sur l’App Store et Google Play.",
+      "step": "Étape {step}",
+      "tip": "Astuce",
+      "fixture": "Fixture de test local, non destiné à la publication. Cette page n’est jamais indexée et n’existe que dans les builds locaux."
+    }
   }
 }

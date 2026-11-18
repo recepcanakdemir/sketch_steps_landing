@@ -267,5 +267,42 @@
       "body": "Lade ein Gesichtsfoto hoch und erhalte sofort geführte Zeichenschritte.",
       "step": "Schritt {step}"
     }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Sketch Steps Blog: Zeichenanleitungen und Tipps",
+      "description": "Zeichenanleitungen Schritt für Schritt, Grundlagen der Loomis-Methode und Tipps, wie du das Beste aus Sketch Steps herausholst.",
+      "heading": "Zeichnen lernen, Schritt für Schritt.",
+      "lead": "Zeichenanleitungen Schritt für Schritt, Grundlagen der Loomis-Methode und Tipps, wie du das Beste aus Sketch Steps herausholst.",
+      "topics": "Themen",
+      "count": "{count, plural, one {# Artikel} other {# Artikel}}",
+      "empty": "Neue Artikel sind in Arbeit. Probier bis dahin eine Anleitung Schritt für Schritt in der App aus.",
+      "ctaTitle": "Mach aus deinem eigenen Foto eine Zeichenanleitung",
+      "ctaBody": "Lade Sketch Steps im App Store oder bei Google Play herunter."
+    },
+    "categories": {
+      "portraits": "Porträts",
+      "loomisMethod": "Loomis-Methode",
+      "drawingBasics": "Zeichengrundlagen",
+      "animals": "Tiere",
+      "appGuides": "App-Anleitungen"
+    },
+    "article": {
+      "breadcrumb": "Brotkrümelnavigation",
+      "home": "Startseite",
+      "blog": "Blog",
+      "published": "Veröffentlicht am {date}",
+      "updated": "Aktualisiert am {date}",
+      "by": "Von {name}",
+      "readingTime": "{minutes} Min. Lesezeit",
+      "related": "Ähnliche Artikel",
+      "backToBlog": "Zurück zum Blog",
+      "ctaTitle": "Probier es mit deinem eigenen Foto aus",
+      "ctaBody": "Sketch Steps macht aus einem Foto eine Zeichenanleitung Schritt für Schritt. Kostenloser Download im App Store und bei Google Play.",
+      "step": "Schritt {step}",
+      "tip": "Tipp",
+      "fixture": "Lokales Test-Fixture, nicht zur Veröffentlichung. Diese Seite wird nie indexiert und existiert nur in lokalen Builds."
+    }
   }
 }

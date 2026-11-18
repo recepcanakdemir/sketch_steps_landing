@@ -14,7 +14,8 @@ import { rememberLocale } from "@/lib/locale-detection";
 import { cn } from "@/lib/utils";
 
 /**
- * Language switcher: a menu button listing every live locale's homepage.
+ * Language switcher: a menu button listing every live locale's homepage
+ * (or, on blog pages, the matching page passed in `hrefs`).
  * It only links to the existing localized URLs (no redirects, no detection,
  * no new routes). A pick of another language sends a GA4 language_switch
  * event (only after analytics consent), so canonicals, hreflang and the sitemap are unaffected.
@@ -31,12 +32,18 @@ export function LanguageSwitcher({
   locale,
   label,
   placement,
+  hrefs,
   className,
 }: {
   locale: Locale;
   /** Translated word for "Language", used in the accessible name. */
   label: string;
   placement: "header" | "footer";
+  /**
+   * Per-language targets (blog pages: the article's translation or that
+   * language's blog). Defaults to each language's homepage.
+   */
+  hrefs?: Partial<Record<Locale, string>>;
   className?: string;
 }) {
   const [open, setOpen] = useState(false);
@@ -182,7 +189,7 @@ export function LanguageSwitcher({
                 }}
                 role="menuitem"
                 tabIndex={-1}
-                href={`${localizePath(code, "/")}${search}`}
+                href={`${hrefs?.[code] ?? localizePath(code, "/")}${search}`}
                 hrefLang={code}
                 lang={code}
                 aria-current={active ? "page" : undefined}

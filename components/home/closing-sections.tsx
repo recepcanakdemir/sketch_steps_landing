@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "@/components/home/language-switcher";
 import { PhoneFrame, SectionHeading, focusRing } from "@/components/home/primitives";
 import { StoreBadges } from "@/components/home/store-buttons";
 import { DEFAULT_LOCALE, localizePath, type Locale } from "@/i18n/config";
+import { BLOG_PATH, hasBlogEntries } from "@/lib/blog";
 import { PRIVACY_POLICY_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -163,9 +164,17 @@ export async function FinalCta() {
   );
 }
 
-export async function SiteFooter() {
+/**
+ * Site footer. Blog pages pass `languageHrefs` so the language menu leads to
+ * the matching blog page. A "Blog" link appears once the current language
+ * has published articles.
+ */
+export async function SiteFooter({
+  languageHrefs,
+}: { languageHrefs?: Partial<Record<Locale, string>> } = {}) {
   const t = await getTranslations("Home.footer");
   const tNav = await getTranslations("Home.nav");
+  const tBlog = await getTranslations("Blog");
   const locale = (await getLocale()) as Locale;
   // Support and policy pages exist in English only: mark those links as
   // English on translated homepages (no attribute on the English site).
@@ -189,10 +198,16 @@ export async function SiteFooter() {
             locale={locale}
             label={tNav("language")}
             placement="footer"
+            hrefs={languageHrefs}
             className="sm:hidden"
           />
         </div>
         <nav aria-label={t("label")} className="flex max-w-2xl flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-medium text-ink-soft">
+          {hasBlogEntries(locale) ? (
+            <Link className={linkClass} href={localizePath(locale, BLOG_PATH)}>
+              {tBlog("nav")}
+            </Link>
+          ) : null}
           <a className={linkClass} href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
             {t("privacyPolicy")}
           </a>

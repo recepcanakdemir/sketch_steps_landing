@@ -267,5 +267,42 @@
       "body": "顔写真をアップロードするだけで、\n描き方のステップをすぐに作成。",
       "step": "ステップ{step}"
     }
+  },
+  "Blog": {
+    "nav": "ブログ",
+    "index": {
+      "title": "Sketch Steps ブログ：絵の描き方とコツ",
+      "description": "ステップごとの描き方ガイド、ルーミス法の基本、Sketch Steps を使いこなすためのコツを紹介します。",
+      "heading": "一歩ずつ、絵が描けるように。",
+      "lead": "ステップごとの描き方ガイド、ルーミス法の基本、Sketch Steps を使いこなすためのコツを紹介します。",
+      "topics": "トピック",
+      "count": "{count}件の記事",
+      "empty": "新しい記事を準備中です。それまでは、アプリでステップごとのチュートリアルを試してみてください。",
+      "ctaTitle": "あなたの写真を描き方チュートリアルに",
+      "ctaBody": "Sketch Steps は App Store と Google Play でダウンロードできます。"
+    },
+    "categories": {
+      "portraits": "人物画",
+      "loomisMethod": "ルーミス法",
+      "drawingBasics": "描画の基本",
+      "animals": "動物",
+      "appGuides": "アプリの使い方"
+    },
+    "article": {
+      "breadcrumb": "パンくずリスト",
+      "home": "ホーム",
+      "blog": "ブログ",
+      "published": "公開日：{date}",
+      "updated": "更新日：{date}",
+      "by": "執筆：{name}",
+      "readingTime": "{minutes}分で読めます",
+      "related": "関連記事",
+      "backToBlog": "ブログに戻る",
+      "ctaTitle": "自分の写真で試してみましょう",
+      "ctaBody": "Sketch Steps は写真をステップごとの描き方チュートリアルに変換します。App Store と Google Play から無料でダウンロードできます。",
+      "step": "ステップ{step}",
+      "tip": "ヒント",
+      "fixture": "ローカル専用のテスト記事です。公開用ではありません。このページはインデックスされず、ローカルビルドにのみ存在します。"
+    }
   }
 }

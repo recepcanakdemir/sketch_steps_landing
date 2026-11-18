@@ -8,13 +8,29 @@ import { PhoneFrame, focusRing } from "@/components/home/primitives";
 import { SocialProof } from "@/components/home/social-proof";
 import { StoreBadges } from "@/components/home/store-buttons";
 import { localizePath, type Locale } from "@/i18n/config";
+import { BLOG_PATH, hasBlogEntries } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 export const HERO_CTA_ID = "hero-cta";
 
-export async function SiteHeader() {
+/**
+ * Site header. On the homepage (default) the nav links jump to its sections;
+ * other pages (the blog) pass `onHomePage={false}` so they point to the
+ * localized homepage's sections, and `languageHrefs` so the language menu
+ * leads to the matching page instead of each homepage. A "Blog" link appears
+ * once the current language has published articles.
+ */
+export async function SiteHeader({
+  onHomePage = true,
+  languageHrefs,
+}: {
+  onHomePage?: boolean;
+  languageHrefs?: Partial<Record<Locale, string>>;
+} = {}) {
   const t = await getTranslations("Home.nav");
+  const tBlog = await getTranslations("Blog");
   const locale = (await getLocale()) as Locale;
+  const section = (id: string) => (onHomePage ? `#${id}` : `${localizePath(locale, "/")}#${id}`);
   const linkClass = cn(
     "rounded-full px-3 py-2 text-sm font-semibold text-ink-soft transition hover:text-ink",
     focusRing,
@@ -46,15 +62,20 @@ export async function SiteHeader() {
         />
       </Link>
       <nav aria-label={t("label")} className="hidden items-center gap-1 whitespace-nowrap lg:flex">
-        <a className={linkClass} href="#how-it-works">
+        <a className={linkClass} href={section("how-it-works")}>
           {t("howItWorks")}
         </a>
-        <a className={linkClass} href="#features">
+        <a className={linkClass} href={section("features")}>
           {t("features")}
         </a>
-        <a className={linkClass} href="#faq">
+        <a className={linkClass} href={section("faq")}>
           {t("faq")}
         </a>
+        {hasBlogEntries(locale) ? (
+          <Link className={linkClass} href={localizePath(locale, BLOG_PATH)}>
+            {tBlog("nav")}
+          </Link>
+        ) : null}
       </nav>
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         {/* Phones get a 44x44 globe-only button; below 360px there is no
@@ -64,6 +85,7 @@ export async function SiteHeader() {
           locale={locale}
           label={t("language")}
           placement="header"
+          hrefs={languageHrefs}
           className="hidden min-[360px]:block"
         />
         <StoreBadges size="header" location="header" className="shrink-0 flex-nowrap gap-2" />

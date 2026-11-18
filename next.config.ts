@@ -17,7 +17,12 @@ const nextConfig: NextConfig = {
     globalNotFound: true,
   },
   async headers() {
+    // Local blog fixtures (content/blog/fixtures) are never built in hosted
+    // builds; if one were ever served, this keeps it out of search engines.
+    const fixtureNoIndex = [{ key: "X-Robots-Tag", value: "noindex, nofollow" }];
     return [
+      { source: "/blog/fixture-:slug", headers: fixtureNoIndex },
+      { source: "/:locale/blog/fixture-:slug", headers: fixtureNoIndex },
       {
         source: "/:path*",
         headers: [

@@ -87,7 +87,13 @@ one page view on the new page.
 | `demo_interaction` | `action` (`next`, `previous`, `select_step`, `slider`), `step_number` (1-9), `page_language` | A step button or thumbnail changes the step; the slider reports once the visitor stops on a step (0.8 s). |
 
 `cta_location` values: `header`, `hero`, `how_it_works`, `interactive_demo`,
-`final_cta`, `footer`, `sticky_bar` (from the `data-cta-location` attribute).
+`final_cta`, `footer`, `sticky_bar`, and on the blog `blog_index` (index page
+box), `blog_article` (end of an article) and `blog_inline` (a box inside the
+article body) (from the `data-cta-location` attribute). Blog pages use the
+same header and footer, so their `header` and `footer` clicks are told apart
+by `page_path`. The blog adds no new event and no extra listener: its
+store buttons are the same components, so each click sends exactly one
+`store_click`.
 `page_language` is `en`, `es`, `fr`, `ja` or `de` (the page's `<html lang>`).
 `page_path` is a GA4 built-in field: it appears as the standard "Page path"
 dimension and needs no custom dimension. No event contains personal data.

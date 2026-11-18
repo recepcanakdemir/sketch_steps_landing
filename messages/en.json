@@ -252,5 +252,42 @@
       "close": "Close",
       "settings": "Cookie settings"
     }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Sketch Steps Blog: Drawing Tutorials and Tips",
+      "description": "Step-by-step drawing guides, Loomis method basics and tips for getting the most out of Sketch Steps.",
+      "heading": "Learn to draw, one step at a time.",
+      "lead": "Step-by-step drawing guides, Loomis method basics and tips for getting the most out of Sketch Steps.",
+      "topics": "Topics",
+      "count": "{count, plural, one {# article} other {# articles}}",
+      "empty": "New articles are on the way. In the meantime, try a step-by-step tutorial in the app.",
+      "ctaTitle": "Turn your own photo into a drawing tutorial",
+      "ctaBody": "Download Sketch Steps on the App Store or Google Play."
+    },
+    "categories": {
+      "portraits": "Portraits",
+      "loomisMethod": "Loomis method",
+      "drawingBasics": "Drawing basics",
+      "animals": "Animals",
+      "appGuides": "App guides"
+    },
+    "article": {
+      "breadcrumb": "Breadcrumb",
+      "home": "Home",
+      "blog": "Blog",
+      "published": "Published {date}",
+      "updated": "Updated {date}",
+      "by": "By {name}",
+      "readingTime": "{minutes} min read",
+      "related": "Related articles",
+      "backToBlog": "Back to the blog",
+      "ctaTitle": "Try it with your own photo",
+      "ctaBody": "Sketch Steps turns a photo into a step-by-step drawing tutorial. Free to download on the App Store and Google Play.",
+      "step": "Step {step}",
+      "tip": "Tip",
+      "fixture": "Local test fixture, not for publication. This page is never indexed and only exists in local builds."
+    }
   }
 }

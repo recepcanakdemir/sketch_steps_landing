@@ -267,5 +267,42 @@
       "body": "Sube una foto de un rostro y recibe al instante pasos de dibujo guiados.",
       "step": "Paso {step}"
     }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Blog de Sketch Steps: tutoriales y consejos de dibujo",
+      "description": "Guías de dibujo paso a paso, fundamentos del método Loomis y consejos para sacar el máximo partido a Sketch Steps.",
+      "heading": "Aprende a dibujar, paso a paso.",
+      "lead": "Guías de dibujo paso a paso, fundamentos del método Loomis y consejos para sacar el máximo partido a Sketch Steps.",
+      "topics": "Temas",
+      "count": "{count, plural, one {# artículo} other {# artículos}}",
+      "empty": "Pronto publicaremos nuevos artículos. Mientras tanto, prueba un tutorial paso a paso en la app.",
+      "ctaTitle": "Convierte tu propia foto en un tutorial de dibujo",
+      "ctaBody": "Descarga Sketch Steps en el App Store o en Google Play."
+    },
+    "categories": {
+      "portraits": "Retratos",
+      "loomisMethod": "Método Loomis",
+      "drawingBasics": "Fundamentos del dibujo",
+      "animals": "Animales",
+      "appGuides": "Guías de la app"
+    },
+    "article": {
+      "breadcrumb": "Ruta de navegación",
+      "home": "Inicio",
+      "blog": "Blog",
+      "published": "Publicado el {date}",
+      "updated": "Actualizado el {date}",
+      "by": "Por {name}",
+      "readingTime": "{minutes} min de lectura",
+      "related": "Artículos relacionados",
+      "backToBlog": "Volver al blog",
+      "ctaTitle": "Pruébalo con tu propia foto",
+      "ctaBody": "Sketch Steps convierte una foto en un tutorial de dibujo paso a paso. Descarga gratuita en el App Store y Google Play.",
+      "step": "Paso {step}",
+      "tip": "Consejo",
+      "fixture": "Fixture de prueba local, no se publica. Esta página nunca se indexa y solo existe en compilaciones locales."
+    }
   }
 }

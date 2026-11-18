@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
  * built from (components/analytics.tsx, one delegated listener):
  *   data-cta="app_store" | "google_play"
  *   data-cta-location="header" | "hero" | "how_it_works" | "interactive_demo" | "final_cta" | "footer" | "sticky_bar"
+ *     | "blog_index" | "blog_article" | "blog_inline"
  */
 
 export type CtaLocation =
@@ -29,7 +30,13 @@ export type CtaLocation =
   | "final_cta"
   | "footer"
   | "header"
-  | "interactive_demo";
+  | "interactive_demo"
+  /** Blog index page call to action. */
+  | "blog_index"
+  /** Call to action at the end of a blog article. */
+  | "blog_article"
+  /** Call to action placed inside an article body ("appCta" block). */
+  | "blog_inline";
 
 /**
  * "header" is responsive: an icon-only square button on phones (so both
