@@ -2,8 +2,7 @@ import { demo } from "@/components/home/assets";
 import type { Article, BlogImage } from "@/lib/blog/types";
 
 /**
- * DRAFT, NOT PUBLISHED. Not registered in content/blog/index.ts, and
- * status "draft" is never built. Review notes:
+ * Published 2026-11-18 with the owner's approval. Review notes:
  * docs/editorial/how-to-draw-a-face/ (image-review.md, review.md).
  *
  * Images: the nine stages Sketch Steps generated from a portrait photo (the
@@ -49,7 +48,8 @@ const article: Article = {
         "Draw a face step by step with the Loomis method: a circle, guidelines, features, hair and shading, shown in nine pencil stages. Made for beginners.",
       excerpt:
         "Nine pencil stages, from a single circle to a finished portrait, with what to draw at each stage and how to catch the usual mistakes.",
-      status: "draft",
+      status: "published",
+      publishedAt: "2026-11-18",
       heroImage: {
         ...images.s9,
         alt: "Finished pencil sketch of a smiling young man with wavy hair, the last of nine drawing stages",
