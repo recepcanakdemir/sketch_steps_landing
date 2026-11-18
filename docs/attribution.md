@@ -30,15 +30,17 @@ The old `/tiktok` and `/instagram` pages count as `tiktok` / `instagram`.
    - **Google Play:** `&referrer=utm_source%3Dsketchsteps.app%26...%26utm_campaign%3D<code>`
      → Play Console acquisition reports.
    - **App Store:** `?pt=<provider token>&ct=<code>&mt=8` → App Store Connect →
-     Analytics → Sources → Campaigns. Needs `APP_STORE_PROVIDER_TOKEN` in
-     `lib/site.ts`; while it is empty, App Store links stay plain.
+     Analytics → Acquisition → Campaigns. Provider token in
+     `lib/site.ts` (`APP_STORE_PROVIDER_TOKEN`). Codes are capped at 30
+     characters (Apple's limit). A campaign shows only after installs from
+     at least 5 Apple Accounts.
 
 ## Where to read the numbers
 
 - **Visits and store clicks per code:** Vercel → sketch-steps-landing →
   Analytics → Events → `Visit` / `Store click`, by `source`.
-- **Installs per code:** Play Console (Android); App Store Connect (iOS, once
-  the provider token is set). Small numbers may be hidden by the stores'
+- **Installs per code:** Play Console (Android); App Store Connect →
+  Analytics → Acquisition → Campaigns (iOS). Small numbers may be hidden by the stores'
   privacy thresholds.
 - **Self-reported source** in the app's onboarding (`discovery_source`,
   PostHog) covers people who went straight to the store.
