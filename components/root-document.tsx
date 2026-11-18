@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { SiteAnalytics } from "@/components/analytics";
+import { SourceTracking } from "@/components/source-tracking";
 import type { Locale } from "@/i18n/config";
 import { fontVariables } from "@/lib/fonts";
 
@@ -45,6 +46,8 @@ export async function RootDocument({
           <SiteAnalytics />
         </NextIntlClientProvider>
         <Analytics />
+        {/* After <Analytics />, so its queue exists before the first event. */}
+        <SourceTracking />
       </body>
     </html>
   );

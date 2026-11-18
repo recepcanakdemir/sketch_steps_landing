@@ -1,14 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 import {
   type BrowserEnvironment,
   getBrowserEnvironment,
   tryOpenInNativeBrowser,
 } from "@/lib/in-app-browser";
-import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site";
+import { PLAIN_STORE_URLS, getStoreUrls } from "@/lib/attribution";
 import { cn } from "@/lib/utils";
 
 /**
@@ -46,6 +46,17 @@ type BadgeSize = "default" | "medium" | "compact" | "header";
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2";
+
+const noopSubscribe = () => () => {};
+const plainStoreUrls = () => PLAIN_STORE_URLS;
+
+/**
+ * Store URLs for this visit: plain in the server HTML, then carrying the
+ * visitor's source (lib/attribution) once the page runs in the browser.
+ */
+export function useStoreUrls() {
+  return useSyncExternalStore(noopSubscribe, getStoreUrls, plainStoreUrls);
+}
 
 export function useBrowserEnvironment() {
   const [environment, setEnvironment] = useState<BrowserEnvironment>({
@@ -99,6 +110,7 @@ function useAppStoreLink() {
   const [showInAppHelp, setShowInAppHelp] = useState(false);
   const [copied, setCopied] = useState(false);
   const attemptCleanupRef = useRef<(() => void) | null>(null);
+  const { appStore: appStoreUrl } = useStoreUrls();
 
   useEffect(() => {
     return () => attemptCleanupRef.current?.();
@@ -142,7 +154,7 @@ function useAppStoreLink() {
     }, 1500);
     attemptCleanupRef.current = cleanup;
 
-    const attempted = tryOpenInNativeBrowser(environment, APP_STORE_URL);
+    const attempted = tryOpenInNativeBrowser(environment, appStoreUrl);
 
     if (!attempted) {
       cleanup();
@@ -167,11 +179,11 @@ function useAppStoreLink() {
 
   async function copyAppStoreLink() {
     try {
-      await navigator.clipboard.writeText(APP_STORE_URL);
+      await navigator.clipboard.writeText(appStoreUrl);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      window.location.href = APP_STORE_URL;
+      window.location.href = appStoreUrl;
     }
   }
 
@@ -253,11 +265,12 @@ export function AppStoreBadge({
   const isCompact = size === "compact" || isHeader;
   const isMedium = size === "medium";
   const { onClick: handleAppStoreClick, dialog } = useAppStoreLink();
+  const storeUrls = useStoreUrls();
 
   return (
     <>
       <a
-        href={APP_STORE_URL}
+        href={storeUrls.appStore}
         aria-label={t("store.appStoreLabel")}
         onClick={handleAppStoreClick}
         data-cta="app_store"
@@ -334,13 +347,14 @@ export function GooglePlayBadge({
   location: CtaLocation;
 }) {
   const t = useTranslations("Client.store");
+  const storeUrls = useStoreUrls();
   const isHeader = size === "header";
   const isCompact = size === "compact" || isHeader;
   const isMedium = size === "medium";
 
   return (
     <a
-      href={GOOGLE_PLAY_URL}
+      href={storeUrls.googlePlay}
       aria-label={t("googlePlayLabel")}
       data-cta="google_play"
       data-cta-location={location}
@@ -471,12 +485,13 @@ export function TryAppButton({
 }) {
   const t = useTranslations("Client.store");
   const { environment, onClick, dialog } = useAppStoreLink();
+  const storeUrls = useStoreUrls();
   const isAndroid = environment.isAndroid;
 
   return (
     <>
       <a
-        href={isAndroid ? GOOGLE_PLAY_URL : APP_STORE_URL}
+        href={isAndroid ? storeUrls.googlePlay : storeUrls.appStore}
         onClick={isAndroid ? undefined : onClick}
         data-cta={isAndroid ? "google_play" : "app_store"}
         data-cta-location={location}
