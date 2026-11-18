@@ -139,6 +139,9 @@ export async function ArticleBody({ blocks }: { blocks: Block[] }) {
   );
 }
 
+/** Width the white mat adds around a figure: p-1.5 on both sides + borders. */
+const MAT = 14;
+
 export function ArticleFigure({
   image,
   caption,
@@ -150,9 +153,13 @@ export function ArticleFigure({
   priority?: boolean;
   className?: string;
 }) {
+  // The drawing is the card: a thin white mat hugs the image instead of a
+  // column-wide box, so the cream page shows around it. Never wider than the
+  // file (no upscaling) and never taller than 640px.
+  const displayWidth = Math.min(image.width, Math.round((640 * image.width) / image.height));
   return (
-    <figure className={cn("mt-8", className)}>
-      <div className="flex justify-center overflow-hidden rounded-3xl border border-line bg-white p-2 shadow-card">
+    <figure className={cn("mx-auto mt-10", className)} style={{ maxWidth: displayWidth + MAT }}>
+      <div className="rounded-[22px] border border-line bg-white p-1.5 shadow-premium">
         {image.framing ? (
           <FramedImage image={image} framing={image.framing} priority={priority} />
         ) : (
@@ -162,8 +169,8 @@ export function ArticleFigure({
             width={image.width}
             height={image.height}
             priority={priority}
-            sizes="(min-width: 768px) 720px, 100vw"
-            className="h-auto max-h-[640px] w-auto max-w-full rounded-[18px] object-contain"
+            sizes={`(min-width: 768px) ${displayWidth}px, 100vw`}
+            className="h-auto w-full rounded-[16px]"
           />
         )}
       </div>
@@ -196,11 +203,8 @@ function FramedImage({
   const y = (framing.y / image.height) * 100;
   return (
     <div
-      className="relative w-full overflow-hidden rounded-[18px] bg-[#F4F4F4]"
-      style={{
-        maxWidth: image.width,
-        aspectRatio: `${image.width} / ${image.height}`,
-      }}
+      className="relative w-full overflow-hidden rounded-[16px] bg-[#F4F4F4]"
+      style={{ aspectRatio: `${image.width} / ${image.height}` }}
     >
       <Image
         src={image.src}
