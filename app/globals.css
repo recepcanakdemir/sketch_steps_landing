@@ -25,14 +25,124 @@ body {
   overflow-x: hidden;
   background: #ffffff;
   color: #111111;
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  /* The rounded stack defined once in tailwind.config.ts (fontFamily.sans). */
+  font-family: theme("fontFamily.sans");
+}
+
+/* Japanese: break at natural phrase boundaries where supported. */
+:lang(ja) {
+  word-break: auto-phrase;
+  line-break: strict;
+}
+
+/* Browsers without auto-phrase (Safari) would break Japanese headings between
+   any two characters, splitting words. There, headings only break at
+   punctuation and at the phrase boundaries marked with zero-width spaces in
+   messages/ja.json; overflow-wrap is the safety net against overflow. */
+@supports not (word-break: auto-phrase) {
+  :lang(ja) :is(h1, h2, h3) {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Japanese hero headline. Full-width glyphs are wider than Latin letters, so
+   phones get a slightly smaller size that keeps each phrase on its own line
+   (the 42px used for other languages overflows a 360px screen), and kanji and
+   kana get more line height than the tight Latin setting. Other languages are
+   unaffected. */
+:lang(ja) #hero-title {
+  line-height: 1.18;
+}
+@media (max-width: 639.98px) {
+  :lang(ja) #hero-title {
+    font-size: 38px;
+  }
+}
+
+/* German hero headline: the highlighted "Schritt für Schritt." never wraps
+   (it carries the underline) and is wider than a 360px phone column at the
+   42px used for other languages, so German phones get a slightly smaller
+   size. Other languages are unaffected. */
+@media (max-width: 639.98px) {
+  :lang(de) #hero-title {
+    font-size: 38px;
+  }
+}
+
+/* Faint sketchbook grid used behind the hero and demo. */
+.sketchbook-grid {
+  background-image:
+    linear-gradient(rgba(130, 99, 81, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(130, 99, 81, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Step demo range input */
+.step-range {
+  appearance: none;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.step-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: #f6e3d2;
+}
+
+.step-range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: #f6e3d2;
+}
+
+.step-range::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -11px;
+  height: 28px;
+  width: 28px;
+  border-radius: 999px;
+  border: 4px solid #ffffff;
+  background: #d62845;
+  box-shadow: 0 4px 12px rgba(214, 40, 69, 0.35);
+}
+
+.step-range::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 999px;
+  border: 4px solid #ffffff;
+  background: #d62845;
+  box-shadow: 0 4px 12px rgba(214, 40, 69, 0.35);
+}
+
+.step-range:focus-visible {
+  outline: 2px solid #d62845;
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+/* Native FAQ disclosure: hide default marker, keep answers in the HTML. */
+.faq-item > summary {
+  list-style: none;
+}
+
+.faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
 }
 
 ::selection {
@@ -99,7 +209,27 @@ body {
   cursor: ew-resize;
 }
 
+/* Download milestone under the hero CTAs: one short fade-up, no loop. */
+@keyframes social-proof-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.social-proof-in {
+  animation: social-proof-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) 200ms both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .social-proof-in {
+    animation: none;
+  }
+
   *,
   *::before,
   *::after {

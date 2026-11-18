@@ -1,0 +1,308 @@
+{
+  "Home": {
+    "nav": {
+      "label": "Hauptnavigation",
+      "home": "Sketch Steps Startseite",
+      "howItWorks": "So funktioniert’s",
+      "features": "Funktionen",
+      "faq": "FAQ",
+      "language": "Sprache"
+    },
+    "hero": {
+      "eyebrow": "Geführte Zeichenkurse aus deinen Fotos",
+      "title": "Lerne alles zu zeichnen – <accent>Schritt für Schritt.</accent>",
+      "secondaryCta": "So funktioniert’s",
+      "tags": [
+        "Porträts",
+        "Haustiere & Tiere",
+        "Kostenlose Tutorials"
+      ],
+      "tagsLabel": "Was du zeichnen kannst",
+      "frontAlt": "Schrittansicht von Sketch Steps mit Schritt 9 von 9 eines Bleistift-Porträt-Tutorials",
+      "backAlt": "Fertiges Tutorial in Sketch Steps: ein Porträtfoto, verwandelt in ein Bleistift-Zeichentutorial mit 9 Schritten"
+    },
+    "socialProof": {
+      "number": "{count, number}+",
+      "label": "Downloads weltweit"
+    },
+    "howItWorks": {
+      "eyebrow": "So funktioniert’s",
+      "title": "Vom Foto zur fertigen Zeichnung.",
+      "lead": "Sketch Steps verwandelt ein Foto in einen Zeichenkurs, dem du in deinem eigenen Tempo folgen kannst.",
+      "steps": [
+        {
+          "title": "Starte mit einem Foto",
+          "body": "Tippe auf dem Startbildschirm auf Create from photo und wähle ein Bild, das du zeichnen möchtest.",
+          "alt": "Startbildschirm von Sketch Steps mit dem Button Create from photo und kostenlosen Tutorials"
+        },
+        {
+          "title": "Wähle einen Stil",
+          "body": "Entscheide dich für Realistic Paper Portrait, Digital Clean Portrait oder Animal Drawing.",
+          "alt": "Stilauswahl mit Realistic Paper Portrait, Digital Clean Portrait und Animal Drawing"
+        },
+        {
+          "title": "Erhalte dein Tutorial",
+          "body": "Aus deinem Foto wird ein Zeichentutorial mit 8 oder 9 Schritten, mit dem Originalfoto daneben.",
+          "alt": "Fertiges Tutorial mit einem Bleistiftporträt in 9 Schritten neben dem Originalfoto"
+        },
+        {
+          "title": "Zeichne Schritt für Schritt",
+          "body": "Geh die Schritte einzeln oder als durchgehende Liste durch, bis deine Zeichnung fertig ist.",
+          "alt": "Schrittansicht mit dem letzten Schritt eines Bleistift-Porträt-Tutorials"
+        }
+      ],
+      "ctaTitle": "Lust, es mit deinem eigenen Foto auszuprobieren?"
+    },
+    "demo": {
+      "eyebrow": "Interaktive Demo",
+      "title": "Sieh zu, wie eine Zeichnung entsteht.",
+      "lead": "Das sind die echten Schritte, die Sketch Steps aus diesem Porträtfoto erstellt hat – von den ersten Konstruktionslinien bis zur fertigen Skizze. Geh sie in deinem eigenen Tempo durch.",
+      "photoLabel": "Originalfoto",
+      "photoAlt": "Originales Porträtfoto, aus dem das Zeichentutorial erstellt wurde",
+      "stepAlt": "Tutorial zum Porträtzeichnen, Schritt {step} von {total}",
+      "stepCounter": "Schritt {step} von {total}",
+      "previous": "Vorheriger Schritt",
+      "next": "Nächster Schritt",
+      "sliderLabel": "Zeichenschritt",
+      "stepButton": "Schritt {step} anzeigen",
+      "stepsLabel": "Schritte des Tutorials"
+    },
+    "features": {
+      "eyebrow": "Funktionen",
+      "title": "Alles, was du brauchst, um zeichnen zu üben.",
+      "lead": "Geführte Tutorials, Werkzeuge zum Abpausen und eine Galerie für deine Werke – alles in einer App.",
+      "loomis": {
+        "title": "Porträtzeichnen nach Loomis",
+        "body": "Porträt-Tutorials beginnen mit einfachen Konstruktionslinien für Kopf und Gesichtsproportionen und bauen dann bis zur fertigen Skizze auf.",
+        "alt": "Alle Schritte eines Porträt-Tutorials, vom ersten Konstruktionskreis bis zur fertigen Zeichnung"
+      },
+      "styles": {
+        "title": "Drei Tutorial-Stile",
+        "body": "Wähle den Look, der zu deinem Foto und deiner Art zu zeichnen passt.",
+        "items": [
+          {
+            "name": "Realistic Paper Portrait",
+            "detail": "Bleistift auf Papier · 9 Schritte"
+          },
+          {
+            "name": "Digital Clean Portrait",
+            "detail": "Klare Linien · 8 Schritte"
+          },
+          {
+            "name": "Animal Drawing",
+            "detail": "Haus- und Wildtiere · 9 Schritte"
+          }
+        ]
+      },
+      "animals": {
+        "title": "Auch Haustiere und Tiere",
+        "body": "Der Stil Animal Drawing verwandelt Fotos von Haus- und Wildtieren in Schritt-für-Schritt-Tutorials.",
+        "alt": "Alle neun Schritte eines Tutorials zum Zeichnen eines Golden Retrievers"
+      },
+      "traceAi": {
+        "title": "Trace AI",
+        "body": "Verwandle ein Foto in ein Bild mit einem von sechs Effekten – und speichere es dann in Fotos oder pause es ab.",
+        "effects": [
+          "Clean Pencil",
+          "Bold Charcoal",
+          "Anime Ink",
+          "Architectural Line",
+          "Soft Sketch",
+          "Watercolor"
+        ],
+        "effectsLabel": "Trace-AI-Effekte",
+        "alt": "Effektauswahl von Trace AI mit Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch und Watercolor"
+      },
+      "tracingStudio": {
+        "title": "Tracing Studio",
+        "body": "Stöbere in fertigen Strichzeichnungen zum Abpausen, etwa in den Kategorien Tiere, Anime und Fahrzeuge, und speichere deine Favoriten.",
+        "alt": "Tracing Studio mit Vorlagen für Strichzeichnungen in den Kategorien Animals, Anime und Cars"
+      },
+      "freeTutorials": {
+        "title": "Kostenlose Tutorials",
+        "body": "Leg sofort los mit fertigen Tutorials, von Porträts bis zu Tieren.",
+        "alt": "Bibliothek mit kostenlosen Tutorials zum Zeichnen von Porträts und Tieren"
+      },
+      "gallery": {
+        "title": "Deine persönliche Galerie",
+        "body": "Deine Tutorials und Ergebnisse aus Trace AI bleiben in deiner Galerie, mit Filtern für Tutorials, Trace AI und gespeicherte Favoriten.",
+        "alt": "Persönliche Galerie mit den Filtern All, Tutorials, Trace AI und Saved"
+      }
+    },
+    "gallery": {
+      "eyebrow": "App-Galerie",
+      "title": "Sketch Steps im Detail.",
+      "scrollHint": "Wische, um weitere Screens zu sehen",
+      "items": [
+        {
+          "caption": "Fertiger Porträtschritt",
+          "alt": "Schritt 9 von 9 eines Bleistift-Porträt-Tutorials"
+        },
+        {
+          "caption": "Schrittansicht beim Porträt",
+          "alt": "Schrittansicht mit dem letzten Schritt eines Porträt-Tutorials und Vorschaubildern der Schritte"
+        },
+        {
+          "caption": "Ergebnis mit Trace AI",
+          "alt": "Ergebnis von Trace AI im Anime-Stil mit den Buttons Trace it und Save to Photos"
+        },
+        {
+          "caption": "Anime-Vorlagen",
+          "alt": "Anime-Sammlung im Tracing Studio"
+        },
+        {
+          "caption": "Startbildschirm",
+          "alt": "Startbildschirm von Sketch Steps"
+        },
+        {
+          "caption": "Tier-Tutorial",
+          "alt": "Fertiges Tutorial zum Zeichnen eines Golden Retrievers"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Fragen vor deiner ersten Zeichnung.",
+      "items": [
+        {
+          "question": "Was ist die Loomis-Methode?",
+          "answer": "Die Loomis-Methode ist ein Ansatz zum Porträtzeichnen, der mit einer vereinfachten Kopfform beginnt und dann Mittellinien, markante Gesichtspunkte und Proportionen ergänzt. So zeichnest du das Gesicht mit einer klaren Struktur statt nach Gefühl."
+        },
+        {
+          "question": "Was kann ich mit Sketch Steps zeichnen lernen?",
+          "answer": "Porträts und Gesichter mit der Loomis-Methode, Haustiere und andere Tiere mit dem Stil Animal Drawing sowie Strichzeichnungen aus dem Tracing Studio in Kategorien wie Tiere, Anime und Fahrzeuge."
+        },
+        {
+          "question": "Ist Sketch Steps für Anfänger geeignet?",
+          "answer": "Ja. Sketch Steps ist für Anfänger und angehende Künstler gemacht, die klare, wiederholbare Zeichenschritte möchten, ohne sich durch verstreute Tutorials suchen zu müssen."
+        },
+        {
+          "question": "Kann ich meine eigenen Fotos verwenden?",
+          "answer": "Ja. Du kannst Anleitungen aus Gesichtsfotos in deiner Galerie oder aus einem neuen Kamerafoto erstellen. So wird jede Übungseinheit persönlich."
+        },
+        {
+          "question": "Was ist Trace AI?",
+          "answer": "Trace AI verwandelt ein Foto in ein Bild mit einem von sechs Effekten: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch oder Watercolor. Du kannst das Ergebnis in Fotos speichern oder zum Abpausen verwenden."
+        },
+        {
+          "question": "Kann ich mit der App abpausen?",
+          "answer": "Ja. Im Tracing Studio übst du direkt auf geführten Vorlagen und lernst dabei, wie jedes Porträt aufgebaut ist."
+        },
+        {
+          "question": "Ist die App kostenlos?",
+          "answer": "Sketch Steps kannst du im App Store oder bei Google Play herunterladen, und die App enthält kostenlose Tutorials. Preise und Premium-Optionen werden dir vor jedem Kauf in der App angezeigt."
+        },
+        {
+          "question": "Gibt es eine Android-Version?",
+          "answer": "Ja. Sketch Steps ist jetzt bei Google Play erhältlich."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Dein nächstes Porträt beginnt hier.",
+      "lead": "Lade Sketch Steps herunter und verwandle dein nächstes Foto in einen Zeichenkurs Schritt für Schritt."
+    },
+    "footer": {
+      "label": "Fußzeile",
+      "privacyPolicy": "Datenschutzerklärung",
+      "androidPrivacy": "Datenschutzerklärung Android",
+      "iosPrivacy": "Datenschutzerklärung iOS",
+      "terms": "Nutzungsbedingungen",
+      "deleteAccount": "Konto löschen",
+      "support": "Support",
+      "copyright": "© {year} Sketch Steps. Alle Rechte vorbehalten."
+    }
+  },
+  "Client": {
+    "store": {
+      "appStoreLabel": "Laden im App Store",
+      "appStoreTop": "Laden im",
+      "appStoreBottom": "App Store",
+      "googlePlayLabel": "Jetzt bei Google Play",
+      "googlePlayTop": "Jetzt bei",
+      "googlePlayBottom": "Google Play",
+      "storesLabel": "Sketch Steps herunterladen",
+      "tryApp": "Sketch Steps ausprobieren",
+      "onAppStore": "im App Store",
+      "onGooglePlay": "bei Google Play"
+    },
+    "inApp": {
+      "thisApp": "dieser App",
+      "notice": "Du siehst diese Seite in {browser}. Falls sich ein Store-Link nicht öffnet, tippe auf <b>•••</b> und wähle <b>Im Browser öffnen</b>.",
+      "eyebrow": "Im Browser öffnen",
+      "title": "{browser} blockiert den App Store.",
+      "body": "Tippe oben rechts auf das Menü <b>•••</b>, wähle <b>Im Browser öffnen</b> und tippe dann erneut auf den App-Store-Button.",
+      "android": "Sketch Steps gibt es für Android bei Google Play. Schließe diese Meldung und nutze den Google-Play-Button auf dieser Seite.",
+      "copy": "App-Store-Link kopieren",
+      "copied": "Kopiert",
+      "openBrowser": "In meinem Browser öffnen",
+      "close": "Schließen"
+    },
+    "sticky": {
+      "label": "Sketch Steps herunterladen",
+      "title": "Sketch Steps",
+      "subtitle": "Schrittweise zeichnen"
+    },
+    "consent": {
+      "label": "Cookie-Einwilligung",
+      "text": "Dürfen wir Cookies von Google Analytics verwenden, um zu sehen, wie Besucher diese Website finden und nutzen? Sie werden nur gesetzt, wenn du zustimmst. Du kannst deine Auswahl jederzeit unter „Cookie-Einstellungen“ unten auf der Seite ändern.",
+      "privacy": "Datenschutzerklärung",
+      "accept": "Akzeptieren",
+      "reject": "Ablehnen",
+      "close": "Schließen",
+      "settings": "Cookie-Einstellungen"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "Sketch Steps: Loomis-Zeichenanleitungen mit KI, Schritt für Schritt",
+      "description": "Verwandle ein Gesichtsfoto in eine KI-generierte Loomis-Zeichenanleitung, Schritt für Schritt. Zeichne Porträts, Tiere und mehr in deinem Tempo.",
+      "socialTitle": "Sketch Steps: Verwandle Fotos in Loomis-Zeichenanleitungen",
+      "appDescription": "Zeichen-App mit KI, die Gesichtsfotos in Schritt-für-Schritt-Anleitungen verwandelt, um Porträts nach der Loomis-Methode zu zeichnen.",
+      "offerDescription": "Kostenloser Download. Premium-Optionen werden in der App angezeigt."
+    },
+    "socialImage": {
+      "alt": "Sketch Steps: ein Gesichtsfoto, verwandelt in eine Loomis-Zeichenanleitung Schritt für Schritt",
+      "heading": "Loomis-Methode\nSchritt für Schritt",
+      "body": "Lade ein Gesichtsfoto hoch und erhalte sofort geführte Zeichenschritte.",
+      "step": "Schritt {step}"
+    }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Sketch Steps Blog: Zeichenanleitungen und Tipps",
+      "description": "Zeichenanleitungen Schritt für Schritt, Grundlagen der Loomis-Methode und Tipps, wie du das Beste aus Sketch Steps herausholst.",
+      "heading": "Zeichnen lernen, Schritt für Schritt.",
+      "lead": "Zeichenanleitungen Schritt für Schritt, Grundlagen der Loomis-Methode und Tipps, wie du das Beste aus Sketch Steps herausholst.",
+      "topics": "Themen",
+      "count": "{count, plural, one {# Artikel} other {# Artikel}}",
+      "empty": "Neue Artikel sind in Arbeit. Probier bis dahin eine Anleitung Schritt für Schritt in der App aus.",
+      "ctaTitle": "Mach aus deinem eigenen Foto eine Zeichenanleitung",
+      "ctaBody": "Lade Sketch Steps im App Store oder bei Google Play herunter."
+    },
+    "categories": {
+      "portraits": "Porträts",
+      "loomisMethod": "Loomis-Methode",
+      "drawingBasics": "Zeichengrundlagen",
+      "animals": "Tiere",
+      "appGuides": "App-Anleitungen"
+    },
+    "article": {
+      "breadcrumb": "Brotkrümelnavigation",
+      "home": "Startseite",
+      "blog": "Blog",
+      "published": "Veröffentlicht am {date}",
+      "updated": "Aktualisiert am {date}",
+      "by": "Von {name}",
+      "readingTime": "{minutes} Min. Lesezeit",
+      "related": "Ähnliche Artikel",
+      "backToBlog": "Zurück zum Blog",
+      "ctaTitle": "Probier es mit deinem eigenen Foto aus",
+      "ctaBody": "Sketch Steps macht aus einem Foto eine Zeichenanleitung Schritt für Schritt. Kostenloser Download im App Store und bei Google Play.",
+      "step": "Schritt {step}",
+      "tip": "Tipp",
+      "fixture": "Lokales Test-Fixture, nicht zur Veröffentlichung. Diese Seite wird nie indexiert und existiert nur in lokalen Builds."
+    }
+  }
+}

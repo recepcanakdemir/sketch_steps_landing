@@ -1,0 +1,293 @@
+{
+  "Home": {
+    "nav": {
+      "label": "Main",
+      "home": "Sketch Steps home",
+      "howItWorks": "How it works",
+      "features": "Features",
+      "faq": "FAQ",
+      "language": "Language"
+    },
+    "hero": {
+      "eyebrow": "Guided drawing lessons from your photos",
+      "title": "Learn to Draw Anything, <accent>Step by Step.</accent>",
+      "secondaryCta": "See how it works",
+      "tags": [
+        "Portraits",
+        "Pets & animals",
+        "Free tutorials"
+      ],
+      "tagsLabel": "What you can draw",
+      "frontAlt": "Sketch Steps step viewer showing step 9 of 9 of a pencil portrait tutorial",
+      "backAlt": "Sketch Steps tutorial ready screen: a portrait photo turned into a 9-step pencil drawing tutorial"
+    },
+    "socialProof": {
+      "number": "{count, number}+",
+      "label": "Downloads worldwide"
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "From photo to finished drawing.",
+      "lead": "Sketch Steps turns one photo into a drawing lesson you can follow at your own pace.",
+      "steps": [
+        {
+          "title": "Start from a photo",
+          "body": "Tap Create from photo on the home screen and pick a picture you'd like to draw.",
+          "alt": "Sketch Steps home screen with the Create from photo button and free tutorials"
+        },
+        {
+          "title": "Pick a style",
+          "body": "Choose Realistic Paper Portrait, Digital Clean Portrait or Animal Drawing.",
+          "alt": "Style picker with Realistic Paper Portrait, Digital Clean Portrait and Animal Drawing"
+        },
+        {
+          "title": "Get your tutorial",
+          "body": "Your photo becomes a drawing tutorial of 8 or 9 steps, with the original photo alongside.",
+          "alt": "Tutorial ready screen showing a 9-step pencil portrait next to the original photo"
+        },
+        {
+          "title": "Draw step by step",
+          "body": "Move through the steps one at a time or as a scrolling list, until your drawing is done.",
+          "alt": "Step viewer showing the final step of a pencil portrait tutorial"
+        }
+      ],
+      "ctaTitle": "Ready to try it with your own photo?"
+    },
+    "demo": {
+      "eyebrow": "Interactive demo",
+      "title": "See a drawing come together.",
+      "lead": "These are the real steps Sketch Steps generated from this portrait photo, from the first construction lines to the finished sketch. Move through them at your own pace.",
+      "photoLabel": "Original photo",
+      "photoAlt": "Original portrait photo used to generate the drawing tutorial",
+      "stepAlt": "Portrait drawing tutorial, step {step} of {total}",
+      "stepCounter": "Step {step} of {total}",
+      "previous": "Previous step",
+      "next": "Next step",
+      "sliderLabel": "Drawing step",
+      "stepButton": "Show step {step}",
+      "stepsLabel": "Tutorial steps"
+    },
+    "features": {
+      "eyebrow": "Features",
+      "title": "Everything you need to practice drawing.",
+      "lead": "Guided tutorials, tracing tools and a gallery for your work — all in one app.",
+      "loomis": {
+        "title": "Loomis portrait drawing",
+        "body": "Portrait tutorials start with simple construction lines for the head and facial proportions, then build up to a finished sketch.",
+        "alt": "All steps of a portrait tutorial, from the first construction circle to the finished drawing"
+      },
+      "styles": {
+        "title": "Three tutorial styles",
+        "body": "Pick the look that fits your photo and the way you like to draw.",
+        "items": [
+          {
+            "name": "Realistic Paper Portrait",
+            "detail": "Pencil on paper · 9 steps"
+          },
+          {
+            "name": "Digital Clean Portrait",
+            "detail": "Clean lines · 8 steps"
+          },
+          {
+            "name": "Animal Drawing",
+            "detail": "Pets & wildlife · 9 steps"
+          }
+        ]
+      },
+      "animals": {
+        "title": "Pets and animals, too",
+        "body": "The Animal Drawing style turns photos of pets and wildlife into step-by-step tutorials.",
+        "alt": "All nine steps of a golden retriever drawing tutorial"
+      },
+      "traceAi": {
+        "title": "Trace AI",
+        "body": "Turn a photo into an image in one of six effects, then save it to Photos or trace it.",
+        "effects": [
+          "Clean Pencil",
+          "Bold Charcoal",
+          "Anime Ink",
+          "Architectural Line",
+          "Soft Sketch",
+          "Watercolor"
+        ],
+        "effectsLabel": "Trace AI effects",
+        "alt": "Trace AI effect picker with Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch and Watercolor"
+      },
+      "tracingStudio": {
+        "title": "Tracing Studio",
+        "body": "Browse ready-made line drawings in categories such as animals, anime and cars, and keep your favorites.",
+        "alt": "Tracing Studio with line drawing templates in Animals, Anime and Cars categories"
+      },
+      "freeTutorials": {
+        "title": "Free tutorials",
+        "body": "Start practicing right away with ready-made tutorials, from portraits to animals.",
+        "alt": "Free tutorials library with portrait and animal drawing tutorials"
+      },
+      "gallery": {
+        "title": "Your personal gallery",
+        "body": "Your tutorials and Trace AI results stay in your gallery, with filters for tutorials, Trace AI and saved favorites.",
+        "alt": "Personal gallery with All, Tutorials, Trace AI and Saved filters"
+      }
+    },
+    "gallery": {
+      "eyebrow": "App gallery",
+      "title": "A closer look at Sketch Steps.",
+      "scrollHint": "Swipe to see more screens",
+      "items": [
+        {
+          "caption": "Finished portrait step",
+          "alt": "Step 9 of 9 of a pencil portrait tutorial"
+        },
+        {
+          "caption": "Portrait step viewer",
+          "alt": "Step viewer showing the final step of a portrait tutorial with step thumbnails"
+        },
+        {
+          "caption": "Trace AI result",
+          "alt": "Trace AI result in an anime style with Trace it and Save to Photos buttons"
+        },
+        {
+          "caption": "Anime templates",
+          "alt": "Anime collection in Tracing Studio"
+        },
+        {
+          "caption": "Home screen",
+          "alt": "Sketch Steps home screen"
+        },
+        {
+          "caption": "Animal tutorial",
+          "alt": "Tutorial ready screen for a golden retriever drawing"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions before your first drawing.",
+      "items": [
+        {
+          "question": "What is the Loomis Method?",
+          "answer": "The Loomis Method is a portrait drawing framework that starts with a simplified head shape, then adds center lines, facial landmarks, and proportions so the face can be drawn with structure instead of guesswork."
+        },
+        {
+          "question": "What can I learn to draw with Sketch Steps?",
+          "answer": "Portraits and faces with the Loomis method, pets and other animals with the Animal Drawing style, and line drawings from Tracing Studio in categories such as animals, anime and cars."
+        },
+        {
+          "question": "Is Sketch Steps suitable for beginners?",
+          "answer": "Yes. Sketch Steps is designed for beginners and aspiring artists who want clear, repeatable drawing steps without having to search through random tutorials."
+        },
+        {
+          "question": "Can I use my own photos?",
+          "answer": "Yes. You can generate guides from face photos in your gallery or from a new camera capture, making every practice session personal."
+        },
+        {
+          "question": "What is Trace AI?",
+          "answer": "Trace AI turns a photo into an image in one of six effects: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch or Watercolor. You can save the result to Photos or use it for tracing."
+        },
+        {
+          "question": "Does the app support tracing?",
+          "answer": "Yes. The tracing studio lets you practice directly over guided references while you learn the construction behind each portrait."
+        },
+        {
+          "question": "Is the app free?",
+          "answer": "Sketch Steps can be downloaded from the App Store or Google Play and includes free tutorials. Pricing and premium options are shown in the app before any purchase."
+        },
+        {
+          "question": "Is there an Android version?",
+          "answer": "Yes. Sketch Steps is available now on Google Play."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Your Next Portrait Starts Here.",
+      "lead": "Download Sketch Steps and turn your next photo into a step-by-step drawing lesson."
+    },
+    "footer": {
+      "label": "Footer",
+      "privacyPolicy": "Privacy Policy",
+      "androidPrivacy": "Android Privacy Policy",
+      "iosPrivacy": "iOS Privacy Policy",
+      "terms": "Terms of Use",
+      "deleteAccount": "Delete Account",
+      "support": "Support",
+      "copyright": "© {year} Sketch Steps. All rights reserved."
+    }
+  },
+  "Client": {
+    "store": {
+      "appStoreLabel": "Download on the App Store",
+      "appStoreTop": "Download on the",
+      "appStoreBottom": "App Store",
+      "googlePlayLabel": "Get it on Google Play",
+      "googlePlayTop": "Get it on",
+      "googlePlayBottom": "Google Play",
+      "storesLabel": "Download Sketch Steps",
+      "tryApp": "Try Sketch Steps",
+      "onAppStore": "on the App Store",
+      "onGooglePlay": "on Google Play"
+    },
+    "inApp": {
+      "thisApp": "this app",
+      "notice": "You’re viewing this inside {browser}. If a store link doesn’t open, tap <b>•••</b> and choose <b>Open in browser</b>.",
+      "eyebrow": "Open in browser",
+      "title": "{browser} is blocking the App Store.",
+      "body": "Tap the <b>•••</b> menu in the top-right corner, choose <b>Open in browser</b>, then tap the App Store button again.",
+      "android": "Sketch Steps is available for Android on Google Play. Close this message and use the Google Play button on this page.",
+      "copy": "Copy App Store link",
+      "copied": "Copied",
+      "openBrowser": "Open in my browser",
+      "close": "Close"
+    },
+    "sticky": {
+      "label": "Download Sketch Steps",
+      "title": "Sketch Steps",
+      "subtitle": "Draw step by step"
+    },
+    "consent": {
+      "label": "Cookie consent",
+      "text": "May we use Google Analytics cookies to see how visitors find and use this site? Nothing is set unless you accept. You can change your choice at any time under “Cookie settings” at the bottom of the page.",
+      "privacy": "Privacy Policy",
+      "accept": "Accept",
+      "reject": "Reject",
+      "close": "Close",
+      "settings": "Cookie settings"
+    }
+  },
+  "Blog": {
+    "nav": "Blog",
+    "index": {
+      "title": "Sketch Steps Blog: Drawing Tutorials and Tips",
+      "description": "Step-by-step drawing guides, Loomis method basics and tips for getting the most out of Sketch Steps.",
+      "heading": "Learn to draw, one step at a time.",
+      "lead": "Step-by-step drawing guides, Loomis method basics and tips for getting the most out of Sketch Steps.",
+      "topics": "Topics",
+      "count": "{count, plural, one {# article} other {# articles}}",
+      "empty": "New articles are on the way. In the meantime, try a step-by-step tutorial in the app.",
+      "ctaTitle": "Turn your own photo into a drawing tutorial",
+      "ctaBody": "Download Sketch Steps on the App Store or Google Play."
+    },
+    "categories": {
+      "portraits": "Portraits",
+      "loomisMethod": "Loomis method",
+      "drawingBasics": "Drawing basics",
+      "animals": "Animals",
+      "appGuides": "App guides"
+    },
+    "article": {
+      "breadcrumb": "Breadcrumb",
+      "home": "Home",
+      "blog": "Blog",
+      "published": "Published {date}",
+      "updated": "Updated {date}",
+      "by": "By {name}",
+      "readingTime": "{minutes} min read",
+      "related": "Related articles",
+      "backToBlog": "Back to the blog",
+      "ctaTitle": "Try it with your own photo",
+      "ctaBody": "Sketch Steps turns a photo into a step-by-step drawing tutorial. Free to download on the App Store and Google Play.",
+      "step": "Step {step}",
+      "tip": "Tip",
+      "fixture": "Local test fixture, not for publication. This page is never indexed and only exists in local builds."
+    }
+  }
+}
