@@ -14,7 +14,7 @@ There is no Google Tag Manager container; gtag.js is loaded directly, once.
 
 | Variable | Where it comes from | Purpose |
 |---|---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-6Q1F6EHWDD` in `.env.production` (committed; a public ID, not a secret) | GA4 web stream ID. Unset or empty = GA off. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Not set at launch (GA off). To turn on: `G-6Q1F6EHWDD` in a committed `.env.production` or in Vercel | GA4 web stream ID. Unset or empty = GA off. |
 | `NEXT_PUBLIC_GA_HOSTS` | Default in code: `sketchsteps.app,www.sketchsteps.app` | Hostnames where GA may load. |
 
 Both are `NEXT_PUBLIC_` values, inlined into the JavaScript at build time.
@@ -28,11 +28,12 @@ Where analytics runs:
 | Vercel Preview (`*.vercel.app`, branch URLs) | Off: the ID is in the build, but the host is not allowed. |
 | Vercel Production on sketchsteps.app / www | On, after consent. |
 
-Why `.env.production`: the measurement ID is public and the same for every
-production build, so keeping it in the repository means a deploy works
-without extra setup and the value is reviewed like code. Vercel environment
-variables take precedence over the file, so it can still be changed in the
-Vercel dashboard. No Vercel variable is required for launch.
+**Launch status: GA4 is off.** The site launched without a measurement ID,
+so gtag.js is never loaded, no cookie is set and no consent banner is shown.
+Turn it on only after the Privacy Policy covers the website
+(`docs/privacy-disclosures.md`): add `.env.production` with
+`NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6Q1F6EHWDD` (a public ID, not a secret), or
+set the same variable for Production in Vercel, then redeploy.
 
 Optional Vercel variables (Project Settings → Environment Variables):
 

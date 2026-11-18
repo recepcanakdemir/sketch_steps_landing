@@ -81,4 +81,10 @@ Vercel.
 - Production build on localhost: no GA script, no external requests.
 - Build with `VERCEL=1 BLOG_FIXTURES=1 BLOG_DRAFT_PREVIEW=1`: both flags
   ignored, no fixture or draft routes.
-- No secrets in the diff; `.env.production` contains only the public GA4 ID.
+- No secrets in the diff.
+
+## Launch decision (owner)
+
+Launched with GA4 **off**: `.env.production` was removed, so there is no
+measurement ID, no consent banner and no cookies. GA4 is turned on later,
+after the Privacy Policy update (`docs/analytics.md`, "Launch status").
