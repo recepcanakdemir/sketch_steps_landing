@@ -242,6 +242,15 @@
       "label": "Sketch Stepsをダウンロード",
       "title": "Sketch Steps",
       "subtitle": "一歩ずつ描ける"
+    },
+    "consent": {
+      "label": "Cookie の同意",
+      "text": "サイトの利用状況を把握するため、Google アナリティクスの Cookie を使用してもよろしいですか？同意いただいた場合にのみ使用します。選択はページ下部の「Cookie 設定」からいつでも変更できます。",
+      "privacy": "プライバシーポリシー",
+      "accept": "同意する",
+      "reject": "拒否する",
+      "close": "閉じる",
+      "settings": "Cookie 設定"
     }
   },
   "Metadata": {

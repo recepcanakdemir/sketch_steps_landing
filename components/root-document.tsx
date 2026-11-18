@@ -3,13 +3,15 @@ import type { AbstractIntlMessages } from "next-intl";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
+import { SiteAnalytics } from "@/components/analytics";
 import type { Locale } from "@/i18n/config";
 import { fontVariables } from "@/lib/fonts";
 
 /**
  * The <html>/<body> shell shared by every root layout (English at the root,
  * other locales under /[locale]). Keeping it in one place guarantees that all
- * locales get the same analytics, providers and document structure.
+ * locales get the same analytics (Vercel Analytics, plus GA4 after consent),
+ * providers and document structure.
  *
  * Only the "Client" message namespace is sent to the browser. Page copy is
  * rendered on the server, so it is not serialized a second time.
@@ -40,6 +42,7 @@ export async function RootDocument({
       <body>
         <NextIntlClientProvider messages={clientMessages}>
           {children}
+          <SiteAnalytics />
         </NextIntlClientProvider>
         <Analytics />
       </body>

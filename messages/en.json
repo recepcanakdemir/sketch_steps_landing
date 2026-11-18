@@ -242,6 +242,15 @@
       "label": "Download Sketch Steps",
       "title": "Sketch Steps",
       "subtitle": "Draw step by step"
+    },
+    "consent": {
+      "label": "Cookie consent",
+      "text": "May we use Google Analytics cookies to see how visitors find and use this site? Nothing is set unless you accept. You can change your choice at any time under “Cookie settings” at the bottom of the page.",
+      "privacy": "Privacy Policy",
+      "accept": "Accept",
+      "reject": "Reject",
+      "close": "Close",
+      "settings": "Cookie settings"
     }
   }
 }

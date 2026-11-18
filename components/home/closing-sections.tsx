@@ -3,16 +3,16 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { demo, screens } from "@/components/home/assets";
+import { ConsentSettingsButton } from "@/components/analytics";
 import { LanguageSwitcher } from "@/components/home/language-switcher";
 import { PhoneFrame, SectionHeading, focusRing } from "@/components/home/primitives";
 import { StoreBadges } from "@/components/home/store-buttons";
 import { DEFAULT_LOCALE, localizePath, type Locale } from "@/i18n/config";
+import { PRIVACY_POLICY_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const FINAL_CTA_ID = "download";
 
-const PRIVACY_POLICY_URL =
-  "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 const TERMS_OF_USE_URL =
   "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 
@@ -156,7 +156,7 @@ export async function FinalCta() {
           <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-7 text-white/85 sm:text-lg">
             {t("lead")}
           </p>
-          <StoreBadges size="default" location="final" className="mt-8" />
+          <StoreBadges size="default" location="final_cta" className="mt-8" />
         </div>
       </div>
     </section>
@@ -211,6 +211,7 @@ export async function SiteFooter() {
           <Link className={linkClass} href="/support" {...englishOnly}>
             {t("support")}
           </Link>
+          <ConsentSettingsButton className="font-medium" />
         </nav>
         <p className="text-sm text-ink-soft xl:text-right">
           {t("copyright", { year: new Date().getFullYear() })}

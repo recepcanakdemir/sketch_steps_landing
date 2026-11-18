@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { LifeBuoy } from "lucide-react";
+import { ConsentSettingsButton } from "@/components/analytics";
 import { pageMetadata } from "@/lib/metadata";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
@@ -240,6 +241,11 @@ export default function SupportPage() {
               </Link>
               .
             </p>
+            <ConsentSettingsButton
+              lead="Analytics cookies on this website: "
+              wrapperClassName={textStyles}
+              className={linkStyles}
+            />
           </Topic>
         </article>
       </main>

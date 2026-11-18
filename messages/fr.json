@@ -242,6 +242,15 @@
       "label": "Télécharger Sketch Steps",
       "title": "Sketch Steps",
       "subtitle": "Dessinez pas à pas"
+    },
+    "consent": {
+      "label": "Consentement aux cookies",
+      "text": "Pouvons-nous utiliser les cookies de Google Analytics pour comprendre comment les visiteurs trouvent et utilisent ce site ? Rien n’est activé sans votre accord. Vous pouvez modifier votre choix à tout moment via « Paramètres des cookies », en bas de la page.",
+      "privacy": "Politique de confidentialité",
+      "accept": "Accepter",
+      "reject": "Refuser",
+      "close": "Fermer",
+      "settings": "Paramètres des cookies"
     }
   },
   "Metadata": {

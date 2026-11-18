@@ -9,13 +9,15 @@ import {
   localizePath,
   type Locale,
 } from "@/i18n/config";
+import { trackEvent } from "@/lib/analytics";
 import { rememberLocale } from "@/lib/locale-detection";
 import { cn } from "@/lib/utils";
 
 /**
  * Language switcher: a menu button listing every live locale's homepage.
  * It only links to the existing localized URLs (no redirects, no detection,
- * no new routes), so canonicals, hreflang and the sitemap are unaffected.
+ * no new routes). A pick of another language sends a GA4 language_switch
+ * event (only after analytics consent), so canonicals, hreflang and the sitemap are unaffected.
  * The current query string (utm_*, gclid, fbclid, ttclid...) is carried over
  * once the page has hydrated; the server-rendered links are the plain URLs.
  *
@@ -189,6 +191,13 @@ export function LanguageSwitcher({
                   // "/" from now on (English included). Stored before the
                   // browser follows the link.
                   rememberLocale(code);
+                  if (code !== locale) {
+                    trackEvent("language_switch", {
+                      from_language: locale,
+                      to_language: code,
+                      page_path: window.location.pathname,
+                    });
+                  }
                   setOpen(false);
                 }}
                 className={cn(

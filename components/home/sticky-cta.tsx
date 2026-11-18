@@ -80,9 +80,9 @@ export function StickyCta({
           </div>
         </div>
         {isAndroid ? (
-          <GooglePlayBadge size="compact" location="sticky" />
+          <GooglePlayBadge size="compact" location="sticky_bar" />
         ) : (
-          <AppStoreBadge size="compact" location="sticky" />
+          <AppStoreBadge size="compact" location="sticky_bar" />
         )}
       </div>
     </aside>

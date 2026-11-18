@@ -242,6 +242,15 @@
       "label": "Sketch Steps herunterladen",
       "title": "Sketch Steps",
       "subtitle": "Schrittweise zeichnen"
+    },
+    "consent": {
+      "label": "Cookie-Einwilligung",
+      "text": "Dürfen wir Cookies von Google Analytics verwenden, um zu sehen, wie Besucher diese Website finden und nutzen? Sie werden nur gesetzt, wenn du zustimmst. Du kannst deine Auswahl jederzeit unter „Cookie-Einstellungen“ unten auf der Seite ändern.",
+      "privacy": "Datenschutzerklärung",
+      "accept": "Akzeptieren",
+      "reject": "Ablehnen",
+      "close": "Schließen",
+      "settings": "Cookie-Einstellungen"
     }
   },
   "Metadata": {

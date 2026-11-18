@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { type CSSProperties, type ReactNode, useState } from "react";
+import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
+
+import { pageLanguage, trackEvent } from "@/lib/analytics";
 
 import { cn } from "@/lib/utils";
 
@@ -70,7 +72,30 @@ export function StepDemo({
 
   const [index, setIndex] = useState(0);
   const total = steps.length;
-  const go = (next: number) => setIndex(Math.min(total - 1, Math.max(0, next)));
+  const clamp = (next: number) => Math.min(total - 1, Math.max(0, next));
+
+  // GA4 demo_interaction: one event per button press or thumbnail pick. The
+  // slider fires change events continuously while dragging, so it is only
+  // reported once the visitor has stopped on a step for a moment.
+  const sliderTimer = useRef(0);
+  useEffect(() => () => window.clearTimeout(sliderTimer.current), []);
+  const report = (action: string, next: number) =>
+    trackEvent("demo_interaction", {
+      action,
+      step_number: next + 1,
+      page_language: pageLanguage(),
+    });
+  const go = (next: number, action: "next" | "previous" | "select_step") => {
+    const target = clamp(next);
+    setIndex(target);
+    if (target !== index) report(action, target);
+  };
+  const slide = (next: number) => {
+    const target = clamp(next);
+    setIndex(target);
+    window.clearTimeout(sliderTimer.current);
+    sliderTimer.current = window.setTimeout(() => report("slider", target), 800);
+  };
 
   return (
     <div
@@ -88,7 +113,7 @@ export function StepDemo({
         <div className="mt-6 flex items-center gap-3">
           <button
             type="button"
-            onClick={() => go(index - 1)}
+            onClick={() => go(index - 1, "previous")}
             disabled={index === 0}
             aria-label={labels.previous}
             className={cn(
@@ -106,14 +131,14 @@ export function StepDemo({
             max={total}
             step={1}
             value={index + 1}
-            onChange={(event) => go(Number(event.target.value) - 1)}
+            onChange={(event) => slide(Number(event.target.value) - 1)}
             aria-label={labels.sliderLabel}
             aria-valuetext={fill(labels.stepCounter, { step: index + 1, total })}
             className="step-range min-w-0 flex-1"
           />
           <button
             type="button"
-            onClick={() => go(index + 1)}
+            onClick={() => go(index + 1, "next")}
             disabled={index === total - 1}
             aria-label={labels.next}
             className={cn(
@@ -135,7 +160,7 @@ export function StepDemo({
             <li key={step.src} className="shrink-0">
               <button
                 type="button"
-                onClick={() => go(i)}
+                onClick={() => go(i, "select_step")}
                 aria-label={fill(labels.stepButton, { step: i + 1 })}
                 aria-current={i === index ? "step" : undefined}
                 className={cn(

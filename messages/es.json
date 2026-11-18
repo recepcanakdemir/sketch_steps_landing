@@ -242,6 +242,15 @@
       "label": "Descarga Sketch Steps",
       "title": "Sketch Steps",
       "subtitle": "Dibuja paso a paso"
+    },
+    "consent": {
+      "label": "Consentimiento de cookies",
+      "text": "¿Podemos usar cookies de Google Analytics para saber cómo llegan los visitantes a este sitio y cómo lo usan? No se activa nada a menos que aceptes. Puedes cambiar tu elección en cualquier momento en «Configuración de cookies», al final de la página.",
+      "privacy": "Política de privacidad",
+      "accept": "Aceptar",
+      "reject": "Rechazar",
+      "close": "Cerrar",
+      "settings": "Configuración de cookies"
     }
   },
   "Metadata": {

@@ -16,17 +16,17 @@ import { cn } from "@/lib/utils";
  * the v1 landing page (Instagram/Facebook/TikTok webviews often block the App
  * Store, so the user is guided to their real browser).
  *
- * Every store link carries GA4-ready attributes:
+ * Every store link carries the attributes that GA4 store_click events are
+ * built from (components/analytics.tsx, one delegated listener):
  *   data-cta="app_store" | "google_play"
- *   data-cta-location="hero" | "how_it_works" | "sticky" | "final" | "footer" | "header" | "interactive_demo"
- * Nothing is tracked yet.
+ *   data-cta-location="header" | "hero" | "how_it_works" | "interactive_demo" | "final_cta" | "footer" | "sticky_bar"
  */
 
 export type CtaLocation =
   | "hero"
   | "how_it_works"
-  | "sticky"
-  | "final"
+  | "sticky_bar"
+  | "final_cta"
   | "footer"
   | "header"
   | "interactive_demo";

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ShieldCheck } from "lucide-react";
+import { ConsentSettingsButton } from "@/components/analytics";
 import { pageMetadata } from "@/lib/metadata";
 
 const SUPPORT_EMAIL = "support@sketchsteps.app";
@@ -723,6 +724,7 @@ export default function AndroidPrivacyPolicyPage() {
       <footer className="border-t border-border py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-center text-sm text-muted sm:px-6 md:flex-row md:text-left lg:px-8">
           <BrandLogo />
+          <ConsentSettingsButton className="font-medium underline-offset-4 hover:underline" />
           <p>© {new Date().getFullYear()} Sketch Steps. All rights reserved.</p>
         </div>
       </footer>

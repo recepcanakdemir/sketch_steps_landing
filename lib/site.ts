@@ -18,6 +18,10 @@ export const APP_STORE_URL = `https://apps.apple.com/us/app/sketch-steps-ai-loom
 export const GOOGLE_PLAY_ID = "com.sketchsteps.app";
 export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${GOOGLE_PLAY_ID}`;
 
+/** Sketch Steps privacy policy (currently app-only; see docs/privacy-disclosures.md). */
+export const PRIVACY_POLICY_URL =
+  "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
+
 export const LOGO_PATH = "/images/sketch-steps-app-icon.png";
 
 /**
