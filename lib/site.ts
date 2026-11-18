@@ -15,6 +15,13 @@ export const STORE_APP_NAME = "Sketch Steps: AI Loomis Draw";
 
 export const APP_STORE_ID = "6763632360";
 export const APP_STORE_URL = `https://apps.apple.com/us/app/sketch-steps-ai-loomis-draw/id${APP_STORE_ID}`;
+/**
+ * App Store Connect provider token (the `pt` in Campaign Link Generator links;
+ * App Store Connect → Analytics → Sources). With it, store links carry a
+ * campaign token per social account (lib/attribution). Empty = App Store
+ * links stay plain; Google Play attribution works without it.
+ */
+export const APP_STORE_PROVIDER_TOKEN = "";
 export const GOOGLE_PLAY_ID = "com.sketchsteps.app";
 export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${GOOGLE_PLAY_ID}`;
 
