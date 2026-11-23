@@ -145,3 +145,77 @@ milestone), ratings, reviews, comparisons with other apps.
 
 A draft is never published by changing only its status: stage 5 must be
 complete.
+
+## 8. Spanish (es)
+
+Applies to every Spanish article in addition to sections 1-7. Section 1's
+"American English" rules are replaced by the ones below; everything else
+(honesty, drawing accuracy, app claims, SEO, originality, workflow) applies
+unchanged.
+
+### Writing
+
+- [ ] Neutral Spanish that reads naturally in Spain and Mexico: "tú" for
+      instructions, plural "ustedes" avoided (write to one reader), no
+      "vosotros", no regional slang or idioms.
+- [ ] Words understood in both markets: "lápiz", "goma de borrar", "papel",
+      "hoja", "pelo" or "cabello" (both are fine), "camiseta" for T-shirt
+      (or describe the collar without naming the garment).
+- [ ] Written as Spanish, not translated English: no calques ("hacer sentido",
+      "es importante notar que", "en este tutorial vas a aprender cómo"),
+      no English word order, no anglicisms when a common Spanish word exists
+      ("boceto", not "sketch", outside the app name).
+- [ ] Spanish punctuation and typography: opening "¿" and "¡", Spanish
+      quotation marks (« ») or straight double quotes used consistently
+      within an article, sentence case in headings ("Paso 1: dibuja un círculo"), not Title Case.
+- [ ] Instructions in the imperative ("dibuja", "traza", "compara"), short
+      sentences for actions, varied sentence openings.
+- [ ] Accents and "ñ" everywhere in text, titles and alt text; never in slugs.
+
+Phrases to cut on sight:
+
+| Avoid | Write instead |
+|---|---|
+| "En el mundo actual…", "Tanto si eres principiante como experto…" | Start with the task. |
+| "Desbloquea", "domina", "sumérgete", "sin esfuerzo", "revolucionario" | Say what the reader does. |
+| "En esta guía completa…", "A continuación te mostramos…" | Nothing; the headings show the scope. |
+| "Es importante destacar que…", "Cabe mencionar que…" | State the point. |
+| Repeating the keyword in every heading or paragraph | Use it where a reader would expect it (title, intro, one H2). |
+
+### Drawing terminology (Spanish glossary)
+
+Use these terms consistently; they map to the English glossary in section 3.
+To be checked by a Spanish-speaking person who draws before the first
+Spanish article is published.
+
+| English | Spanish (our articles) | Notes |
+|---|---|---|
+| Cranium ball | círculo (o esfera) del cráneo | "bola" only in the Loomis explanation, in quotes |
+| Side plane | plano lateral | |
+| Center line | línea central | |
+| Brow line | línea de las cejas | classic Loomis horizontal on the middle of the ball |
+| Eye-level guide | línea guía de los ojos | this drawing's middle line (step 2) |
+| Nose line | línea de la nariz | at the base of the nose |
+| Chin line | línea del mentón | |
+| Jaw / jaw line | mandíbula / línea de la mandíbula | |
+| Hairline | nacimiento del pelo | |
+| Facial thirds | tercios del rostro | approximate, never a rule |
+| Construction lines | líneas de construcción | |
+| Guideline | línea guía | |
+| Hatching | rayado (líneas paralelas) | explain once: "grupos de líneas paralelas" |
+| Values / tone | tonos / valores | prefer "tonos" for beginners |
+| Iris, pupil, upper lid | iris, pupila, párpado superior | |
+
+### Translation of an existing article
+
+- [ ] The Spanish version says what the reviewed source version says, step
+      for step: no step, line or detail added or removed; every open
+      question in the source's review notes applies to the translation too.
+- [ ] Each step text is checked again against its image (not only against
+      the English text).
+- [ ] Alt text is written in Spanish for the image, not a word-for-word copy.
+- [ ] Reviewed by a native Spanish speaker (ideally one from Spain and one
+      from Mexico, or one reviewer who checks both); named in the review notes.
+- [ ] It is a translation of the same article: it goes in the same entry's
+      `translations` (reciprocal hreflang). A new Spanish article on another
+      topic gets its own entry and no hreflang to English.

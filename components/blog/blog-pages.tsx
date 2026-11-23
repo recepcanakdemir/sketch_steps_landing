@@ -16,6 +16,7 @@ import {
   BLOG_PATH,
   blogLanguageHrefs,
   getBlogEntries,
+  isDraft,
   relatedEntries,
   type BlogEntry,
 } from "@/lib/blog";
@@ -43,7 +44,7 @@ export async function BlogIndexPage({ locale }: { locale: Locale }) {
     entries: entries.filter((entry) => entry.article.category === id),
   })).filter((topic) => topic.entries.length > 0);
   const hasFixtures = entries.some((entry) => entry.article.fixture);
-  const hasDraftPreviews = entries.some((entry) => entry.article.draftPreview);
+  const hasDraftPreviews = entries.some(isDraft);
 
   return (
     <BlogShell languageHrefs={blogLanguageHrefs()}>
@@ -150,7 +151,7 @@ export async function BlogArticlePage({ entry }: { entry: BlogEntry }) {
       />
       <div className="mx-auto max-w-7xl px-5 pt-6 sm:px-6 lg:px-8 lg:pt-10">
         {article.fixture ? <FixtureNotice /> : null}
-        {article.draftPreview ? <DraftPreviewNotice /> : null}
+        {isDraft(entry) ? <DraftPreviewNotice /> : null}
         <article className="mx-auto max-w-3xl">
           <Breadcrumbs
             label={t("article.breadcrumb")}
