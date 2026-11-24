@@ -18,7 +18,7 @@ import { DIR, step } from "./images";
 
 const images = {
   s1: step(1, "Step 1 of a face drawing: a single light pencil circle in the upper part of the page"),
-  s2: step(2, "Step 2: the circle with a tilted vertical center line that continues below it and a horizontal line close to its middle"),
+  s2: step(2, "Step 2: the circle with a tilted vertical center line that continues below it and a horizontal line a little below its middle"),
   s3: step(3, "Step 3: curved lines cut the sides of the circle and continue down into an angular jaw with a flat chin"),
   s4: step(4, "Step 4: horizontal guidelines with outlined eyebrows, a simple nose and a mouth placed along the center line"),
   s5: step(5, "Step 5: the outline of wavy hair, ears hinted at the sides, the neck and a T-shirt collar; the eyes are not drawn yet"),
@@ -120,7 +120,7 @@ const article: Article = {
         { type: "image", image: images.s2 },
         {
           type: "paragraph",
-          text: "Draw a vertical line through the circle and let it run well past the bottom of it. The face continues down to the chin along this line. Then draw a horizontal line across the circle, close to its middle.",
+          text: "Draw a vertical line through the circle and let it run well past the bottom of it. The face continues down to the chin along this line. Then draw a horizontal line across the circle, a little below its middle.",
         },
         {
           type: "paragraph",
@@ -128,7 +128,7 @@ const article: Article = {
         },
         {
           type: "paragraph",
-          text: "A note on names: many Loomis diagrams call the middle horizontal line the brow line. In this drawing, the eyebrows end up just above it and the eyes are drawn along it in step 6, so here it works as your eye-level guide.",
+          text: "A note on names: classic Loomis diagrams draw a horizontal line through the middle of the ball and call it the brow line. The one in this drawing sits a little lower: the eyebrows go above it and, in step 6, the eyes are drawn along it, so here it works as your eye-level guide.",
         },
         {
           type: "tip",
@@ -164,7 +164,7 @@ const article: Article = {
         },
         {
           type: "paragraph",
-          text: "These are the guidelines this particular drawing uses, not a fixed Loomis recipe. Classic Loomis diagrams work with a brow line across the middle of the ball, a nose line and a chin line, spaced as the thirds described above. This drawing puts the eyes on that middle line instead (see step 2). Either way, match the spacing to your reference rather than to a diagram.",
+          text: "These are the guidelines this particular drawing uses, not a fixed Loomis recipe. Classic Loomis diagrams work with a brow line across the middle of the ball, a nose line and a chin line, spaced as the thirds described above. This drawing puts the eyes on the horizontal line from step 2 instead, which sits a little below the middle of the circle. Either way, match the spacing to your reference rather than to a diagram.",
         },
         {
           type: "paragraph",
@@ -212,7 +212,7 @@ const article: Article = {
         {
           type: "tip",
           title: "Common mistake",
-          text: "Eyes placed too high, near the top of the head. A common guideline puts them roughly halfway between the top of the skull and the chin. In this drawing they sit a little higher than that, on the middle line of the circle, so check the height against your own reference rather than copying either rule.",
+          text: "Eyes placed too high, near the top of the head. A common guideline puts them roughly halfway between the top of the skull and the chin. In this drawing they sit a little higher than that, on the horizontal line from step 2, so check the height against your own reference rather than copying either rule.",
         },
 
         { type: "heading", level: 3, text: "Step 7: Refine the line drawing" },

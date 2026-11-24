@@ -48,8 +48,8 @@ separately. Corrections from it go in as normal content updates (set
       guideline and the bottom of the nose. The ear on the viewer's left is
       uncertain in the image.
 - [ ] **Step 6 tip:** "a common guideline puts the eyes roughly halfway
-      between the top of the skull and the chin"; measured, this drawing's
-      eyes sit about 39% down (a little higher). Is the wording accurate,
+      between the top of the skull and the chin"; measured (2026-11-24), this drawing's
+      eye line sits about 45% down (a little higher; earlier note said 39%). Is the wording accurate,
       allowing for the head's tilt?
 - [ ] **Step 6:** "drawing the full circle of the iris can make eyes look
       like they're staring". Acceptable as general advice?
@@ -134,11 +134,80 @@ For the Spanish reviewer (please tick or correct):
 
 - [ ] Overall: reads as natural Spanish for Spain and Mexico, not as a
       translation.
-- [ ] "fosas nasales" (step 4) for the nostrils as drawn; or "aletas"?
-- [ ] "rayado" for hatching (step 8); "achurado" is also used in Mexico.
-- [ ] "esboza" (step 5) for "block in"; "encaja" is the art-school term in
-      Spain but less known to beginners.
-- [ ] "camiseta" / "el borde del cuello" (step 5) for the T-shirt collar.
-- [ ] Guillemets « » for quoted terms: keep, or use straight quotes?
+- [ ] Step 4: "las aletas" (was "las fosas nasales"): the drawn lines are
+      the nostril wings.
+- [ ] Step 8: "rayado suave (también llamado achurado)" for hatching.
+- [ ] Step 5: "esboza" kept for "block in" ("encaja" is Spain art-school
+      jargon).
+- [ ] Steps 5 and 8: "la ropa" instead of "camiseta" (Mexico: "playera").
+- [ ] Straight double quotes instead of « ».
+- [ ] 2026-11-24 proposals applied to the draft for review: "comisuras de los
+      labios", "se vea extraña", "Una aclaración", "quedan casi paralelos a
+      tu línea de visión" (was "de canto"), "un repaso de limpieza", "Deja
+      los mechones sueltos para más adelante", "de uno en uno o en una lista
+      continua" (same wording as the live Spanish homepage), "una foto que tú
+      elijas", "Es el momento en que menos cuesta empezar de nuevo".
 - [ ] The CTA box text comes from `messages/es.json` (Blog.article.ctaTitle,
       ctaBody), already live on the Spanish site.
+
+## Measurement review (2026-11-24, AI-assisted; not a drawing approval)
+
+Method: the original 292×394 step files, grey values read with Pillow;
+lines found as the darkest pixels in narrow bands; positions in file pixels.
+The step images are not pixel-registered with each other (each stage was
+generated separately; the homepage framing aligns them only visually), so
+every comparison below is made **within one image**.
+
+| Point (step 3 unless noted) | y (px) |
+|---|---|
+| Top of the cranium circle, on the center line | ≈61 |
+| Bottom of the circle, on the center line (step 2) | ≈248 |
+| Step-2 horizontal crossing the center line | ≈170 |
+| Bottom of the flat chin, on the center line | ≈304 |
+
+- **Step 2 line position:** the horizontal crosses the center line about
+  58% of the way down the circle (circle middle ≈155), i.e. **a little
+  below** the middle, not "close to" it. The tilt is consistent: center line
+  ≈9° from vertical, horizontal ≈9° from horizontal (right angle kept).
+- **What the line is used for (steps 4-6, measured in each image):** in
+  step 4 the brows are drawn about 12-15 px above it; in step 6 the line
+  runs through the lower half of both eyes (≈2-5 px below the iris centers,
+  eye opening ≈14 px tall). So the image shows an **eye line** placed a
+  little below the circle's middle. Classic Loomis puts the brow line on
+  the middle of the ball, with the eyes below it, so the two constructions
+  differ by design, not by a drawing error.
+- **Eye height:** eye line at (170-61)/(304-61) ≈ **45%** of the distance from
+  the top of the cranium circle to the chin. Reference points: top of the
+  cranium circle (the skull, not the hair) and the bottom of the chin, along
+  the tilted center line (the tilt does not change the ratio). The common
+  guideline is "about halfway" (50%), so "a little higher than that" is
+  accurate. The earlier figure of ~39% (image-review.md) was wrong.
+- **Wording consequences:** "close to its middle" (step 2) and "on the
+  middle line of the circle" (step 4, step 6 tip) are imprecise in both
+  languages. Fixed in the Spanish draft; proposed for English (below).
+
+Drawing-reviewer items above stay open; these measurements are evidence for
+the reviewer, not approval.
+
+### Corrections to the published English article (applied 2026-11-24 in the source, owner-approved; not deployed)
+
+1. Step 2, paragraph 1: "a horizontal line across the circle, close to its
+   middle" → "a horizontal line across the circle, a little below its
+   middle". Same in the step 2 alt text.
+2. Step 2, paragraph 3: "many Loomis diagrams call the middle horizontal
+   line the brow line. In this drawing, the eyebrows end up just above it…"
+   → "classic Loomis diagrams draw a horizontal line through the middle of
+   the ball and call it the brow line. The one in this drawing sits a little
+   lower: the eyebrows go above it and, in step 6, the eyes are drawn along
+   it, so here it works as your eye-level guide."
+3. Step 4, paragraph 2: "This drawing puts the eyes on that middle line
+   instead (see step 2)" → "This drawing puts the eyes on the horizontal line
+   from step 2 instead, which sits a little below the middle of the circle."
+4. Step 6 tip: "on the middle line of the circle" → "on the horizontal line
+   from step 2".
+
+Applied to `content/blog/how-to-draw-a-face/index.ts` with the owner's
+approval (alt text of step 2 included). URL, SEO title, meta description,
+`publishedAt`, images and CTA unchanged. **`updatedAt` not set yet:** add the
+real date of the production deploy that ships these corrections (it shows
+"Updated on …" on the page and moves the sitemap `lastmod`).
