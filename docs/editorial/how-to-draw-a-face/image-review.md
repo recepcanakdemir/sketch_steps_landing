@@ -281,3 +281,6 @@ are confirmed (B5).
   from the top of the circle to the chin, so the eyes in this drawing sit a
   little above the common "halfway" guideline. The article now says so
   instead of calling them "close to the middle". Reviewer to confirm.
+  **Corrected 2026-11-24:** re-measured at ~45%, not ~39% (top of the
+  cranium circle y≈61, step-2 horizontal crossing the center line y≈170,
+  chin y≈304, step 3 file pixels). See review.md, "Measurement review".

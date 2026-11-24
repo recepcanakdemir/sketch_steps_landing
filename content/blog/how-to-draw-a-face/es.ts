@@ -16,10 +16,10 @@ import { DIR, step } from "./images";
 
 const images = {
   s1: step(1, "Paso 1 del dibujo de una cara: un único círculo trazado a lápiz con suavidad en la parte superior de la hoja"),
-  s2: step(2, "Paso 2: el círculo con una línea central vertical inclinada que continúa por debajo y una línea horizontal cerca de su mitad"),
+  s2: step(2, "Paso 2: el círculo con una línea central vertical inclinada que continúa por debajo y una línea horizontal un poco por debajo de su mitad"),
   s3: step(3, "Paso 3: dos líneas curvas recortan los lados del círculo y bajan hasta formar una mandíbula angulosa con el mentón plano"),
   s4: step(4, "Paso 4: líneas guía horizontales con el contorno de las cejas, una nariz sencilla y una boca colocadas a lo largo de la línea central"),
-  s5: step(5, "Paso 5: el contorno del pelo ondulado, las orejas apenas sugeridas a los lados, el cuello y el borde de la camiseta; los ojos aún no están dibujados"),
+  s5: step(5, "Paso 5: el contorno del pelo ondulado, las orejas apenas sugeridas a los lados, el cuello, el borde de la ropa y los hombros; los ojos aún no están dibujados"),
   s6: step(6, "Paso 6: ojos abiertos, cejas más oscuras, una boca sonriente y el pelo con más volumen sobre líneas de construcción suaves"),
   s7: step(7, "Paso 7: el dibujo lineal de la cara ya refinado, con más mechones de pelo y detalles más oscuros en los ojos"),
   s8: step(8, "Paso 8: el primer rayado suave a lápiz en el pelo, en la cara y en el cuello"),
@@ -54,7 +54,7 @@ const es: ArticleTranslation = {
     },
     {
       type: "paragraph",
-      text: "Las nueve etapas que verás aquí las generó Sketch Steps a partir de una foto de retrato. No son bocetos de un artista. Tómalas como una referencia para copiar a mano: tu tarea es reproducir cada etapa en papel, una por una. Cuando los pasos hablan de «tu referencia», se refieren a lo que estés dibujando: por ahora, este dibujo; más adelante, una foto que elijas tú.",
+      text: "Las nueve etapas que verás aquí las generó Sketch Steps a partir de una foto de retrato. No son bocetos de un artista. Tómalas como una referencia para copiar a mano: tu tarea es reproducir cada etapa en papel, una por una. Cuando los pasos hablan de \"tu referencia\", se refieren a lo que estés dibujando: por ahora, este dibujo; más adelante, una foto que tú elijas.",
     },
 
     { type: "heading", level: 2, text: "Qué necesitas" },
@@ -105,14 +105,14 @@ const es: ArticleTranslation = {
     {
       type: "tip",
       title: "Comprueba el tamaño ahora",
-      text: "Si el círculo es demasiado grande o está demasiado abajo, el mentón no cabrá en la hoja. Nunca te costará menos empezar de nuevo que en este momento.",
+      text: "Si el círculo es demasiado grande o está demasiado abajo, el mentón no cabrá en la hoja. Es el momento en que menos cuesta empezar de nuevo.",
     },
 
     { type: "heading", level: 3, text: "Paso 2: añade la línea central y una guía horizontal" },
     { type: "image", image: images.s2 },
     {
       type: "paragraph",
-      text: "Traza una línea vertical que atraviese el círculo y prolóngala bastante por debajo: la cara continúa hacia abajo, hasta el mentón, a lo largo de esta línea. Después traza una línea horizontal que cruce el círculo cerca de su mitad.",
+      text: "Traza una línea vertical que atraviese el círculo y prolóngala bastante por debajo: la cara continúa hacia abajo, hasta el mentón, a lo largo de esta línea. Después traza una línea horizontal que cruce el círculo un poco por debajo de su mitad.",
     },
     {
       type: "paragraph",
@@ -120,7 +120,7 @@ const es: ArticleTranslation = {
     },
     {
       type: "paragraph",
-      text: "Un apunte sobre los nombres: muchos diagramas de Loomis llaman a la línea horizontal del medio «línea de las cejas». En este dibujo, las cejas quedan justo por encima de ella y los ojos se dibujan sobre ella en el paso 6, así que aquí funciona como línea guía de los ojos.",
+      text: "Una aclaración sobre los nombres: los diagramas clásicos de Loomis trazan una línea horizontal justo por la mitad de la bola y la llaman \"línea de las cejas\". La de este dibujo queda un poco más abajo: las cejas se dibujan por encima de ella y, en el paso 6, los ojos se dibujan sobre ella. Por eso aquí funciona como línea guía de los ojos.",
     },
     {
       type: "tip",
@@ -132,7 +132,7 @@ const es: ArticleTranslation = {
     { type: "image", image: images.s3 },
     {
       type: "paragraph",
-      text: "Ahora la bola empieza a parecer una cabeza. Traza una línea curva justo por dentro del borde izquierdo del círculo y otra justo por dentro del derecho. Marcan los planos laterales: Loomis trata los lados de la cabeza como más planos que una bola, y por eso su método los «recorta». De frente, esos lados planos se ven casi de canto; por eso aparecen como curvas estrechas y no como los óvalos que quizá conozcas de los diagramas de Loomis con la cabeza girada.",
+      text: "Ahora la bola empieza a parecer una cabeza. Traza una línea curva justo por dentro del borde izquierdo del círculo y otra justo por dentro del derecho. Marcan los planos laterales: Loomis trata los lados de la cabeza como más planos que una bola, y por eso su método los \"recorta\". De frente, esos lados planos quedan casi paralelos a tu línea de visión; por eso apenas se ven y aparecen como curvas estrechas y no como los óvalos que quizá conozcas de los diagramas de Loomis con la cabeza girada.",
     },
     {
       type: "paragraph",
@@ -145,7 +145,7 @@ const es: ArticleTranslation = {
     {
       type: "tip",
       title: "Error común",
-      text: "Una mandíbula demasiado larga o demasiado corta. Puede hacer que una cara no se parezca aunque cada rasgo esté bien dibujado, así que compara el largo de la cara con tu referencia antes de seguir.",
+      text: "Una mandíbula demasiado larga o demasiado corta. Puede hacer que una cara se vea extraña aunque cada rasgo esté bien dibujado, así que compara el largo de la cara con tu referencia antes de seguir.",
     },
 
     { type: "heading", level: 3, text: "Paso 4: coloca las cejas, la nariz y la boca" },
@@ -156,11 +156,11 @@ const es: ArticleTranslation = {
     },
     {
       type: "paragraph",
-      text: "Son las líneas guía que usa este dibujo en concreto, no una receta fija de Loomis. Los diagramas clásicos de Loomis trabajan con una línea de las cejas en la mitad de la bola, una línea de la nariz y una línea del mentón, separadas según los tercios descritos más arriba. Este dibujo, en cambio, coloca los ojos sobre esa línea del medio (mira el paso 2). En cualquier caso, ajusta las distancias a tu referencia, no a un diagrama.",
+      text: "Son las líneas guía que usa este dibujo en concreto, no una receta fija de Loomis. Los diagramas clásicos de Loomis trabajan con una línea de las cejas en la mitad de la bola, una línea de la nariz y una línea del mentón, separadas según los tercios descritos más arriba. Este dibujo, en cambio, coloca los ojos sobre la línea horizontal del paso 2, que queda un poco por debajo de la mitad del círculo. En cualquier caso, ajusta las distancias a tu referencia, no a un diagrama.",
     },
     {
       type: "paragraph",
-      text: "Dibuja las cejas como formas sencillas, solo con su contorno, una a cada lado de la línea central. Para la nariz, traza unas líneas suaves que bajan desde el entrecejo y, después, la punta y las fosas nasales, apoyadas en la línea de la nariz. Debajo va la boca: el labio superior, la línea donde se juntan los labios y una marca corta bajo el labio inferior.",
+      text: "Dibuja las cejas como formas sencillas, solo con su contorno, una a cada lado de la línea central. Para la nariz, traza unas líneas suaves que bajan desde el entrecejo y, después, la punta y las aletas, apoyadas en la línea de la nariz. Debajo va la boca: el labio superior, la línea donde se juntan los labios y una marca corta bajo el labio inferior.",
     },
     {
       type: "paragraph",
@@ -175,11 +175,11 @@ const es: ArticleTranslation = {
     { type: "image", image: images.s5 },
     {
       type: "paragraph",
-      text: "Dibuja el pelo como una sola forma exterior con unas cuantas ondas grandes. Observa cuánto sobresale por encima del círculo: el pelo tiene volumen, así que su contorno queda por fuera del cráneo, no pegado a él. Los mechones sueltos, para más adelante.",
+      text: "Dibuja el pelo como una sola forma exterior con unas cuantas ondas grandes. Observa cuánto sobresale por encima del círculo: el pelo tiene volumen, así que su contorno queda por fuera del cráneo, no pegado a él. Deja los mechones sueltos para más adelante.",
     },
     {
       type: "paragraph",
-      text: "Añade las orejas a los lados de la cabeza. Aquí apenas están sugeridas y el pelo las tapa en parte; quedan, más o menos, entre la línea guía de los ojos y la base de la nariz. Después dibuja el cuello a partir de la mandíbula y, debajo, la camiseta: el borde del cuello y los hombros.",
+      text: "Añade las orejas a los lados de la cabeza. Aquí apenas están sugeridas y el pelo las tapa en parte; quedan, más o menos, entre la línea guía de los ojos y la base de la nariz. Después dibuja el cuello a partir de la mandíbula y, debajo, el borde de la ropa y los hombros.",
     },
     {
       type: "tip",
@@ -195,7 +195,7 @@ const es: ArticleTranslation = {
     },
     {
       type: "paragraph",
-      text: "Oscurece las cejas, define la nariz y los labios, y añade los pequeños pliegues en las comisuras de la sonrisa. En esta etapa el contorno del pelo se redibuja con más volumen y aparecen los primeros mechones dentro de él, así que no dudes en mejorar la forma que esbozaste en el paso 5.",
+      text: "Oscurece las cejas, define la nariz y los labios, y añade los pequeños pliegues en las comisuras de los labios. En esta etapa el contorno del pelo se redibuja con más volumen y aparecen los primeros mechones dentro de él, así que no dudes en mejorar la forma que esbozaste en el paso 5.",
     },
     {
       type: "paragraph",
@@ -204,14 +204,14 @@ const es: ArticleTranslation = {
     {
       type: "tip",
       title: "Error común",
-      text: "Colocar los ojos demasiado arriba, cerca de la parte superior de la cabeza. Una pauta habitual los sitúa más o menos a medio camino entre la parte superior del cráneo y el mentón. En este dibujo quedan un poco más arriba, sobre la línea del medio del círculo, así que comprueba la altura con tu propia referencia en lugar de copiar cualquiera de las dos reglas.",
+      text: "Colocar los ojos demasiado arriba, cerca de la parte superior de la cabeza. Una pauta habitual los sitúa más o menos a medio camino entre la parte superior del cráneo y el mentón. En este dibujo quedan un poco más arriba, sobre la línea horizontal del paso 2, así que comprueba la altura con tu propia referencia en lugar de copiar cualquiera de las dos reglas.",
     },
 
     { type: "heading", level: 3, text: "Paso 7: refina el dibujo lineal" },
     { type: "image", image: images.s7 },
     {
       type: "paragraph",
-      text: "Es una pasada de limpieza y los cambios son sutiles. El pelo gana mechones que siguen sus ondas, los ojos tienen pestañas y líneas de los párpados más oscuras, y los contornos de la cara, la mandíbula y el cuello se definen mejor. Todavía no hay sombreado propiamente dicho.",
+      text: "Es un repaso de limpieza y los cambios son sutiles. El pelo gana mechones que siguen sus ondas, los ojos tienen pestañas y líneas de los párpados más oscuras, y los contornos de la cara, la mandíbula y el cuello se definen mejor. Todavía no hay sombreado propiamente dicho.",
     },
     {
       type: "paragraph",
@@ -222,7 +222,7 @@ const es: ArticleTranslation = {
     { type: "image", image: images.s8 },
     {
       type: "paragraph",
-      text: "Empieza a sombrear con un rayado suave, es decir, con grupos de líneas paralelas a lápiz. En este dibujo, los primeros tonos van en el pelo, en los lados de la cara y de la nariz, en el cuello y en la camiseta. Otras zonas quedan casi blancas.",
+      text: "Empieza a sombrear con un rayado suave (también llamado achurado): grupos de líneas paralelas a lápiz. En este dibujo, los primeros tonos van en el pelo, en los lados de la cara y de la nariz, en el cuello y en la ropa. Otras zonas quedan casi blancas.",
     },
     {
       type: "paragraph",
@@ -246,7 +246,7 @@ const es: ArticleTranslation = {
       items: [
         "**Apretar demasiado al principio.** Las líneas de construcción deben ser lo bastante suaves como para borrarlas o dibujar encima.",
         "**No tener en cuenta la inclinación de la cabeza.** Si la cara se inclina, la línea central y todas las líneas guía horizontales se inclinan con ella (paso 2).",
-        "**Ojos demasiado altos.** Comprueba su altura con tu referencia, no con el lugar donde «parece» que deberían ir (paso 6).",
+        "**Ojos demasiado altos.** Comprueba su altura con tu referencia, no con el lugar donde \"parece\" que deberían ir (paso 6).",
         "**Una mandíbula demasiado larga o demasiado corta.** Compara el largo de la cara con tu referencia antes de añadir los rasgos (paso 3).",
         "**Pelo pegado al cráneo.** Dale volumen por encima del círculo (paso 5).",
         "**Oscurecer demasiado pronto.** Construye el tono en capas suaves (pasos 8 y 9).",
@@ -264,7 +264,7 @@ const es: ArticleTranslation = {
     },
     {
       type: "paragraph",
-      text: "Si quieres etapas como estas para una cara que elijas tú, Sketch Steps convierte una foto en un tutorial de dibujo paso a paso, que puedes seguir etapa por etapa o como una lista continua. La [demo interactiva de nuestra página de inicio](/es#demo-title) muestra las mismas nueve etapas de este artículo.",
+      text: "Si quieres etapas como estas para una cara que tú elijas, Sketch Steps convierte una foto en un tutorial de dibujo paso a paso, que puedes recorrer de uno en uno o en una lista continua. La [demo interactiva de nuestra página de inicio](/es#demo-title) muestra las mismas nueve etapas de este artículo.",
     },
     { type: "appCta" },
   ],

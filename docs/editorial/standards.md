@@ -159,15 +159,16 @@ unchanged.
       instructions, plural "ustedes" avoided (write to one reader), no
       "vosotros", no regional slang or idioms.
 - [ ] Words understood in both markets: "lápiz", "goma de borrar", "papel",
-      "hoja", "pelo" or "cabello" (both are fine), "camiseta" for T-shirt
-      (or describe the collar without naming the garment).
+      "hoja", "pelo" or "cabello" (both are fine). Avoid words that differ
+      by country ("camiseta" in Spain, "playera" in Mexico): write "la ropa".
 - [ ] Written as Spanish, not translated English: no calques ("hacer sentido",
       "es importante notar que", "en este tutorial vas a aprender cómo"),
       no English word order, no anglicisms when a common Spanish word exists
       ("boceto", not "sketch", outside the app name).
-- [ ] Spanish punctuation and typography: opening "¿" and "¡", Spanish
-      quotation marks (« ») or straight double quotes used consistently
-      within an article, sentence case in headings ("Paso 1: dibuja un círculo"), not Title Case.
+- [ ] Spanish punctuation and typography: opening "¿" and "¡"; straight
+      double quotes for quoted terms (familiar in both markets; « » reads as
+      Spain-specific to many Mexican readers); sentence case in headings
+      ("Paso 1: dibuja un círculo"), not Title Case.
 - [ ] Instructions in the imperative ("dibuja", "traza", "compara"), short
       sentences for actions, varied sentence openings.
 - [ ] Accents and "ñ" everywhere in text, titles and alt text; never in slugs.
@@ -202,7 +203,7 @@ Spanish article is published.
 | Facial thirds | tercios del rostro | approximate, never a rule |
 | Construction lines | líneas de construcción | |
 | Guideline | línea guía | |
-| Hatching | rayado (líneas paralelas) | explain once: "grupos de líneas paralelas" |
+| Hatching | rayado (también llamado achurado) | explain once: "grupos de líneas paralelas"; "achurado" is the usual term in Mexico |
 | Values / tone | tonos / valores | prefer "tonos" for beginners |
 | Iris, pupil, upper lid | iris, pupila, párpado superior | |
 
