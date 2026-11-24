@@ -5,6 +5,8 @@ import {
   SITE_NAME,
   SITE_URL,
   STORE_APP_NAME,
+  EN_HOME_DESCRIPTION,
+  EN_HOME_TITLE,
   SUPPORT_EMAIL,
   absoluteUrl,
 } from "@/lib/site";
@@ -19,64 +21,94 @@ export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 const APP_ID = `${SITE_URL}/#app`;
 
+const organization = {
+  "@type": "Organization",
+  "@id": ORGANIZATION_ID,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: {
+    "@type": "ImageObject",
+    url: absoluteUrl(LOGO_PATH),
+    width: 512,
+    height: 512,
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: SUPPORT_EMAIL,
+    url: absoluteUrl("/support"),
+  },
+};
+
+const website = {
+  "@type": "WebSite",
+  "@id": WEBSITE_ID,
+  name: SITE_NAME,
+  url: SITE_URL,
+  inLanguage: "en",
+  publisher: { "@id": ORGANIZATION_ID },
+};
+
+/**
+ * English app node. Platform-specific items say which platform they apply to,
+ * matching the homepage copy. Facts: App Store and Google Play listings and
+ * the privacy policies (checked 2026-11-24).
+ */
+const app = {
+  "@type": "SoftwareApplication",
+  "@id": APP_ID,
+  name: SITE_NAME,
+  alternateName: STORE_APP_NAME,
+  url: SITE_URL,
+  description:
+    "Drawing app that turns portrait photos into step-by-step Loomis method drawing tutorials, with Trace AI and a tracing studio for drawing on real paper.",
+  applicationCategory: "DesignApplication",
+  operatingSystem: "iOS 18+, Android",
+  featureList: [
+    "Step-by-step Loomis method drawing tutorials from your photos",
+    "Trace AI: turns a photo into a drawing-style tracing reference",
+    "Tracing Studio with Draw with Camera and Draw on Screen",
+    "Ready-made line drawings to trace",
+    "Animal Drawing style (iPhone and iPad)",
+    "Free ready-made tutorials (iPhone and iPad)",
+  ],
+  image: absoluteUrl(LOGO_PATH),
+  downloadUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
+  sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description:
+      "Free to download. AI generation requires a subscription or coins (in-app purchases).",
+  },
+  publisher: { "@id": ORGANIZATION_ID },
+};
+
 export const homeStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    organization,
+    website,
     {
-      "@type": "Organization",
-      "@id": ORGANIZATION_ID,
-      name: SITE_NAME,
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: absoluteUrl(LOGO_PATH),
-        width: 512,
-        height: 512,
-      },
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        email: SUPPORT_EMAIL,
-        url: absoluteUrl("/support"),
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": WEBSITE_ID,
-      name: SITE_NAME,
-      url: SITE_URL,
+      name: EN_HOME_TITLE,
+      description: EN_HOME_DESCRIPTION,
       inLanguage: "en",
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": APP_ID },
       publisher: { "@id": ORGANIZATION_ID },
     },
-    {
-      "@type": "SoftwareApplication",
-      "@id": APP_ID,
-      name: SITE_NAME,
-      alternateName: STORE_APP_NAME,
-      url: SITE_URL,
-      description:
-        "AI drawing app that transforms face photos into step-by-step Loomis Method portrait drawing guides.",
-      applicationCategory: "DesignApplication",
-      operatingSystem: "iOS, Android",
-      image: absoluteUrl(LOGO_PATH),
-      downloadUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
-      sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        description: "Free to download. Premium options are shown in the app.",
-      },
-      publisher: { "@id": ORGANIZATION_ID },
-    },
+    app,
   ],
 };
 
 /**
  * JSON-LD for a translated homepage (e.g. /es). Same organization, website and
  * app as English (shared @ids), plus a WebPage node in the page's language;
- * only the app/offer descriptions are translated. The English homepage keeps
- * `homeStructuredData` unchanged.
+ * only the app/offer descriptions are translated.
  */
 export function localizedHomeStructuredData({
   locale,
@@ -93,7 +125,11 @@ export function localizedHomeStructuredData({
   appDescription: string;
   offerDescription: string;
 }) {
-  const [organization, website, app] = homeStructuredData["@graph"];
+  // featureList is English-only until it is translated, so it is left out
+  // of the translated pages to keep JSON-LD consistent with visible text.
+  const localizedApp = Object.fromEntries(
+    Object.entries(app).filter(([key]) => key !== "featureList"),
+  );
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -111,9 +147,9 @@ export function localizedHomeStructuredData({
         publisher: { "@id": ORGANIZATION_ID },
       },
       {
-        ...app,
+        ...localizedApp,
         description: appDescription,
-        offers: { ...(app as { offers: object }).offers, description: offerDescription },
+        offers: { ...app.offers, description: offerDescription },
       },
     ],
   };

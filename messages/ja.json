@@ -96,12 +96,12 @@
       },
       "animals": {
         "title": "ペットや動物も",
-        "body": "「Animal Drawing」スタイルなら、ペットや野生動物の写真も、ステップごとのチュートリアルになります。",
+        "body": "iPhone・iPadでは、「Animal Drawing」スタイルで、ペットや野生動物の写真もステップごとのチュートリアルになります。",
         "alt": "ゴールデンレトリバーを描くチュートリアルの全9ステップ"
       },
       "traceAi": {
         "title": "Trace AI",
-        "body": "写真を6種類のエフェクトで画像に変換。写真アプリに保存したり、トレースに使ったりできます。",
+        "body": "写真を、鉛筆・木炭・水彩などのタッチのトレース用画像に変換。保存したり、トレースに使ったりできます。",
         "effects": [
           "Clean Pencil",
           "Bold Charcoal",
@@ -170,7 +170,7 @@
         },
         {
           "question": "Sketch\u00a0Stepsで\u200b何を\u200b描けるように\u200bなりますか？",
-          "answer": "ルーミス法による人物画や顔、「Animal Drawing」スタイルによるペットや動物、そしてTracing Studioの動物・アニメ・乗り物などのカテゴリにある線画です。"
+          "answer": "ルーミス法による人物画や顔、iPhone・iPadでは「Animal Drawing」スタイルによるペットや動物、そしてTracing Studioの動物・アニメ・乗り物などのカテゴリにある線画です。"
         },
         {
           "question": "初心者でも\u200b使えますか？",
@@ -182,7 +182,7 @@
         },
         {
           "question": "Trace AIとは？",
-          "answer": "Trace AIは、写真をClean Pencil、Bold Charcoal、Anime Ink、Architectural Line、Soft Sketch、Watercolorの6種類のエフェクトのいずれかで画像に変換する機能です。結果は写真アプリに保存したり、トレースに使ったりできます。"
+          "answer": "Trace AIは、写真を鉛筆・木炭・水彩などのタッチのトレース用画像に変換する機能です。結果は保存したり、トレースに使ったりできます。選べるスタイルはiPhone版とAndroid版で異なります。"
         },
         {
           "question": "トレース機能は\u200bありますか？",
@@ -190,11 +190,11 @@
         },
         {
           "question": "アプリは\u200b無料ですか？",
-          "answer": "Sketch StepsはApp StoreまたはGoogle Playからダウンロードでき、無料チュートリアルも利用できます。料金やプレミアムオプションは、購入前にアプリ内で表示されます。"
+          "answer": "Sketch StepsはApp StoreまたはGoogle Playから無料でダウンロードできます。iPhone・iPad版では無料チュートリアルも利用できます。料金やプレミアムオプションは、購入前にアプリ内で表示されます。"
         },
         {
           "question": "Android版は\u200bありますか？",
-          "answer": "はい。Sketch StepsはGoogle Playで配信中です。"
+          "answer": "はい。Sketch StepsはGoogle Playで配信中です。一部の機能やスタイルはAndroid版で異なります。このページの画面はiPhone版のものです。"
         }
       ]
     },
@@ -264,7 +264,7 @@
     "socialImage": {
       "alt": "Sketch Steps：顔写真をルーミス法のステップごとの描き方ガイドに変換",
       "heading": "ルーミス法で描く\nステップガイド",
-      "body": "顔写真をアップロードするだけで、\n描き方のステップをすぐに作成。",
+      "body": "顔写真をアップロードするだけで、\n描き方のステップを作成。",
       "step": "ステップ{step}"
     }
   },

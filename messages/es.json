@@ -96,12 +96,12 @@
       },
       "animals": {
         "title": "También mascotas y animales",
-        "body": "El estilo Animal Drawing convierte fotos de mascotas y animales salvajes en tutoriales paso a paso.",
+        "body": "En iPhone y iPad, el estilo Animal Drawing convierte fotos de mascotas y animales salvajes en tutoriales paso a paso.",
         "alt": "Los nueve pasos de un tutorial de dibujo de un golden retriever"
       },
       "traceAi": {
         "title": "Trace AI",
-        "body": "Convierte una foto en una imagen con uno de seis efectos y luego guárdala en Fotos o cálcala.",
+        "body": "Convierte una foto en una referencia para calcar con un estilo de dibujo, como lápiz, carboncillo o acuarela, y luego guárdala o cálcala.",
         "effects": [
           "Clean Pencil",
           "Bold Charcoal",
@@ -170,7 +170,7 @@
         },
         {
           "question": "¿Qué puedo aprender a dibujar con Sketch Steps?",
-          "answer": "Retratos y caras con el método Loomis, mascotas y otros animales con el estilo Animal Drawing, y dibujos de líneas de Tracing Studio en categorías como animales, anime y vehículos."
+          "answer": "Retratos y caras con el método Loomis; en iPhone y iPad, también mascotas y otros animales con el estilo Animal Drawing; y dibujos de líneas de Tracing Studio en categorías como animales, anime y vehículos."
         },
         {
           "question": "¿Sketch Steps es adecuado para principiantes?",
@@ -182,7 +182,7 @@
         },
         {
           "question": "¿Qué es Trace AI?",
-          "answer": "Trace AI convierte una foto en una imagen con uno de seis efectos: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch o Watercolor. Puedes guardar el resultado en Fotos o usarlo para calcar."
+          "answer": "Trace AI convierte una foto en una referencia para calcar con un estilo de dibujo, como lápiz, carboncillo o acuarela. Puedes guardar el resultado o usarlo para calcar. Los estilos disponibles no son los mismos en iPhone que en Android."
         },
         {
           "question": "¿La app permite calcar?",
@@ -190,11 +190,11 @@
         },
         {
           "question": "¿La app es gratis?",
-          "answer": "Sketch Steps se puede descargar desde el App Store o Google Play e incluye tutoriales gratis. Los precios y las opciones premium se muestran en la app antes de cualquier compra."
+          "answer": "Sketch Steps se puede descargar gratis desde el App Store o Google Play. En iPhone y iPad incluye tutoriales gratis. Los precios y las opciones premium se muestran en la app antes de cualquier compra."
         },
         {
           "question": "¿Hay versión para Android?",
-          "answer": "Sí. Sketch Steps ya está disponible en Google Play."
+          "answer": "Sí. Sketch Steps está disponible en Google Play. Algunas funciones y estilos son distintos en Android; las capturas de esta página son de la app para iPhone."
         }
       ]
     },
@@ -264,7 +264,7 @@
     "socialImage": {
       "alt": "Sketch Steps: una foto de un rostro convertida en una guía de dibujo Loomis paso a paso",
       "heading": "Dibujo Loomis paso a paso",
-      "body": "Sube una foto de un rostro y recibe al instante pasos de dibujo guiados.",
+      "body": "Sube una foto de un rostro y recibe pasos de dibujo guiados.",
       "step": "Paso {step}"
     }
   },
