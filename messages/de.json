@@ -28,7 +28,7 @@
     "howItWorks": {
       "eyebrow": "So funktioniert’s",
       "title": "Vom Foto zur fertigen Zeichnung.",
-      "lead": "Sketch Steps verwandelt ein Foto in einen Zeichenkurs, dem du in deinem eigenen Tempo folgen kannst.",
+      "lead": "Sketch Steps verwandelt ein Foto in einen Zeichenkurs, dem du in deinem eigenen Tempo folgen kannst. Die Screens unten stammen aus der iPhone-App.",
       "steps": [
         {
           "title": "Starte mit einem Foto",
@@ -70,7 +70,7 @@
     "features": {
       "eyebrow": "Funktionen",
       "title": "Alles, was du brauchst, um zeichnen zu üben.",
-      "lead": "Geführte Tutorials, Werkzeuge zum Abpausen und eine Galerie für deine Werke – alles in einer App.",
+      "lead": "Geführte Tutorials, Werkzeuge zum Abpausen und eine Galerie für deine Werke – alles in einer App. Die gezeigten Screens und Stile stammen aus der iPhone-App; einige unterscheiden sich unter Android.",
       "loomis": {
         "title": "Porträtzeichnen nach Loomis",
         "body": "Porträt-Tutorials beginnen mit einfachen Konstruktionslinien für Kopf und Gesichtsproportionen und bauen dann bis zur fertigen Skizze auf.",
@@ -110,7 +110,7 @@
           "Soft Sketch",
           "Watercolor"
         ],
-        "effectsLabel": "Trace-AI-Effekte",
+        "effectsLabel": "Trace-AI-Effekte in der iPhone-App",
         "alt": "Effektauswahl von Trace AI mit Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch und Watercolor"
       },
       "tracingStudio": {
@@ -200,7 +200,8 @@
     },
     "finalCta": {
       "title": "Dein nächstes Porträt beginnt hier.",
-      "lead": "Lade Sketch Steps herunter und verwandle dein nächstes Foto in einen Zeichenkurs Schritt für Schritt."
+      "lead": "Lade Sketch Steps herunter und verwandle dein nächstes Foto in einen Zeichenkurs Schritt für Schritt.",
+      "facts": "Kostenloser Download · In-App-Käufe · iPhone und iPad (iOS 18 oder neuer) · Android"
     },
     "footer": {
       "label": "Fußzeile",

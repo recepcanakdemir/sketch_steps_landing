@@ -28,7 +28,7 @@
     "howItWorks": {
       "eyebrow": "Cómo funciona",
       "title": "De la foto al dibujo terminado.",
-      "lead": "Sketch Steps convierte una foto en una clase de dibujo que puedes seguir a tu ritmo.",
+      "lead": "Sketch Steps convierte una foto en una clase de dibujo que puedes seguir a tu ritmo. Las pantallas de abajo son de la app para iPhone.",
       "steps": [
         {
           "title": "Empieza con una foto",
@@ -70,7 +70,7 @@
     "features": {
       "eyebrow": "Funciones",
       "title": "Todo lo que necesitas para practicar dibujo.",
-      "lead": "Tutoriales guiados, herramientas de calco y una galería para tus trabajos, todo en una sola app.",
+      "lead": "Tutoriales guiados, herramientas de calco y una galería para tus trabajos, todo en una sola app. Las pantallas y los estilos que se muestran son de la app para iPhone; algunos son distintos en Android.",
       "loomis": {
         "title": "Retratos con el método Loomis",
         "body": "Los tutoriales de retrato empiezan con líneas de construcción sencillas para la cabeza y las proporciones del rostro, y avanzan hasta un boceto terminado.",
@@ -110,7 +110,7 @@
           "Soft Sketch",
           "Watercolor"
         ],
-        "effectsLabel": "Efectos de Trace AI",
+        "effectsLabel": "Efectos de Trace AI en la app para iPhone",
         "alt": "Selector de efectos de Trace AI con Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch y Watercolor"
       },
       "tracingStudio": {
@@ -200,7 +200,8 @@
     },
     "finalCta": {
       "title": "Tu próximo retrato empieza aquí.",
-      "lead": "Descarga Sketch Steps y convierte tu próxima foto en una clase de dibujo paso a paso."
+      "lead": "Descarga Sketch Steps y convierte tu próxima foto en una clase de dibujo paso a paso.",
+      "facts": "Descarga gratuita · Compras dentro de la app · iPhone y iPad (iOS 18 o posterior) · Android"
     },
     "footer": {
       "label": "Pie de página",
