@@ -80,13 +80,12 @@ const article: Article = {
           items: [
             "A pencil",
             "Paper",
-            "An eraser, to remove the construction lines before you add texture",
             "This page, open next to your paper, so you can compare after every stage",
           ],
         },
         {
           type: "paragraph",
-          text: "Draw the first five stages lightly. Most of those lines are guides, and by step 8 they're gone.",
+          text: "Keep your early lines light. Most of them are guides, and by step 8 they're gone.",
         },
 
         { type: "heading", level: 2, text: "The shapes that make a turkey" },
@@ -188,7 +187,7 @@ const article: Article = {
         },
         {
           type: "paragraph",
-          text: "Leave the oval and the other early lines faint. You'll erase them before adding texture.",
+          text: "Leave the oval and the other early lines faint. By step 8 they're gone, so don't go over them.",
         },
 
         { type: "heading", level: 3, text: "Step 7: Add the beard and strengthen the details" },
@@ -204,14 +203,14 @@ const article: Article = {
         {
           type: "tip",
           title: "Stopping here",
-          text: "This is a good point to finish if you want a clean line drawing, for example for a Thanksgiving card. Erase the construction lines and you're done.",
+          text: "This is a good point to finish if you want a clean line drawing, for example for a Thanksgiving card. Remove or lighten the leftover construction lines and you're done.",
         },
 
         { type: "heading", level: 3, text: "Step 8: Build up the feather texture" },
         { type: "image", image: images.s8 },
         {
           type: "paragraph",
-          text: "Erase the construction lines first. In the image, the oval and the head circle are gone. Then cover the body with rows of short, curved strokes, like overlapping scales. Let the rows follow the body: they curve around the breast and run along the back toward the tail.",
+          text: "In the image, the oval and the head circle are gone by this stage. Erase yours, or make sure they're faint enough to disappear under the texture. Then cover the body with rows of short, curved strokes, like overlapping scales. Let the rows follow the body: they curve around the breast and run along the back toward the tail.",
         },
         {
           type: "paragraph",
@@ -234,7 +233,7 @@ const article: Article = {
         },
         {
           type: "tip",
-          text: "If an area isn't dark enough, add another layer of strokes instead of pressing harder. Heavy pressure leaves shiny marks that are hard to erase.",
+          text: "If an area isn't dark enough, add another layer of strokes instead of pressing harder. Heavy pressure leaves shiny marks that are hard to fix.",
         },
 
         { type: "heading", level: 2, text: "Common mistakes and how to fix them" },
