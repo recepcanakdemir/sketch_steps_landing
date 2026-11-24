@@ -1,5 +1,5 @@
-// Builds the 1200x630 social image for the draft article "How to Draw a Turkey"
-// from the article's real step images (no generated artwork).
+// Builds the 1200x630 social image for the article "How to Draw a Turkey"
+// from the article's own step images (no new artwork is added).
 //
 //   node scripts/blog-og-how-to-draw-a-turkey.mjs
 //
