@@ -1,5 +1,10 @@
 # Sketch Steps 2.0: release review (feature/seo-geo-blog)
 
+> **Historical document.** This branch was merged as PR #11 on 2026-11-18 and
+> deployed. Statements below (for example "first article: draft only") were
+> true before that merge. Current state: `CLAUDE.md` and
+> `docs/SEO-GEO-STATUS.md`.
+
 Handoff notes for the teammate who reviews, merges and deploys this branch.
 Nothing on this branch has been merged or deployed by the author.
 

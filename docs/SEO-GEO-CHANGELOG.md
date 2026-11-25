@@ -1,0 +1,224 @@
+# SEO / GEO changelog
+
+The newest entry comes first.
+
+**Where the dates come from:**
+- commit dates (`git log`, local time);
+- PR merge dates (GitHub, UTC).
+
+"Deployed" means merged into `main`, which Vercel deploys to production. The
+exact Vercel deploy times are not recorded here.
+
+Add an entry for every change that affects search, metadata, structured data,
+indexable content or crawler access.
+
+---
+
+## 2026-11-25: Release: portrait homepage, Spanish face article, project docs
+
+- **Branch / PR:** `release/seo-geo-es-loomis`. It merges
+  `feature/geo-homepage-facts` and `feature/es-content-seo` into `main` at
+  59b6e15, plus final commits. The PR link is in `CLAUDE.md` §9 or on GitHub.
+- **Deployment:** **not deployed.** It waits for review and owner approval.
+
+**What changed:**
+- **Homepage (all languages):**
+  - H1 "Learn to Draw Portraits, Step by Step." (es, fr, de, ja aligned).
+  - Hero label "Turn your photos into step-by-step drawing guides" (es, fr,
+    de, ja aligned).
+  - Includes the GEO homepage work (next entry).
+- **Spanish face article** `/es/blog/como-dibujar-una-cara` published,
+  `publishedAt` 2026-11-25. Reciprocal hreflang en ↔ es and `/es/blog` become
+  indexable.
+- **English face article:** four line-position corrections (from 9441afa)
+  ship with `updatedAt` 2026-11-25.
+- **Glossary:** the Spanish entry for "eye-level guide" corrected to "a
+  little below the middle of the circle".
+- **Tooling:** new `scripts/check-seo.py`.
+- **Documentation:**
+  - new: `CLAUDE.md`, `docs/SEO-GEO-STATUS.md`, this changelog,
+    `docs/CONTENT-ROADMAP.md`, `docs/DEPLOYMENT-CHECKLIST.md`;
+  - reports copied into `docs/reports/2026-11/`.
+
+**Why:**
+- Owner-approved positioning (portraits, photo → guide).
+- Spanish content for Spain and Mexico.
+- Accuracy fixes found by measuring the step images.
+- Documentation, so other developers' Claude Code sessions can continue the
+  work.
+
+**Validation (release build):**
+- `tsc`, `eslint --max-warnings=0` and `next build` pass.
+- `check-seo.py`: no issues. Sitemap has 14 URLs; hreflang is reciprocal; all
+  JSON-LD parses.
+- Spanish article: title, canonical, `og:locale` es_ES, Spanish social image,
+  BlogPosting (`inLanguage` es), BreadcrumbList (Inicio › Blog › …), nine
+  Spanish step alts.
+- Mobile at 375–1280 px in all five languages: hero label on one line, no
+  horizontal scroll.
+
+**Before merging:** set the Spanish `publishedAt` and English `updatedAt` to
+the UTC deploy date if it is later than 2026-11-25.
+
+## 2026-11-24: GEO homepage facts (feature/geo-homepage-facts)
+
+- **Commits:** f64f68f, eab7b71 (2026-11-24).
+- **Deployment:** not deployed on its own; included in the 2026-11-25
+  release.
+
+**What changed:**
+- **English homepage:** portrait H1.
+- **Copy:** "screens are from the iPhone app" notes; Trace AI described with
+  examples instead of "six effects"; Tracing Studio card names both tracing
+  modes.
+- **FAQ** rebuilt (8 questions): devices, free vs paid, tracing, account,
+  photos.
+- **Facts line** under the final CTA (free download, in-app purchases, iOS 18+
+  on iPhone/iPad, Android).
+- **Meta, Open Graph and Twitter text:** removed "instantly" and "faster".
+- **Structured data:**
+  - WebPage node;
+  - SoftwareApplication `operatingSystem` "iOS 18+, Android";
+  - `featureList` (English only);
+  - offer description without prices.
+- **es, fr, de, ja:** the same factual fixes (platform notes, facts line, no
+  "six effects", no "instantly").
+
+**Why:** the GEO audit. AI assistants and search engines quote homepage facts,
+so every claim must match the store listings and the privacy policies.
+
+**Validation:**
+- `tsc`, ESLint and the build pass.
+- All 17 built pages checked: one H1, self canonicals, reciprocal hreflang,
+  JSON-LD parses, WebPage name and description equal the title and meta
+  description.
+- Mobile at 375 px.
+
+**Sources:**
+- App Store lookup and listing;
+- Google Play listing;
+- the iOS and Android privacy policies;
+- iOS app screenshots;
+- all checked 2026-11-24 (`docs/reports/2026-11/geo-homepage-change-report.md`).
+
+## 2026-11-24: GEO audit and implementation plan (no code)
+
+- **What:** an audit of crawler access, rendering, metadata, structured data,
+  sitemap, www and measurement, plus a prioritized plan.
+- **Reports:** `docs/reports/2026-11/geo-audit.md` and
+  `geo-implementation-plan.md`.
+- **Main findings:**
+  - www TLS error;
+  - GSC and Bing need confirming;
+  - missing WebPage node;
+  - no unsupported claims allowed in homepage copy.
+- An earlier note in the audit claimed an extra DNS A record. That was wrong
+  and was corrected the same day.
+
+## 2026-11-24: English turkey article published (PR #16)
+
+- **Commits:** e9466b9 (draft), 89d5a30, a5a0018. Squash-merged as 59b6e15 on
+  **2026-11-25** (UTC).
+- **Deployment:** deployed. Live with `index, follow` (verified 2026-11-25).
+
+**What changed:**
+- **New article** `/blog/how-to-draw-a-turkey`:
+  - nine pencil stages generated by Sketch Steps (origin confirmed by the
+    owner and disclosed in the intro);
+  - SEO title "How to Draw a Turkey Step by Step (Realistic Pencil)";
+  - BlogPosting and BreadcrumbList; 1200×630 social image built from steps 3,
+    6 and 9.
+- **Sitemap:** 11 → 12 URLs.
+
+**Validation:**
+- `tsc`, ESLint and the build pass.
+- Built-page checks: canonical, OG and Twitter tags, JSON-LD, alt text,
+  sitemap.
+- Mobile image delivery tested.
+- The 2× upscale test was rejected, so the original files were kept.
+
+**Note:** `publishedAt` is 2026-11-24 but the merge is dated 2026-11-25. See
+`SEO-GEO-STATUS.md` §6.
+
+## 2026-11-23 – 2026-11-24: Spanish localization of the face article (feature/es-content-seo)
+
+- **Commits:**
+  - 8f65a12 (2026-11-23): Spanish draft;
+  - 85a2225 (2026-11-24): wording and line-position fixes;
+  - 9441afa (2026-11-24): English corrections.
+- **Deployment:** not deployed on its own; included in the 2026-11-25
+  release.
+
+**What changed:**
+- **Spanish draft** `content/blog/how-to-draw-a-face/es.ts`:
+  - Spanish social image;
+  - font subsets extended for Spanish characters;
+  - blog support for draft translations of published articles;
+  - Spanish editorial standards and glossary (`docs/editorial/standards.md`
+    §8).
+- **Measurements** of the step images: the step-2 line sits about 58% down
+  the circle, and the eye line about 45% down the head. These led to four
+  corrections in both languages.
+
+**Research:** Spanish keyword research (Trends, autocomplete; no volumes):
+`docs/reports/2026-11/es-keyword-research.md`.
+
+**Validation:**
+- `tsc`, ESLint, the production build and the draft-preview build pass.
+- Simulated publication: reciprocal hreflang, sitemap entries, JSON-LD.
+
+## 2026-11-18: English face article published (PR #15)
+
+- **Branch:** `feat/publish-how-to-draw-a-face`, merged 2026-11-18.
+- **Deployment:** deployed.
+
+**What changed:**
+- `/blog/how-to-draw-a-face` ("How to Draw a Face Step by Step (Loomis
+  Method)"):
+  - nine stages generated by Sketch Steps from a portrait photo (disclosed);
+  - BlogPosting and BreadcrumbList;
+  - social image from steps 1, 4, 6 and 9.
+- `/blog` becomes indexable.
+
+**Validation:** pre-review in `docs/editorial/how-to-draw-a-face/review.md`.
+The owner approved publication; the drawing review is still open.
+
+## 2026-11-18: Social image function size fix (PR #12)
+
+- **Commit:** 1a7e158, merged 2026-11-18.
+- **Deployment:** deployed.
+- **What changed:** the build cache and repo files were kept out of the
+  social-image function, which had gone over Vercel's 250 MB limit.
+- **Why:** production deploys were failing.
+
+## 2026-11-17 – 2026-11-18: Sketch Steps 2.0, multilingual site, technical SEO and blog (PR #11)
+
+- **Branch:** `feature/seo-geo-blog`, merged 2026-11-18 (89170b2).
+- **Deployment:** deployed.
+- **Commits:**
+  - faa01b3: technical SEO foundation (metadata, canonical, sitemap, robots,
+    JSON-LD);
+  - 9c98068: multilingual routing;
+  - 27f35d4, 645ec64, 8edb5cb, ded04ba: es, fr, ja and de homepages with SEO;
+  - bba71d4, 1032c38: 2.0 redesign;
+  - 251756c, 6045708: language switcher and browser-language detection;
+  - ecac220: GA4 with consent;
+  - b5bf35c: blog infrastructure;
+  - 6be48ab: first article draft;
+  - f57d7f1: GA4 off at launch.
+- **Why:**
+  - multilingual reach (es, fr, ja, de);
+  - a crawlable, structured site;
+  - a blog for original tutorials.
+- **Validation:** handoff notes in `docs/release-review.md` (historical).
+
+## Earlier
+
+PRs #1–#10 (2026-06-20 to 2026-11-11):
+- Vercel Web Analytics (#1);
+- privacy policies (#2–#4, #7–#9);
+- landing refresh (#5);
+- account deletion (#6);
+- support page (#10).
+
+These are not SEO changes; they are listed for completeness.

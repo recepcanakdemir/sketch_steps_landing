@@ -22,7 +22,7 @@ type-checked. It can be added later without changing URLs.
 
 | Path | Purpose |
 |---|---|
-| `content/blog/index.ts` | Registry: the list of published articles (empty today). |
+| `content/blog/index.ts` | Registry: the list of published articles (see `docs/CONTENT-ROADMAP.md`). |
 | `content/blog/<id>/index.ts` | One article with all its language versions. |
 | `content/blog/authors.ts` | Authors (only the team today). |
 | `content/blog/fixtures/` | Local-only test articles (see below). |
@@ -71,7 +71,8 @@ export default article;
 ```
 
 3. Import it in `content/blog/index.ts` and add it to `ARTICLES`.
-4. Run `pnpm build`. The build lists anything to fix.
+4. Run `pnpm build`. The build lists anything to fix. Then run
+   `python3 scripts/check-seo.py` and follow `docs/DEPLOYMENT-CHECKLIST.md`.
 
 Optional image fields: `framing` (uniform scale <= 1 and shift, CSS only, to keep
 a step sequence in one frame; see the homepage `stepFraming`) and, per
