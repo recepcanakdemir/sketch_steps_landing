@@ -194,7 +194,8 @@ Full guide: `docs/blog.md`.
   - `/blog/how-to-draw-a-turkey` (2026-11-24).
 - **Live homepage H1** is still "Learn to Draw Anything, Step by Step." The
   portrait H1, the homepage facts, the structured data updates and the
-  Spanish article are in the **release PR** from branch
+  Spanish article are in the **release PR #17**
+  (https://github.com/recepcanakdemir/sketch_steps_landing/pull/17) from branch
   `release/seo-geo-es-loomis` (not merged at the time of writing).
 
 Check `git log origin/main` and the open PRs for anything newer.

@@ -18,7 +18,8 @@ indexable content or crawler access.
 
 - **Branch / PR:** `release/seo-geo-es-loomis`. It merges
   `feature/geo-homepage-facts` and `feature/es-content-seo` into `main` at
-  59b6e15, plus final commits. The PR link is in `CLAUDE.md` §9 or on GitHub.
+  59b6e15, plus final commits. PR #17:
+  https://github.com/recepcanakdemir/sketch_steps_landing/pull/17
 - **Deployment:** **not deployed.** It waits for review and owner approval.
 
 **What changed:**
