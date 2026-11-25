@@ -22,7 +22,7 @@ Verified 2026-11-25 by requesting the live pages (`curl`).
 | robots.txt | `User-Agent: *` / `Allow: /`, plus the sitemap URL. |
 | AI and search crawlers | GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended and Bingbot user agents all get 200 on an article (no bot blocking). Pages are server-rendered HTML, so crawlers that don't run JavaScript see the full text. |
 | `www.sketchsteps.app` | **Broken:** the certificate covers `sketchsteps.app` only ("subjectAltName does not match"). DNS is correct (CNAME to Vercel). Fix: add www to the Vercel project as a 308 redirect to the apex (`docs/reports/2026-11/geo-implementation-plan.md` §1). No DNS change is needed. |
-| GA4 | **Off.** No measurement ID is in the live HTML. It is turned on only after the Privacy Policy covers the website (`docs/analytics.md`). |
+| GA4 | **Off by owner decision** (see §3a). No measurement ID or Google script in the live HTML (verified 2026-11-25). Not a bug. |
 | Vercel Analytics | **Repo:** `<Analytics />` in `components/root-document.tsx`. Cookieless. Use the Vercel dashboard for data. |
 
 ## 2. Implemented, not deployed (release PR)
@@ -69,11 +69,29 @@ release build.
 | Google Search Console | **Partly verified:** DNS has two `google-site-verification` TXT records on `sketchsteps.app` (checked 2026-11-25). That fits a verified domain property, but whether the sitemap was submitted, and who has access, can only be seen in the dashboard. **Unverified.** |
 | Bing Webmaster Tools | **Unverified.** No Bing verification record was found in DNS or the HTML. It can be imported from Search Console. |
 | Generative AI reports | GSC Generative AI performance report and Bing AI Performance: not checked (dashboard). |
-| GA4 | Property and stream exist per `docs/analytics.md` (ID `G-6Q1F6EHWDD`, public). Off on the site. No AI-assistant channel group configured (**unverified**). |
+| GA4 | **Not used, by decision** (§3a). A property was created earlier (`docs/analytics.md`), but it is not connected to the site and won't be. |
 | Vercel Analytics | Installed (**repo**). Referrer views for AI assistants: not set up (**unverified**). |
 
 Measurement plan for AI referrals: `docs/reports/2026-11/geo-audit.md` §3 and
-`geo-implementation-plan.md` §4.
+`geo-implementation-plan.md` §4. **Ignore their GA4 parts** (§3a); use Vercel
+Analytics referrers, the GSC Generative AI report and Bing AI Performance.
+
+## 3a. Decision: no GA4, no new tracking (owner, 2026-11-25)
+
+GA4 is intentionally **not** configured or activated, because the owner does
+not want the additional cookie-consent and privacy requirements it brings.
+This is a deliberate business decision, not a technical issue.
+
+- Don't install, configure or activate GA4, and don't add Google Analytics
+  or Google tag scripts.
+- Don't modify the existing cookie/consent implementation. It stays dormant:
+  without a measurement ID nothing from Google loads, no cookie is set and no
+  banner appears.
+- Don't introduce other analytics or tracking tools.
+- Don't list "GA4 inactive" as an issue, gap or task in audits or reports.
+- Allowed measurement: Vercel Analytics (cookieless, installed), the
+  existing store-click attribution (`docs/attribution.md`), Search Console
+  and Bing Webmaster Tools.
 
 ## 4. Technical SEO reference
 
@@ -179,6 +197,5 @@ Measurement plan for AI referrals: `docs/reports/2026-11/geo-audit.md` §3 and
 | 4 | Rich Results Test on `/`, `/es`, both articles and the Spanish article after deploy | Developer |
 | 5 | Native review of es, fr, de and ja homepage copy; native Spanish article review | Reviewers |
 | 6 | Drawing-accuracy review of the face article | Reviewer |
-| 7 | Privacy Policy update, then turn GA4 on | Owner |
-| 8 | AI referral measurement: GA4 channel group, Vercel referrer view | Owner |
-| 9 | Android release: update the platform-specific copy (section 6, item 1) | Developer |
+| 7 | AI referral measurement without new tracking: Vercel Analytics referrer view, GSC Generative AI report, Bing AI Performance | Owner |
+| 8 | Android release: update the platform-specific copy (section 6, item 1) | Developer |

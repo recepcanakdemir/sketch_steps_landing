@@ -1,5 +1,12 @@
 # Analytics
 
+> **Decision (owner, 2026-11-25): GA4 stays off.** It is deliberately not
+> configured or activated, to avoid extra cookie-consent and privacy
+> requirements. The GA4 and consent code below is kept as is and stays
+> dormant. Do not set the measurement ID, add tracking scripts, change the
+> consent code or add other tracking tools. See `CLAUDE.md` §5a and
+> `docs/SEO-GEO-STATUS.md` §3a. The "turn it on" steps below are historical.
+
 Two tools run on sketchsteps.app:
 
 - **Vercel Analytics** (`@vercel/analytics`, in `components/root-document.tsx`):

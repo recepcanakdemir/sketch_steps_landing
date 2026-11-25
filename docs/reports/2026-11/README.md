@@ -8,6 +8,9 @@ For the current state, read `CLAUDE.md` and `docs/SEO-GEO-STATUS.md`.
 Local folder paths were removed when copying; otherwise the text is
 unchanged.
 
+Where these reports recommend GA4 setup or GA4 channel groups, that advice is
+**superseded**: GA4 stays off by owner decision (`CLAUDE.md` §5a).
+
 | File | Date | Contents |
 |---|---|---|
 | `geo-audit.md` | 2026-11-24 | GEO audit: crawler access, rendering, metadata, structured data, sitemap, www, measurement, prioritized findings, sources |

@@ -69,7 +69,7 @@ Where each fact comes from, and the open questions:
 | `lib/blog/` | Blog loader, build-time validation, blog SEO. |
 | `messages/*.json` | All UI text in en, es, fr, de, ja. |
 | `i18n/` | Locale config (ko is planned, not routed). |
-| `lib/analytics.ts`, `components/analytics.tsx` | GA4 (consent-gated, currently off). |
+| `lib/analytics.ts`, `components/analytics.tsx` | GA4 code (consent-gated). **Inactive by decision; see "Analytics decision" below.** |
 | `lib/attribution.ts`, `components/source-tracking.tsx` | `?s=` link codes and store-click attribution (Supabase). |
 | `scripts/` | Social image generators, font subsetting, `check-seo.py`. |
 | `docs/` | Documentation (index below). |
@@ -133,7 +133,29 @@ python3 scripts/check-seo.py   # SEO checks on the build output
    - **DNS:** no changes without approval.
    - **Privacy Policy:** do not change the live policy (owned outside this
      repo).
-   - **GA4:** do not send test traffic to the production property.
+   - **GA4 and tracking:** see "Analytics decision" below.
+
+## 5a. Analytics decision: GA4 stays off (owner decision, 2026-11-25)
+
+**GA4 is deliberately not configured or activated.** The owner chose not to
+take on the extra cookie-consent and privacy requirements that GA4 would
+bring. This is a business decision, **not a bug, not a missing setup step and
+not an SEO/GEO gap.**
+
+- Do **not** set `NEXT_PUBLIC_GA_MEASUREMENT_ID`, add a GA4 or Google tag
+  script, or "finish" the GA4 setup.
+- Do **not** change the existing cookie or consent code
+  (`lib/analytics.ts`, `components/analytics.tsx`, the consent banner text in
+  `messages/*.json`). It stays as it is and stays dormant: with no
+  measurement ID, no Google script loads, no cookie is set and no banner is
+  shown.
+- Do **not** add any other analytics or tracking tool.
+- Measurement uses what already exists:
+  - Vercel Analytics (cookieless, already installed);
+  - the existing store-click attribution (`docs/attribution.md`);
+  - Google Search Console and Bing Webmaster Tools (no code on the site).
+- Revisiting this needs an explicit new decision from the owner (and a
+  Privacy Policy update first). Never propose GA4 as a fix.
 
 ## 6. Deployment (summary)
 
@@ -205,7 +227,6 @@ Check `git log origin/main` and the open PRs for anything newer.
 | Issue | Owner | Where |
 |---|---|---|
 | `www.sketchsteps.app` TLS error (www not added to the Vercel project) | Owner, Vercel dashboard | `docs/reports/2026-11/geo-implementation-plan.md` §1 |
-| GA4 is off until the Privacy Policy covers the website | Owner | `docs/analytics.md`, `docs/privacy-disclosures.md` |
 | No drawing-accuracy review of the face article (en/es) yet; no native Spanish review | Reviewers to be named | `docs/editorial/how-to-draw-a-face/review.md` |
 | Translated homepage copy (es/fr/de/ja) not native-reviewed | Reviewers to be named | `docs/SEO-GEO-STATUS.md` |
 | Android feature differences, to update when the new Android version ships | Owner + developer | `docs/SEO-GEO-STATUS.md` |
@@ -223,7 +244,7 @@ Check `git log origin/main` and the open PRs for anything newer.
 | `docs/editorial/standards.md` | Editorial standards (English and Spanish), glossary |
 | `docs/editorial/<article>/` | Per-article image and review notes |
 | `docs/i18n.md` | Locale routing and translation rules |
-| `docs/analytics.md` | GA4 + Vercel Analytics, consent, events |
+| `docs/analytics.md` | Vercel Analytics; the dormant GA4/consent code (inactive by decision, §5a) |
 | `docs/attribution.md` | `?s=` link codes and store-click attribution |
 | `docs/privacy-disclosures.md` | Privacy facts the website relies on |
 | `docs/release-review.md` | Historical: the 2.0 release handoff (PR #11) |
