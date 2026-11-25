@@ -82,8 +82,8 @@ Where each fact comes from, and the open questions:
 - **Korean** is configured as planned and is not routed.
 - **Blog:**
   - English articles at `/blog/...`; Spanish at `/es/blog/...`.
-  - `/es/blog` becomes indexable once Spanish has a published article (it has
-    one in the current release PR).
+  - `/es/blog` is indexable (Spanish has a published article since
+    2026-11-25).
   - The fr, de and ja blog indexes are noindex.
 
 Details: `docs/i18n.md`. Translated homepage copy has not had a native-speaker
@@ -210,23 +210,34 @@ Full guide: `docs/blog.md`.
 
 ## 9. Current production state (verified 2026-11-25 UTC)
 
-- **Live:** `main` at `59b6e15` (PR #16).
-- **Published articles:**
-  - `/blog/how-to-draw-a-face` (2026-11-18);
-  - `/blog/how-to-draw-a-turkey` (2026-11-24).
-- **Live homepage H1** is still "Learn to Draw Anything, Step by Step." The
-  portrait H1, the homepage facts, the structured data updates and the
-  Spanish article are in the **release PR #17**
-  (https://github.com/recepcanakdemir/sketch_steps_landing/pull/17) from branch
-  `release/seo-geo-es-loomis` (not merged at the time of writing).
+- **Live:** https://sketchsteps.app, `main` at merge commit `0b75f9e`
+  (PR #17, merged 2026-11-25 17:59 UTC). Vercel production deployment
+  finished 2026-11-25 18:00 UTC (2026-11-26 01:00 Vietnam time, UTC+7).
+- **Published articles (3):**
+  - `/blog/how-to-draw-a-face` (en, published 2026-11-18, updated 2026-11-25);
+  - `/blog/how-to-draw-a-turkey` (en, published 2026-11-24);
+  - `/es/blog/como-dibujar-una-cara` (es, published 2026-11-25).
+- **Homepages:** the GEO improvements are live in all five languages (H1
+  "Learn to Draw Portraits, Step by Step.", the "Turn your photos into
+  step-by-step drawing guides" label, verified product facts, WebPage and
+  SoftwareApplication JSON-LD).
+- **Sitemap:** 14 URLs.
+- **Google Rich Results Test** (live `/`, both English articles, the
+  Spanish article): all items valid; only optional warnings (date-only
+  `datePublished`/`dateModified` without a timezone; no `aggregateRating`,
+  which is deliberate).
+- **GA4:** intentionally disabled by owner decision (§5a).
 
-Check `git log origin/main` and the open PRs for anything newer.
+Details: `docs/SEO-GEO-STATUS.md`. Check `git log origin/main` and the open
+PRs for anything newer.
 
 ## 10. Known open issues (short list)
 
 | Issue | Owner | Where |
 |---|---|---|
-| `www.sketchsteps.app` TLS error (www not added to the Vercel project) | Owner, Vercel dashboard | `docs/reports/2026-11/geo-implementation-plan.md` §1 |
+| `www.sketchsteps.app` has no HTTPS (TLS error; www not added to the Vercel project as a 308 redirect) | Owner, Vercel dashboard | `docs/reports/2026-11/geo-implementation-plan.md` §1 |
+| Search Console: URL inspection / indexing requests for the new and updated URLs | Owner | `docs/DEPLOYMENT-CHECKLIST.md` §6 |
+| Bing Webmaster Tools: verification and URL/sitemap submission | Owner | `docs/DEPLOYMENT-CHECKLIST.md` §6 |
 | No drawing-accuracy review of the face article (en/es) yet; no native Spanish review | Reviewers to be named | `docs/editorial/how-to-draw-a-face/review.md` |
 | Translated homepage copy (es/fr/de/ja) not native-reviewed | Reviewers to be named | `docs/SEO-GEO-STATUS.md` |
 | Android feature differences, to update when the new Android version ships | Owner + developer | `docs/SEO-GEO-STATUS.md` |

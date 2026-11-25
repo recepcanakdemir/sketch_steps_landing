@@ -1,66 +1,42 @@
 # SEO / GEO status
 
-Last updated: **2026-11-25 (UTC)**, while preparing the release PR from
-branch `release/seo-geo-es-loomis`. Update this file whenever production
-changes.
+Last updated: **2026-11-25 (UTC)**, after PR #17 was merged and deployed.
+Update this file whenever production changes.
 
 **Labels used in this document:**
 - **Verified:** checked directly, with the date and the method given.
 - **Repo:** true of the code; not checked on the live site.
 - **Unverified:** an assumption, or something only a dashboard can show.
 
-## 1. Deployed (production, `main` at 59b6e15)
+## 1. Production (`main` at 0b75f9e, PR #17)
 
-Verified 2026-11-25 by requesting the live pages (`curl`).
+- **Release:** PR #17 (`release/seo-geo-es-loomis`), merge commit `0b75f9e`,
+  merged 2026-11-25 17:59 UTC.
+- **Production deployment:** Vercel, finished 2026-11-25 18:00 UTC
+  (2026-11-26 01:00 Vietnam time, UTC+7).
+- **Live domain:** https://sketchsteps.app
+
+Verified 2026-11-25 (UTC) on the live site, by requesting every page and
+running `scripts/check-seo.py` on the downloaded HTML and sitemap.
 
 | Area | State |
 |---|---|
-| Live pages | Homepages `/`, `/es`, `/fr`, `/ja`, `/de`; `/support`; privacy policies; `/account-deletion`; `/blog`; two articles. All return 200. |
-| Articles | `/blog/how-to-draw-a-face` (published 2026-11-18) and `/blog/how-to-draw-a-turkey` (published 2026-11-24), both `index, follow`. |
-| Homepage H1 (live) | "Learn to Draw Anything, Step by Step." (the portrait H1 is not deployed yet) |
-| Sitemap | 12 URLs: 5 homepages, support, 2 privacy policies, account deletion, `/blog`, 2 articles. |
+| Live pages | Homepages `/`, `/es`, `/fr`, `/ja`, `/de`; `/support`; privacy policies; `/account-deletion`; `/blog`; `/es/blog`; three articles. All return 200. |
+| Articles (3) | `/blog/how-to-draw-a-face` (en, published 2026-11-18, updated 2026-11-25); `/blog/how-to-draw-a-turkey` (en, published 2026-11-24); `/es/blog/como-dibujar-una-cara` (es, published 2026-11-25). All `index, follow`, self-canonical. |
+| hreflang | Face article en ↔ es + x-default (reciprocal). Turkey article: none (English only). Homepages: en/es/fr/ja/de + x-default. |
+| Homepages (GEO) | **Live in all five languages:** H1 "Learn to Draw Portraits, Step by Step." (translated), hero label "Turn your photos into step-by-step drawing guides" (translated), verified product facts, restructured FAQ, WebPage + SoftwareApplication JSON-LD. Design unchanged. |
+| Sitemap | **14 URLs:** 5 homepages, support, 2 privacy policies, account deletion, `/blog`, `/es/blog`, 3 articles. Every entry is live, indexable and self-canonical. |
 | robots.txt | `User-Agent: *` / `Allow: /`, plus the sitemap URL. |
-| AI and search crawlers | GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended and Bingbot user agents all get 200 on an article (no bot blocking). Pages are server-rendered HTML, so crawlers that don't run JavaScript see the full text. |
-| `www.sketchsteps.app` | **Broken:** the certificate covers `sketchsteps.app` only ("subjectAltName does not match"). DNS is correct (CNAME to Vercel). Fix: add www to the Vercel project as a 308 redirect to the apex (`docs/reports/2026-11/geo-implementation-plan.md` §1). No DNS change is needed. |
-| GA4 | **Off by owner decision** (see §3a). No measurement ID or Google script in the live HTML (verified 2026-11-25). Not a bug. |
+| Google Rich Results Test | **Passed with only optional warnings** (live URLs, 2026-11-25). Spanish article, English face article, turkey article: 3 valid items each (Article, Breadcrumbs, Organization); optional warnings that `datePublished`/`dateModified` are dates without a time zone. Homepage: Organization + Software App valid; optional warning "missing aggregateRating" (deliberate: no invented ratings). |
+| AI and search crawlers | GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended and Bingbot user agents all get 200 (no bot blocking). Pages are server-rendered HTML, so crawlers that don't run JavaScript see the full text. |
+| `www.sketchsteps.app` | **Outstanding:** no working HTTPS. The certificate covers `sketchsteps.app` only ("subjectAltName does not match"). DNS is correct (CNAME to Vercel). Fix: add www to the Vercel project as a 308 redirect to the apex (`docs/reports/2026-11/geo-implementation-plan.md` §1). No DNS change is needed. |
+| GA4 | **Intentionally disabled by owner decision** (see §3a). No measurement ID or Google script in the live HTML (verified 2026-11-25). Not a bug. |
 | Vercel Analytics | **Repo:** `<Analytics />` in `components/root-document.tsx`. Cookieless. Use the Vercel dashboard for data. |
 
-## 2. Implemented, not deployed (release PR)
+## 2. Implemented, not deployed
 
-Branch `release/seo-geo-es-loomis` = latest `main` + the
-`feature/geo-homepage-facts` (f64f68f, eab7b71) and `feature/es-content-seo`
-(8f65a12, 85a2225, 9441afa) merges + final changes. **Merging the PR deploys
-it.**
-
-**Homepage (all five languages):**
-- H1 "Learn to Draw Portraits, Step by Step." with matching translations.
-- Hero label "Turn your photos into step-by-step drawing guides", translated.
-- Platform facts line: free download · in-app purchases · iPhone and iPad (iOS
-  18 or later) · Android.
-- Notes that the screens shown are from the iPhone app.
-- Trace AI described with examples instead of a fixed count.
-- FAQ restructured (8 questions).
-- Metadata and social text without speed claims.
-
-**Structured data:**
-- A WebPage node on each homepage.
-- SoftwareApplication: `operatingSystem` "iOS 18+, Android", `featureList`
-  (English only), and an offer description without prices.
-
-**Blog:**
-- Spanish article `/es/blog/como-dibujar-una-cara`, published.
-- Reciprocal hreflang en ↔ es (plus x-default = English).
-- `/es/blog` becomes indexable.
-- Four line-position corrections to the English face article, with
-  `updatedAt`.
-
-**Tooling:**
-- `scripts/check-seo.py`.
-- Project documentation (`CLAUDE.md`, the `docs/` files listed there).
-
-After merging, the sitemap should list **14 URLs**: the 12 above, plus
-`/es/blog` and `/es/blog/como-dibujar-una-cara`. This was verified in the
-release build.
+Nothing. Everything prepared on `feature/geo-homepage-facts` and
+`feature/es-content-seo` shipped with PR #17.
 
 ## 3. Search Console, Bing and analytics configuration
 
@@ -122,8 +98,8 @@ This is a deliberate business decision, not a technical issue.
   `aggregateRating`, `review`, `sameAs` or FAQPage.
 - Articles: BlogPosting (author = organization, `inLanguage`, dates, images)
   and BreadcrumbList.
-- `scripts/check-seo.py` checks that it parses. Run Google's Rich Results Test
-  on the deployed URLs (not done yet for the release).
+- `scripts/check-seo.py` checks that it parses. Google's Rich Results Test on
+  the live URLs passed with only optional warnings (§1).
 
 **Images:**
 - `scripts/check-seo.py` checks that every `<img>` has alt text.
@@ -192,10 +168,9 @@ This is a deliberate business decision, not a technical issue.
 | # | Task | Who |
 |---|---|---|
 | 1 | Add www as a 308 redirect in Vercel; verify the certificate and the redirects | Owner |
-| 2 | GSC: confirm the domain property, submit the sitemap, inspect new URLs | Owner |
-| 3 | Bing Webmaster Tools: verify or import, submit the sitemap | Owner |
-| 4 | Rich Results Test on `/`, `/es`, both articles and the Spanish article after deploy | Developer |
-| 5 | Native review of es, fr, de and ja homepage copy; native Spanish article review | Reviewers |
-| 6 | Drawing-accuracy review of the face article | Reviewer |
-| 7 | AI referral measurement without new tracking: Vercel Analytics referrer view, GSC Generative AI report, Bing AI Performance | Owner |
-| 8 | Android release: update the platform-specific copy (section 6, item 1) | Developer |
+| 2 | Search Console: confirm the domain property and sitemap; URL inspection + request indexing for `/es/blog/como-dibujar-una-cara`, `/es/blog`, `/blog/how-to-draw-a-face`, `/` | Owner |
+| 3 | Bing Webmaster Tools: verify or import from GSC, submit the sitemap and the same URLs | Owner |
+| 4 | Native review of es, fr, de and ja homepage copy; native Spanish article review | Reviewers |
+| 5 | Drawing-accuracy review of the face article | Reviewer |
+| 6 | AI referral measurement without new tracking: Vercel Analytics referrer view, GSC Generative AI report, Bing AI Performance | Owner |
+| 7 | Android release: update the platform-specific copy (section 6, item 1) | Developer |
