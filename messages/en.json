@@ -9,8 +9,8 @@
       "language": "Language"
     },
     "hero": {
-      "eyebrow": "Guided drawing lessons from your photos",
-      "title": "Learn to Draw Anything, <accent>Step by Step.</accent>",
+      "eyebrow": "Turn your photos into step-by-step drawing guides",
+      "title": "Learn to Draw Portraits, <accent>Step by Step.</accent>",
       "secondaryCta": "See how it works",
       "tags": [
         "Portraits",
@@ -28,7 +28,7 @@
     "howItWorks": {
       "eyebrow": "How it works",
       "title": "From photo to finished drawing.",
-      "lead": "Sketch Steps turns one photo into a drawing lesson you can follow at your own pace.",
+      "lead": "Sketch Steps turns one photo into a drawing lesson you can follow at your own pace. The screens below are from the iPhone app.",
       "steps": [
         {
           "title": "Start from a photo",
@@ -70,7 +70,7 @@
     "features": {
       "eyebrow": "Features",
       "title": "Everything you need to practice drawing.",
-      "lead": "Guided tutorials, tracing tools and a gallery for your work — all in one app.",
+      "lead": "Guided tutorials, tracing tools and a gallery for your work — all in one app. Screens and styles shown are from the iPhone app; some differ on Android.",
       "loomis": {
         "title": "Loomis portrait drawing",
         "body": "Portrait tutorials start with simple construction lines for the head and facial proportions, then build up to a finished sketch.",
@@ -96,12 +96,12 @@
       },
       "animals": {
         "title": "Pets and animals, too",
-        "body": "The Animal Drawing style turns photos of pets and wildlife into step-by-step tutorials.",
+        "body": "On iPhone and iPad, the Animal Drawing style turns photos of pets and wildlife into step-by-step tutorials.",
         "alt": "All nine steps of a golden retriever drawing tutorial"
       },
       "traceAi": {
         "title": "Trace AI",
-        "body": "Turn a photo into an image in one of six effects, then save it to Photos or trace it.",
+        "body": "Turn a photo into a tracing reference in a drawing style, such as pencil, charcoal or watercolor, then save it or trace it.",
         "effects": [
           "Clean Pencil",
           "Bold Charcoal",
@@ -110,12 +110,12 @@
           "Soft Sketch",
           "Watercolor"
         ],
-        "effectsLabel": "Trace AI effects",
+        "effectsLabel": "Trace AI effects in the iPhone app",
         "alt": "Trace AI effect picker with Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch and Watercolor"
       },
       "tracingStudio": {
         "title": "Tracing Studio",
-        "body": "Browse ready-made line drawings in categories such as animals, anime and cars, and keep your favorites.",
+        "body": "Trace onto real paper with Draw with Camera or Draw on Screen, using ready-made line drawings of animals, anime, cars and more, or your own photos.",
         "alt": "Tracing Studio with line drawing templates in Animals, Anime and Cars categories"
       },
       "freeTutorials": {
@@ -170,37 +170,38 @@
         },
         {
           "question": "What can I learn to draw with Sketch Steps?",
-          "answer": "Portraits and faces with the Loomis method, pets and other animals with the Animal Drawing style, and line drawings from Tracing Studio in categories such as animals, anime and cars."
+          "answer": "Portraits and faces, step by step with the Loomis method. On iPhone and iPad, the Animal Drawing style also turns photos of pets and other animals into tutorials. In Tracing Studio you can trace ready-made line drawings of animals, anime, cars, fruits and vegetables, and portraits."
         },
         {
           "question": "Is Sketch Steps suitable for beginners?",
-          "answer": "Yes. Sketch Steps is designed for beginners and aspiring artists who want clear, repeatable drawing steps without having to search through random tutorials."
-        },
-        {
-          "question": "Can I use my own photos?",
-          "answer": "Yes. You can generate guides from face photos in your gallery or from a new camera capture, making every practice session personal."
-        },
-        {
-          "question": "What is Trace AI?",
-          "answer": "Trace AI turns a photo into an image in one of six effects: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch or Watercolor. You can save the result to Photos or use it for tracing."
-        },
-        {
-          "question": "Does the app support tracing?",
-          "answer": "Yes. The tracing studio lets you practice directly over guided references while you learn the construction behind each portrait."
+          "answer": "Yes. Sketch Steps is made for beginners and hobby artists who want an approachable way to study drawing fundamentals such as proportion, face structure and shading, one step at a time."
         },
         {
           "question": "Is the app free?",
-          "answer": "Sketch Steps can be downloaded from the App Store or Google Play and includes free tutorials. Pricing and premium options are shown in the app before any purchase."
+          "answer": "Sketch Steps is free to download on the App Store and Google Play. Creating AI tutorials and Trace AI images requires an active subscription or coins, which are in-app purchases. On iPhone and iPad, the ready-made tutorials are free and need no coins. Prices are shown in the app before you buy."
         },
         {
-          "question": "Is there an Android version?",
-          "answer": "Yes. Sketch Steps is available now on Google Play."
+          "question": "Which devices does Sketch Steps work on?",
+          "answer": "Sketch Steps is available for iPhone and iPad with iOS 18 or later on the App Store, and for Android on Google Play. Both versions turn your photos into step-by-step Loomis tutorials and include Trace AI and a tracing studio, but some drawing styles and options differ; the screenshots on this page are from the iPhone app. The iPhone and iPad app is available in 11 languages, and the Android app in 14."
+        },
+        {
+          "question": "Can I use my own photos?",
+          "answer": "Yes. Choose a photo from your library or take one with the camera, and crop it before your tutorial is created. Both versions work with portrait photos; on iPhone and iPad you can also use photos of animals. The tutorials are generated by AI, so they can occasionally be imperfect, and results vary from photo to photo."
+        },
+        {
+          "question": "How does tracing work?",
+          "answer": "Tracing Studio helps you put a reference on real paper in two ways. With Draw with Camera, you prop your phone above the paper and see the reference over the live camera view. With Draw on Screen, you turn up the brightness and lay paper over the screen. You can trace ready-made templates, your own photos or a Trace AI image, which turns a photo into a reference in a drawing style such as pencil, charcoal or watercolor. The available AI styles differ between iPhone and Android."
+        },
+        {
+          "question": "Do I need an account, and what happens to my photos?",
+          "answer": "No account is needed to start. On Android, you sign in with Google only when you buy, restore purchases or choose to sign in from Settings. Photos you upload for AI generation are deleted from our storage within one hour after the request finishes, and no later than seven days after upload. AI Loomis tutorials are kept for 90 days so you can open them again, then deleted. The iOS and Android privacy policies, linked at the bottom of this page, have the details."
         }
       ]
     },
     "finalCta": {
       "title": "Your Next Portrait Starts Here.",
-      "lead": "Download Sketch Steps and turn your next photo into a step-by-step drawing lesson."
+      "lead": "Download Sketch Steps and turn your next photo into a step-by-step drawing lesson.",
+      "facts": "Free download · In-app purchases · iPhone and iPad (iOS 18 or later) · Android"
     },
     "footer": {
       "label": "Footer",

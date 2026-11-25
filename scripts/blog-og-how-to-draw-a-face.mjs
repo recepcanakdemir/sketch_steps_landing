@@ -1,9 +1,12 @@
-// Builds the 1200x630 social image for the draft article "How to Draw a Face"
+// Builds the 1200x630 social image for the article "How to Draw a Face"
 // from the article's real Sketch Steps step images (no generated artwork).
 //
-//   node scripts/blog-og-how-to-draw-a-face.mjs
+//   node scripts/blog-og-how-to-draw-a-face.mjs       # English
+//   node scripts/blog-og-how-to-draw-a-face.mjs es    # Spanish
 //
-// Output: public/blog/how-to-draw-a-face/how-to-draw-a-face-og.png
+// Output: public/blog/how-to-draw-a-face/how-to-draw-a-face-og.png (en),
+// public/blog/how-to-draw-a-face/como-dibujar-una-cara-og.png (es). Same
+// layout and images; only the title differs.
 //
 // Rules: the first and last steps are placed at exactly their native size
 // (292x394, 1:1 pixels); the two middle steps are only scaled down. Nothing
@@ -18,7 +21,14 @@ import { ImageResponse } from "next/dist/compiled/@vercel/og/index.node.js";
 
 const root = process.cwd();
 const DIR = "public/blog/how-to-draw-a-face";
-const OUT = path.join(root, DIR, "how-to-draw-a-face-og.png");
+const CARDS = {
+  en: { title: "How to Draw a Face", file: "how-to-draw-a-face-og.png" },
+  es: { title: "Cómo dibujar una cara", file: "como-dibujar-una-cara-og.png" },
+};
+const lang = process.argv[2] ?? "en";
+if (!CARDS[lang]) throw new Error(`Unknown language "${lang}" (use: ${Object.keys(CARDS).join(", ")})`);
+const { title: TITLE, file: OUT_FILE } = CARDS[lang];
+const OUT = path.join(root, DIR, OUT_FILE);
 const NATIVE = { width: 292, height: 394 };
 const MIDDLE_SCALE = 0.62; // downscale only
 const INK = "#27150A";
@@ -78,7 +88,7 @@ const image = new ImageResponse(
       h(
         "div",
         { style: { display: "flex", fontSize: 64, fontWeight: 700, color: INK, letterSpacing: "-0.01em" } },
-        "How to Draw a Face",
+        TITLE,
       ),
       h("img", { src: wordmark, width: 216, height: 72 }),
     ),

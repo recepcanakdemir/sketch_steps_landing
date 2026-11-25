@@ -1,38 +1,34 @@
-import { demo } from "@/components/home/assets";
-import type { Article, BlogImage } from "@/lib/blog/types";
+import type { Article } from "@/lib/blog/types";
+
+import es from "./es";
+import { DIR, step } from "./images";
 
 /**
  * Published 2026-11-18 with the owner's approval. Review notes:
  * docs/editorial/how-to-draw-a-face/ (image-review.md, review.md).
  *
- * Images: the nine stages Sketch Steps generated from a portrait photo (the
- * same set as the homepage demo), byte-identical copies in
- * public/blog/how-to-draw-a-face/. The reference photo is not used until
- * publication rights are confirmed.
+ * Images: the nine stages Sketch Steps generated from a portrait photo (see
+ * ./images.ts). The reference photo is not used until publication rights are
+ * confirmed.
+ *
+ * Updated 2026-11-25 (UTC): step-2 line position corrected in steps 2, 4 and the
+ * step 6 tip (measurements in review.md). Set updatedAt to the real deploy
+ * date if it ships later.
+ *
+ * Spanish (es): published translation of this article (./es.ts), linked by
+ * reciprocal hreflang.
  */
 
-const DIR = "/blog/how-to-draw-a-face";
-
-const step = (n: number, name: string, alt: string): BlogImage => ({
-  src: `${DIR}/how-to-draw-a-face-step-${n}-${name}.jpg`,
-  alt,
-  width: 292,
-  height: 394,
-  // Same per-step framing as the homepage demo (only blank paper is cropped;
-  // checked for every step). Files untouched, never enlarged.
-  framing: demo.stepFraming[n - 1],
-});
-
 const images = {
-  s1: step(1, "cranium-circle", "Step 1 of a face drawing: a single light pencil circle in the upper part of the page"),
-  s2: step(2, "center-line", "Step 2: the circle with a tilted vertical center line that continues below it and a horizontal line close to its middle"),
-  s3: step(3, "side-planes-jaw", "Step 3: curved lines cut the sides of the circle and continue down into an angular jaw with a flat chin"),
-  s4: step(4, "placing-features", "Step 4: horizontal guidelines with outlined eyebrows, a simple nose and a mouth placed along the center line"),
-  s5: step(5, "hair-ears-neck", "Step 5: the outline of wavy hair, ears hinted at the sides, the neck and a T-shirt collar; the eyes are not drawn yet"),
-  s6: step(6, "eyes-details", "Step 6: open eyes, darkened eyebrows, a smiling mouth and fuller hair over light construction lines"),
-  s7: step(7, "refined-lines", "Step 7: a refined line drawing of the face with more hair strands and darker eye details"),
-  s8: step(8, "light-shading", "Step 8: the first light pencil hatching in the hair, on the face and on the neck"),
-  s9: step(9, "finished-sketch", "Step 9: finished pencil sketch of a smiling young man with wavy hair and darker shading"),
+  s1: step(1, "Step 1 of a face drawing: a single light pencil circle in the upper part of the page"),
+  s2: step(2, "Step 2: the circle with a tilted vertical center line that continues below it and a horizontal line a little below its middle"),
+  s3: step(3, "Step 3: curved lines cut the sides of the circle and continue down into an angular jaw with a flat chin"),
+  s4: step(4, "Step 4: horizontal guidelines with outlined eyebrows, a simple nose and a mouth placed along the center line"),
+  s5: step(5, "Step 5: the outline of wavy hair, ears hinted at the sides, the neck and a T-shirt collar; the eyes are not drawn yet"),
+  s6: step(6, "Step 6: open eyes, darkened eyebrows, a smiling mouth and fuller hair over light construction lines"),
+  s7: step(7, "Step 7: a refined line drawing of the face with more hair strands and darker eye details"),
+  s8: step(8, "Step 8: the first light pencil hatching in the hair, on the face and on the neck"),
+  s9: step(9, "Step 9: finished pencil sketch of a smiling young man with wavy hair and darker shading"),
 };
 
 const article: Article = {
@@ -50,6 +46,7 @@ const article: Article = {
         "Nine pencil stages, from a single circle to a finished portrait, with what to draw at each stage and how to catch the usual mistakes.",
       status: "published",
       publishedAt: "2026-11-18",
+      updatedAt: "2026-11-25",
       heroImage: {
         ...images.s9,
         alt: "Finished pencil sketch of a smiling young man with wavy hair, the last of nine drawing stages",
@@ -127,7 +124,7 @@ const article: Article = {
         { type: "image", image: images.s2 },
         {
           type: "paragraph",
-          text: "Draw a vertical line through the circle and let it run well past the bottom of it. The face continues down to the chin along this line. Then draw a horizontal line across the circle, close to its middle.",
+          text: "Draw a vertical line through the circle and let it run well past the bottom of it. The face continues down to the chin along this line. Then draw a horizontal line across the circle, a little below its middle.",
         },
         {
           type: "paragraph",
@@ -135,7 +132,7 @@ const article: Article = {
         },
         {
           type: "paragraph",
-          text: "A note on names: many Loomis diagrams call the middle horizontal line the brow line. In this drawing, the eyebrows end up just above it and the eyes are drawn along it in step 6, so here it works as your eye-level guide.",
+          text: "A note on names: classic Loomis diagrams draw a horizontal line through the middle of the ball and call it the brow line. The one in this drawing sits a little lower: the eyebrows go above it and, in step 6, the eyes are drawn along it, so here it works as your eye-level guide.",
         },
         {
           type: "tip",
@@ -171,7 +168,7 @@ const article: Article = {
         },
         {
           type: "paragraph",
-          text: "These are the guidelines this particular drawing uses, not a fixed Loomis recipe. Classic Loomis diagrams work with a brow line across the middle of the ball, a nose line and a chin line, spaced as the thirds described above. This drawing puts the eyes on that middle line instead (see step 2). Either way, match the spacing to your reference rather than to a diagram.",
+          text: "These are the guidelines this particular drawing uses, not a fixed Loomis recipe. Classic Loomis diagrams work with a brow line across the middle of the ball, a nose line and a chin line, spaced as the thirds described above. This drawing puts the eyes on the horizontal line from step 2 instead, which sits a little below the middle of the circle. Either way, match the spacing to your reference rather than to a diagram.",
         },
         {
           type: "paragraph",
@@ -219,7 +216,7 @@ const article: Article = {
         {
           type: "tip",
           title: "Common mistake",
-          text: "Eyes placed too high, near the top of the head. A common guideline puts them roughly halfway between the top of the skull and the chin. In this drawing they sit a little higher than that, on the middle line of the circle, so check the height against your own reference rather than copying either rule.",
+          text: "Eyes placed too high, near the top of the head. A common guideline puts them roughly halfway between the top of the skull and the chin. In this drawing they sit a little higher than that, on the horizontal line from step 2, so check the height against your own reference rather than copying either rule.",
         },
 
         { type: "heading", level: 3, text: "Step 7: Refine the line drawing" },
@@ -284,6 +281,7 @@ const article: Article = {
         { type: "appCta" },
       ],
     },
+    es,
   },
 };
 

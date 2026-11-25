@@ -29,6 +29,12 @@ export const GOOGLE_PLAY_URL = `https://play.google.com/store/apps/details?id=${
 export const PRIVACY_POLICY_URL =
   "https://learned-trollius-e3f.notion.site/Sketch-Steps-Privacy-Policy-35072e55921f80848251fb0847ee0dee";
 
+/** English homepage title and description (metadata and WebPage JSON-LD). */
+export const EN_HOME_TITLE =
+  "Sketch Steps - AI Loomis Drawing Guides for Portrait Artists";
+export const EN_HOME_DESCRIPTION =
+  "Turn a portrait photo into a step-by-step Loomis drawing tutorial, then draw or trace it on real paper. Free download for iPhone, iPad and Android.";
+
 export const LOGO_PATH = "/images/sketch-steps-app-icon.png";
 
 /**

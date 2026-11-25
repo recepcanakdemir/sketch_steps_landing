@@ -22,7 +22,7 @@ type-checked. It can be added later without changing URLs.
 
 | Path | Purpose |
 |---|---|
-| `content/blog/index.ts` | Registry: the list of published articles (empty today). |
+| `content/blog/index.ts` | Registry: the list of published articles (see `docs/CONTENT-ROADMAP.md`). |
 | `content/blog/<id>/index.ts` | One article with all its language versions. |
 | `content/blog/authors.ts` | Authors (only the team today). |
 | `content/blog/fixtures/` | Local-only test articles (see below). |
@@ -71,7 +71,8 @@ export default article;
 ```
 
 3. Import it in `content/blog/index.ts` and add it to `ARTICLES`.
-4. Run `pnpm build`. The build lists anything to fix.
+4. Run `pnpm build`. The build lists anything to fix. Then run
+   `python3 scripts/check-seo.py` and follow `docs/DEPLOYMENT-CHECKLIST.md`.
 
 Optional image fields: `framing` (uniform scale <= 1 and shift, CSS only, to keep
 a step sequence in one frame; see the homepage `stepFraming`) and, per
@@ -159,6 +160,22 @@ banner, are `noindex, nofollow`, have no dates and never appear in the sitemap
 or the blog JSON-LD. Every translation in that list must stay
 `status: "draft"` without `publishedAt`, or the build fails. To publish, move
 the article to `content/blog/index.ts` (see "Adding an article").
+
+### Draft translations of a published article
+
+A new language version of an article that is already published goes in the
+same entry's `translations` with `status: "draft"` (no dates; the build
+fails otherwise). Example: `content/blog/how-to-draw-a-face/es.ts`.
+
+- Normal and hosted builds: the draft is not built, not listed, not in the
+  sitemap, and the published versions' hreflang does not mention it.
+- Local preview (`BLOG_DRAFT_PREVIEW=1`): the draft renders at its real URL
+  with the "Local draft preview" banner, `noindex, nofollow`, a self
+  canonical and no hreflang. The published versions still list only
+  published translations in hreflang and the sitemap, even in a preview.
+- To publish: set `status: "published"` and the real `publishedAt`. The
+  reciprocal hreflang (plus `x-default` = English) and the sitemap entries
+  then follow from the entry; the language's blog index becomes indexable.
 
 ## Known framework note
 

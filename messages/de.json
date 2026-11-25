@@ -9,8 +9,8 @@
       "language": "Sprache"
     },
     "hero": {
-      "eyebrow": "Geführte Zeichenkurse aus deinen Fotos",
-      "title": "Lerne alles zu zeichnen – <accent>Schritt für Schritt.</accent>",
+      "eyebrow": "Verwandle Fotos in Zeichenanleitungen",
+      "title": "Lerne Porträts zu zeichnen – <accent>Schritt für Schritt.</accent>",
       "secondaryCta": "So funktioniert’s",
       "tags": [
         "Porträts",
@@ -28,7 +28,7 @@
     "howItWorks": {
       "eyebrow": "So funktioniert’s",
       "title": "Vom Foto zur fertigen Zeichnung.",
-      "lead": "Sketch Steps verwandelt ein Foto in einen Zeichenkurs, dem du in deinem eigenen Tempo folgen kannst.",
+      "lead": "Sketch Steps verwandelt ein Foto in einen Zeichenkurs, dem du in deinem eigenen Tempo folgen kannst. Die Screens unten stammen aus der iPhone-App.",
       "steps": [
         {
           "title": "Starte mit einem Foto",
@@ -70,7 +70,7 @@
     "features": {
       "eyebrow": "Funktionen",
       "title": "Alles, was du brauchst, um zeichnen zu üben.",
-      "lead": "Geführte Tutorials, Werkzeuge zum Abpausen und eine Galerie für deine Werke – alles in einer App.",
+      "lead": "Geführte Tutorials, Werkzeuge zum Abpausen und eine Galerie für deine Werke – alles in einer App. Die gezeigten Screens und Stile stammen aus der iPhone-App; einige unterscheiden sich unter Android.",
       "loomis": {
         "title": "Porträtzeichnen nach Loomis",
         "body": "Porträt-Tutorials beginnen mit einfachen Konstruktionslinien für Kopf und Gesichtsproportionen und bauen dann bis zur fertigen Skizze auf.",
@@ -96,12 +96,12 @@
       },
       "animals": {
         "title": "Auch Haustiere und Tiere",
-        "body": "Der Stil Animal Drawing verwandelt Fotos von Haus- und Wildtieren in Schritt-für-Schritt-Tutorials.",
+        "body": "Auf iPhone und iPad verwandelt der Stil Animal Drawing Fotos von Haus- und Wildtieren in Schritt-für-Schritt-Tutorials.",
         "alt": "Alle neun Schritte eines Tutorials zum Zeichnen eines Golden Retrievers"
       },
       "traceAi": {
         "title": "Trace AI",
-        "body": "Verwandle ein Foto in ein Bild mit einem von sechs Effekten – und speichere es dann in Fotos oder pause es ab.",
+        "body": "Verwandle ein Foto in eine Vorlage zum Abpausen in einem Zeichenstil wie Bleistift, Kohle oder Aquarell – und speichere sie oder pause sie ab.",
         "effects": [
           "Clean Pencil",
           "Bold Charcoal",
@@ -110,7 +110,7 @@
           "Soft Sketch",
           "Watercolor"
         ],
-        "effectsLabel": "Trace-AI-Effekte",
+        "effectsLabel": "Trace-AI-Effekte in der iPhone-App",
         "alt": "Effektauswahl von Trace AI mit Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch und Watercolor"
       },
       "tracingStudio": {
@@ -170,7 +170,7 @@
         },
         {
           "question": "Was kann ich mit Sketch Steps zeichnen lernen?",
-          "answer": "Porträts und Gesichter mit der Loomis-Methode, Haustiere und andere Tiere mit dem Stil Animal Drawing sowie Strichzeichnungen aus dem Tracing Studio in Kategorien wie Tiere, Anime und Fahrzeuge."
+          "answer": "Porträts und Gesichter mit der Loomis-Methode, auf iPhone und iPad auch Haustiere und andere Tiere mit dem Stil Animal Drawing, sowie Strichzeichnungen aus dem Tracing Studio in Kategorien wie Tiere, Anime und Fahrzeuge."
         },
         {
           "question": "Ist Sketch Steps für Anfänger geeignet?",
@@ -182,7 +182,7 @@
         },
         {
           "question": "Was ist Trace AI?",
-          "answer": "Trace AI verwandelt ein Foto in ein Bild mit einem von sechs Effekten: Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch oder Watercolor. Du kannst das Ergebnis in Fotos speichern oder zum Abpausen verwenden."
+          "answer": "Trace AI verwandelt ein Foto in eine Vorlage zum Abpausen in einem Zeichenstil wie Bleistift, Kohle oder Aquarell. Du kannst das Ergebnis speichern oder zum Abpausen verwenden. Die verfügbaren Stile unterscheiden sich zwischen iPhone und Android."
         },
         {
           "question": "Kann ich mit der App abpausen?",
@@ -190,17 +190,18 @@
         },
         {
           "question": "Ist die App kostenlos?",
-          "answer": "Sketch Steps kannst du im App Store oder bei Google Play herunterladen, und die App enthält kostenlose Tutorials. Preise und Premium-Optionen werden dir vor jedem Kauf in der App angezeigt."
+          "answer": "Sketch Steps kannst du kostenlos im App Store oder bei Google Play herunterladen. Auf iPhone und iPad enthält die App kostenlose Tutorials. Preise und Premium-Optionen werden dir vor jedem Kauf in der App angezeigt."
         },
         {
           "question": "Gibt es eine Android-Version?",
-          "answer": "Ja. Sketch Steps ist jetzt bei Google Play erhältlich."
+          "answer": "Ja. Sketch Steps ist bei Google Play erhältlich. Einige Funktionen und Stile unterscheiden sich unter Android; die Screenshots auf dieser Seite stammen aus der iPhone-App."
         }
       ]
     },
     "finalCta": {
       "title": "Dein nächstes Porträt beginnt hier.",
-      "lead": "Lade Sketch Steps herunter und verwandle dein nächstes Foto in einen Zeichenkurs Schritt für Schritt."
+      "lead": "Lade Sketch Steps herunter und verwandle dein nächstes Foto in einen Zeichenkurs Schritt für Schritt.",
+      "facts": "Kostenloser Download · In-App-Käufe · iPhone und iPad (iOS 18 oder neuer) · Android"
     },
     "footer": {
       "label": "Fußzeile",
@@ -264,7 +265,7 @@
     "socialImage": {
       "alt": "Sketch Steps: ein Gesichtsfoto, verwandelt in eine Loomis-Zeichenanleitung Schritt für Schritt",
       "heading": "Loomis-Methode\nSchritt für Schritt",
-      "body": "Lade ein Gesichtsfoto hoch und erhalte sofort geführte Zeichenschritte.",
+      "body": "Lade ein Gesichtsfoto hoch und erhalte geführte Zeichenschritte.",
       "step": "Schritt {step}"
     }
   },

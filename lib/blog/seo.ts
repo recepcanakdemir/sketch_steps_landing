@@ -54,8 +54,9 @@ export function articleMetadata(entry: BlogEntry): Metadata {
     description: translation.description,
     path: entry.path,
     locale,
-    localizedPaths: articleLocalizedPaths(article),
-    availableLocales: articleLocales(article),
+    // A noindex page (draft or fixture) advertises no alternates.
+    localizedPaths: indexable ? articleLocalizedPaths(article) : {},
+    availableLocales: indexable ? articleLocales(article) : [locale],
     socialTitle: translation.seoTitle ?? translation.title,
     index: indexable,
   });
