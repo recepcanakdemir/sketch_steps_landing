@@ -13,7 +13,7 @@ export const contentType = "image/png";
 export default function OpenGraphImage() {
   return renderSocialImage({
     heading: "Step-by-Step Loomis Drawing Guide",
-    body: "Upload a face and instantly receive guided drawing steps.",
+    body: "Upload a face photo and get guided drawing steps.",
     stepLabel: (step) => `Step ${step}`,
   });
 }

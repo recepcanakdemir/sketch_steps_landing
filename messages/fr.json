@@ -28,7 +28,7 @@
     "howItWorks": {
       "eyebrow": "Comment ça marche",
       "title": "De la photo au dessin terminé.",
-      "lead": "Sketch Steps transforme une photo en cours de dessin à suivre à votre rythme.",
+      "lead": "Sketch Steps transforme une photo en cours de dessin à suivre à votre rythme. Les écrans ci-dessous proviennent de l’app iPhone.",
       "steps": [
         {
           "title": "Partez d’une photo",
@@ -70,7 +70,7 @@
     "features": {
       "eyebrow": "Fonctionnalités",
       "title": "Tout ce qu’il faut pour vous entraîner à dessiner.",
-      "lead": "Des tutoriels guidés, des outils de calque et une galerie pour vos créations, le tout dans une seule app.",
+      "lead": "Des tutoriels guidés, des outils de calque et une galerie pour vos créations, le tout dans une seule app. Les écrans et les styles présentés proviennent de l’app iPhone ; certains diffèrent sur Android.",
       "loomis": {
         "title": "Portraits avec la méthode Loomis",
         "body": "Les tutoriels de portrait commencent par de simples lignes de construction pour la tête et les proportions du visage, puis progressent jusqu’à un croquis terminé.",
@@ -96,12 +96,12 @@
       },
       "animals": {
         "title": "Les animaux aussi",
-        "body": "Le style Animal Drawing transforme les photos d’animaux de compagnie et d’animaux sauvages en tutoriels étape par étape.",
+        "body": "Sur iPhone et iPad, le style Animal Drawing transforme les photos d’animaux de compagnie et d’animaux sauvages en tutoriels étape par étape.",
         "alt": "Les neuf étapes d’un tutoriel de dessin d’un golden retriever"
       },
       "traceAi": {
         "title": "Trace AI",
-        "body": "Transformez une photo en image avec l’un des six effets proposés, puis enregistrez-la dans Photos ou décalquez-la.",
+        "body": "Transformez une photo en référence à décalquer dans un style de dessin, comme le crayon, le fusain ou l’aquarelle, puis enregistrez-la ou décalquez-la.",
         "effects": [
           "Clean Pencil",
           "Bold Charcoal",
@@ -110,7 +110,7 @@
           "Soft Sketch",
           "Watercolor"
         ],
-        "effectsLabel": "Effets Trace AI",
+        "effectsLabel": "Effets Trace AI dans l’app iPhone",
         "alt": "Sélecteur d’effets Trace AI avec Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch et Watercolor"
       },
       "tracingStudio": {
@@ -170,7 +170,7 @@
         },
         {
           "question": "Que puis-je apprendre à dessiner avec Sketch Steps ?",
-          "answer": "Des portraits et des visages avec la méthode Loomis, des animaux de compagnie et d’autres animaux avec le style Animal Drawing, ainsi que des dessins au trait de Tracing Studio dans des catégories comme les animaux, l’anime et les véhicules."
+          "answer": "Des portraits et des visages avec la méthode Loomis ; sur iPhone et iPad, des animaux de compagnie et d’autres animaux avec le style Animal Drawing ; ainsi que des dessins au trait de Tracing Studio dans des catégories comme les animaux, l’anime et les véhicules."
         },
         {
           "question": "Sketch Steps convient-il aux débutants ?",
@@ -182,7 +182,7 @@
         },
         {
           "question": "Qu’est-ce que Trace AI ?",
-          "answer": "Trace AI transforme une photo en image avec l’un des six effets suivants : Clean Pencil, Bold Charcoal, Anime Ink, Architectural Line, Soft Sketch ou Watercolor. Vous pouvez enregistrer le résultat dans Photos ou l’utiliser pour décalquer."
+          "answer": "Trace AI transforme une photo en référence à décalquer dans un style de dessin, comme le crayon, le fusain ou l’aquarelle. Vous pouvez enregistrer le résultat ou l’utiliser pour décalquer. Les styles proposés ne sont pas les mêmes sur iPhone et sur Android."
         },
         {
           "question": "L’app permet-elle de décalquer ?",
@@ -190,17 +190,18 @@
         },
         {
           "question": "L’app est-elle gratuite ?",
-          "answer": "Sketch Steps se télécharge sur l’App Store ou Google Play et comprend des tutoriels gratuits. Les tarifs et les options premium sont indiqués dans l’app avant tout achat."
+          "answer": "Sketch Steps se télécharge gratuitement sur l’App Store ou Google Play. Sur iPhone et iPad, l’app comprend des tutoriels gratuits. Les tarifs et les options premium sont indiqués dans l’app avant tout achat."
         },
         {
           "question": "Existe-t-il une version Android ?",
-          "answer": "Oui. Sketch Steps est dès maintenant disponible sur Google Play."
+          "answer": "Oui. Sketch Steps est disponible sur Google Play. Certaines fonctionnalités et certains styles diffèrent sur Android ; les captures d’écran de cette page proviennent de l’app iPhone."
         }
       ]
     },
     "finalCta": {
       "title": "Votre prochain portrait commence ici.",
-      "lead": "Téléchargez Sketch Steps et transformez votre prochaine photo en cours de dessin étape par étape."
+      "lead": "Téléchargez Sketch Steps et transformez votre prochaine photo en cours de dessin étape par étape.",
+      "facts": "Téléchargement gratuit · Achats intégrés · iPhone et iPad (iOS 18 ou version ultérieure) · Android"
     },
     "footer": {
       "label": "Pied de page",
@@ -264,7 +265,7 @@
     "socialImage": {
       "alt": "Sketch Steps : la photo d’un visage transformée en guide de dessin Loomis étape par étape",
       "heading": "Dessin Loomis étape par étape",
-      "body": "Importez la photo d’un visage et recevez instantanément des étapes de dessin guidées.",
+      "body": "Importez la photo d’un visage et recevez des étapes de dessin guidées.",
       "step": "Étape {step}"
     }
   },

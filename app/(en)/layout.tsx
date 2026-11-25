@@ -6,6 +6,7 @@ import { RootDocument } from "@/components/root-document";
 import { DEFAULT_LOCALE } from "@/i18n/config";
 import { localeDetectionScript } from "@/lib/locale-detection";
 import { rootViewport, sharedRootMetadata } from "@/lib/metadata";
+import { EN_HOME_DESCRIPTION, EN_HOME_TITLE } from "@/lib/site";
 
 /**
  * Root layout for English, the default locale, served on the root domain
@@ -15,11 +16,10 @@ import { rootViewport, sharedRootMetadata } from "@/lib/metadata";
 export const metadata: Metadata = {
   ...sharedRootMetadata,
   title: {
-    default: "Sketch Steps - AI Loomis Drawing Guides for Portrait Artists",
+    default: EN_HOME_TITLE,
     template: "%s | Sketch Steps",
   },
-  description:
-    "Turn any face photo into an AI-generated step-by-step Loomis drawing guide. Learn portrait drawing faster with guided construction, tracing, and saved practice references.",
+  description: EN_HOME_DESCRIPTION,
   keywords: [
     "AI Drawing App",
     "Loomis Method",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sketch Steps - Turn Photos Into Loomis Drawing Guides",
     description:
-      "Upload a face photo and instantly receive an AI-powered Loomis construction breakdown designed for beginners and aspiring portrait artists.",
+      "Upload a portrait photo and get a step-by-step Loomis construction guide, made for beginners and aspiring portrait artists.",
     url: "https://sketchsteps.app",
     siteName: "Sketch Steps",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sketch Steps - AI Loomis Drawing Guides",
     description:
-      "Learn portrait drawing faster with AI-generated step-by-step Loomis guides from your own photos.",
+      "Step-by-step Loomis drawing guides generated from your own portrait photos.",
   },
   robots: {
     index: true,

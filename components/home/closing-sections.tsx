@@ -158,6 +158,12 @@ export async function FinalCta() {
             {t("lead")}
           </p>
           <StoreBadges size="default" location="final_cta" className="mt-8" />
+          {/* Verified app facts. Rendered only in languages that have the line. */}
+          {t.has("facts") ? (
+            <p className="mx-auto mt-5 max-w-xl text-pretty text-sm leading-6 text-white/85">
+              {t("facts")}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>
