@@ -160,6 +160,22 @@ or the blog JSON-LD. Every translation in that list must stay
 `status: "draft"` without `publishedAt`, or the build fails. To publish, move
 the article to `content/blog/index.ts` (see "Adding an article").
 
+### Draft translations of a published article
+
+A new language version of an article that is already published goes in the
+same entry's `translations` with `status: "draft"` (no dates; the build
+fails otherwise). Example: `content/blog/how-to-draw-a-face/es.ts`.
+
+- Normal and hosted builds: the draft is not built, not listed, not in the
+  sitemap, and the published versions' hreflang does not mention it.
+- Local preview (`BLOG_DRAFT_PREVIEW=1`): the draft renders at its real URL
+  with the "Local draft preview" banner, `noindex, nofollow`, a self
+  canonical and no hreflang. The published versions still list only
+  published translations in hreflang and the sitemap, even in a preview.
+- To publish: set `status: "published"` and the real `publishedAt`. The
+  reciprocal hreflang (plus `x-default` = English) and the sitemap entries
+  then follow from the entry; the language's blog index becomes indexable.
+
 ## Known framework note
 
 Next.js 15 drops a whole `[locale]/blog/[slug]` route when the slug list of

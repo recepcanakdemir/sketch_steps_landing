@@ -57,9 +57,12 @@ if (fixturesRequested && hostedBuild) {
 }
 
 /**
- * Local draft preview (content/blog/drafts.ts): same gate as fixtures. Drafts
- * render with a visible "draft preview" notice, noindex, no dates, and are
- * never in the sitemap or the blog JSON-LD. The public registry is untouched.
+ * Local draft preview: same gate as fixtures. Renders the articles in
+ * content/blog/drafts.ts and the draft translations of registered articles
+ * (e.g. a Spanish draft of a published English article), with a visible
+ * "draft preview" notice, noindex, no dates. Drafts are never in the sitemap,
+ * the blog JSON-LD or any hreflang set, preview or not. The public registry
+ * is untouched.
  */
 const draftPreviewRequested = process.env.BLOG_DRAFT_PREVIEW === "1";
 
@@ -180,8 +183,11 @@ function validate(articles: Article[]): void {
       if (!translation.title.trim()) errors.push(`${where}: missing title`);
       if (!translation.description.trim()) errors.push(`${where}: missing description`);
 
-      if (article.draftPreview && (translation.status !== "draft" || translation.publishedAt)) {
-        errors.push(`${where}: preview drafts must stay status "draft" with no publishedAt`);
+      if (article.draftPreview && translation.status !== "draft") {
+        errors.push(`${where}: preview drafts must stay status "draft"`);
+      }
+      if (translation.status === "draft" && (translation.publishedAt || translation.updatedAt)) {
+        errors.push(`${where}: drafts must not have publication dates`);
       }
       if (article.fixture) {
         // Fixtures are test content: no dates, so nothing looks published.
@@ -242,10 +248,21 @@ const ALL_ARTICLES: Article[] = [
 
 validate(ALL_ARTICLES);
 
+/** True for a draft translation that only renders in a local draft preview. */
+export function isDraft(entry: BlogEntry): boolean {
+  return entry.translation.status !== "published";
+}
+
+/**
+ * The entry a page shows: published translations, plus draft translations
+ * in a local draft preview. hreflang and the sitemap use `publishedEntry`.
+ */
 function toEntry(article: Article, locale: Locale): BlogEntry | undefined {
   const translation = article.translations[locale];
   if (!translation) return undefined;
-  if (translation.status !== "published" && !article.draftPreview) return undefined;
+  if (translation.status !== "published" && !(article.draftPreview || DRAFT_PREVIEW_ENABLED)) {
+    return undefined;
+  }
   const entryPath = `${BLOG_PATH}/${translation.slug}`;
   return {
     article,
@@ -273,21 +290,30 @@ export function getBlogEntry(locale: Locale, slug: string): BlogEntry | undefine
   return getBlogEntries(locale).find((entry) => entry.translation.slug === slug);
 }
 
-/** Languages an article is published in (its genuine translations). */
+function publishedEntry(article: Article, locale: Locale): BlogEntry | undefined {
+  const entry = toEntry(article, locale);
+  return entry && !isDraft(entry) ? entry : undefined;
+}
+
+/**
+ * Languages an article is published in (its genuine translations), for
+ * hreflang and the sitemap. Draft translations are never included, even in
+ * a local preview, so a published page never points to a draft.
+ */
 export function articleLocales(article: Article): Locale[] {
-  return LIVE_LOCALES.filter((locale) => toEntry(article, locale));
+  return LIVE_LOCALES.filter((locale) => publishedEntry(article, locale));
 }
 
 /** Per-locale paths of an article's published translations, for hreflang. */
 export function articleLocalizedPaths(article: Article): Partial<Record<Locale, string>> {
   return Object.fromEntries(
-    articleLocales(article).map((locale) => [locale, toEntry(article, locale)!.path]),
+    articleLocales(article).map((locale) => [locale, publishedEntry(article, locale)!.path]),
   );
 }
 
-/** True when the entry may be indexed (fixtures and draft previews never are). */
+/** True when the entry may be indexed (fixtures and drafts never are). */
 export function isIndexable(entry: BlogEntry): boolean {
-  return !entry.article.fixture && !entry.article.draftPreview;
+  return !entry.article.fixture && !entry.article.draftPreview && !isDraft(entry);
 }
 
 /**
@@ -345,7 +371,7 @@ export function sitemapArticles(): { article: Article; entries: BlogEntry[] }[] 
   return ALL_ARTICLES.filter((article) => !article.fixture && !article.draftPreview)
     .map((article) => ({
       article,
-      entries: articleLocales(article).map((locale) => toEntry(article, locale)!),
+      entries: articleLocales(article).map((locale) => publishedEntry(article, locale)!),
     }))
     .filter(({ entries }) => entries.length > 0);
 }

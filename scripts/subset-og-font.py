@@ -8,7 +8,8 @@ the SIL Open Font License 1.1 with no Reserved Font Name, so a subset may be
 redistributed with the licence (OFL.txt) and its copyright notice, which this
 script keeps in the font's name table.
 
-The subset covers ASCII, Japanese punctuation, full-width forms, all kana and
+The subset covers ASCII, Latin-1 (accented letters, ñ, ¿ ¡: used by
+the Spanish blog social card), Japanese punctuation, full-width forms, all kana and
 every character in messages/ja.json. lib/social-image.tsx refuses to render
 text containing a character outside coverage.txt, so after adding new kanji
 to the Japanese share-image copy, run (after `npm run build`):
@@ -54,6 +55,7 @@ def message_chars():
 
 def required_codepoints():
     cps = set(range(0x20, 0x7F))  # ASCII
+    cps |= set(range(0xA1, 0x100))  # Latin-1 (accents, ñ, ¿ ¡) for es/fr/de blog cards
     cps |= set(range(0x3000, 0x3040))  # CJK symbols and punctuation
     cps |= set(range(0x3041, 0x3100))  # hiragana + katakana
     cps |= set(range(0xFF01, 0xFF5F))  # full-width ASCII forms
