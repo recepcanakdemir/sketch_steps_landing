@@ -195,7 +195,7 @@ Spanish article is published.
 | Side plane | plano lateral | |
 | Center line | línea central | |
 | Brow line | línea de las cejas | classic Loomis horizontal on the middle of the ball |
-| Eye-level guide | línea guía de los ojos | this drawing's middle line (step 2) |
+| Eye-level guide | línea guía de los ojos | this drawing's step-2 horizontal, a little below the middle of the circle |
 | Nose line | línea de la nariz | at the base of the nose |
 | Chin line | línea del mentón | |
 | Jaw / jaw line | mandíbula / línea de la mandíbula | |

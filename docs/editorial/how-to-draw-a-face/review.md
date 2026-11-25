@@ -101,18 +101,20 @@ exactly what the English says):
 5. Glossary in `docs/editorial/standards.md` (English) and its Spanish
    counterpart (section 8).
 
-## Spanish version (es): draft
+## Spanish version (es): published 2026-11-25 (UTC)
 
-`content/blog/how-to-draw-a-face/es.ts`, `status: "draft"`, slug
-`como-dibujar-una-cara`. Same entry as the English article (a genuine
-translation), so hreflang en ↔ es is generated only once it is published.
+`content/blog/how-to-draw-a-face/es.ts`, `status: "published"`,
+`publishedAt: "2026-11-25"`, slug `como-dibujar-una-cara`. Same entry as the
+English article (a genuine translation), so hreflang en ↔ es is generated
+from it.
 
 | Role | Name | Date | Result |
 |---|---|---|---|
 | Translation and SEO pre-check (AI-assisted) | — | 2026-11-23 | Done; see below |
-| Native Spanish review (Spain and Mexico readability) | _to be named_ | | **Open** |
-| Drawing accuracy reviewer (shared with English, list above) | _to be named_ | | **Open** |
-| Owner publication approval | | | **Open** |
+| Native Spanish review (Spain and Mexico readability) | _to be named_ | | **Open** (not done before publication) |
+| Drawing accuracy reviewer (shared with English, list above) | _to be named_ | | **Open** (not done before publication) |
+| Final accuracy check (AI-assisted) | — | 2026-11-25 | Done; see "Publication check" below |
+| Owner publication approval | Owner | 2026-11-25 | Approved, subject to the final accuracy check |
 
 Pre-check (2026-11-23):
 
@@ -211,3 +213,43 @@ approval (alt text of step 2 included). URL, SEO title, meta description,
 `publishedAt`, images and CTA unchanged. **`updatedAt` not set yet:** add the
 real date of the production deploy that ships these corrections (it shows
 "Updated on …" on the page and moves the sitemap `lastmod`).
+
+## Publication check (2026-11-25, AI-assisted; not a native or drawing review)
+
+Done before publishing the Spanish version and shipping the English
+corrections (release branch `release/seo-geo-es-loomis`):
+
+- **Spanish text re-read in full against the corrected English text.** Same
+  steps, tips and mistakes; the step-2 line position wording ("un poco por
+  debajo de su mitad", "la línea horizontal del paso 2") matches the
+  measurement review and the English corrections. No factual difference
+  between the two versions found.
+- **Glossary fix:** `docs/editorial/standards.md` section 8 described the
+  eye-level guide as "this drawing's middle line"; changed to "this drawing's
+  step-2 horizontal, a little below the middle of the circle".
+- **Links:** the in-article link `/es#demo-title` points to the demo section
+  on the Spanish homepage (`id="demo-title"`); the CTA box text comes from
+  `messages/es.json`, already live.
+- **SEO:** title "Cómo dibujar una cara paso a paso: método Loomis | Sketch
+  Steps"; self canonical; reciprocal hreflang en/es + x-default; BlogPosting
+  (`inLanguage: es`) and BreadcrumbList; both URLs and `/es/blog` in the
+  sitemap. Verified in the production build output.
+- **Dates:** the English corrections ship with `updatedAt: "2026-11-25"` and
+  the Spanish version with `publishedAt: "2026-11-25"`: the UTC date on which
+  the release branch was prepared (the build rejects future dates, and it
+  checks them in UTC). **Before merging, change both to the UTC date of the
+  production deploy** if it is later.
+
+**Still open after publication (not resolved by this check):**
+
+1. Native Spanish review (Spain and Mexico): every item in the Spanish
+   checklist above, including W1 (whole-article read).
+2. Drawing-accuracy review, shared by both languages: every item in "For the
+   drawing reviewer". The two items about the step-2 line position are
+   answered by the 2026-11-24 measurements, but a person who draws has not
+   confirmed them.
+3. Glossary check by someone who draws (English section 3 and Spanish
+   section 8).
+
+None of these is a known error. They are reviews that have not happened, so
+the article must not be described as expert- or native-reviewed.

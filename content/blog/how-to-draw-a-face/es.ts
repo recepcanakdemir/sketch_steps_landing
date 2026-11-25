@@ -4,14 +4,14 @@ import { DIR, step } from "./images";
 
 /**
  * Spanish translation of "How to Draw a Face Step by Step" (same article,
- * same nine images): DRAFT. It says what the English version says, step for
- * step; the open drawing-review questions in
- * docs/editorial/how-to-draw-a-face/review.md apply to it too. Spanish
- * standards: docs/editorial/standards.md, section 8.
+ * same nine images). Published 2026-11-25 (UTC) with the owner's approval. It says
+ * what the English version says, step for step; the open drawing-review and
+ * native-Spanish-review items in docs/editorial/how-to-draw-a-face/review.md
+ * apply to it too. Spanish standards: docs/editorial/standards.md, section 8.
  *
- * Publishing (separate change, after review and owner approval): set
- * status "published" and the real publishedAt. hreflang en <-> es and the
- * sitemap entries then follow automatically from this entry.
+ * hreflang en <-> es (+ x-default = English) and the sitemap entries follow
+ * automatically from this entry. If the production deploy happens on a later
+ * date, set publishedAt to that date before merging.
  */
 
 const images = {
@@ -34,7 +34,8 @@ const es: ArticleTranslation = {
     "Dibuja una cara a lápiz con el método Loomis: un círculo, líneas guía, rasgos, pelo y sombreado, en nueve etapas. Pensado para principiantes.",
   excerpt:
     "Nueve etapas a lápiz, de un simple círculo a un retrato terminado, con lo que hay que dibujar en cada una y cómo detectar los errores más habituales.",
-  status: "draft",
+  status: "published",
+  publishedAt: "2026-11-25",
   heroImage: {
     ...images.s9,
     alt: "Boceto a lápiz terminado de un joven sonriente con el pelo ondulado, la última de las nueve etapas del dibujo",

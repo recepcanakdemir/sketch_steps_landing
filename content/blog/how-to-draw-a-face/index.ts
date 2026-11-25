@@ -11,9 +11,12 @@ import { DIR, step } from "./images";
  * ./images.ts). The reference photo is not used until publication rights are
  * confirmed.
  *
- * Spanish (es): translation of this article, status "draft" (./es.ts). A
- * draft translation is never built, listed, linked with hreflang or put in
- * the sitemap; it renders only in local draft previews (BLOG_DRAFT_PREVIEW=1).
+ * Updated 2026-11-25 (UTC): step-2 line position corrected in steps 2, 4 and the
+ * step 6 tip (measurements in review.md). Set updatedAt to the real deploy
+ * date if it ships later.
+ *
+ * Spanish (es): published translation of this article (./es.ts), linked by
+ * reciprocal hreflang.
  */
 
 const images = {
@@ -43,6 +46,7 @@ const article: Article = {
         "Nine pencil stages, from a single circle to a finished portrait, with what to draw at each stage and how to catch the usual mistakes.",
       status: "published",
       publishedAt: "2026-11-18",
+      updatedAt: "2026-11-25",
       heroImage: {
         ...images.s9,
         alt: "Finished pencil sketch of a smiling young man with wavy hair, the last of nine drawing stages",
