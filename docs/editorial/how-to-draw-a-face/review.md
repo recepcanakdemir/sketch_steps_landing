@@ -191,7 +191,7 @@ every comparison below is made **within one image**.
 Drawing-reviewer items above stay open; these measurements are evidence for
 the reviewer, not approval.
 
-### Corrections to the published English article (applied 2026-11-24 in the source, owner-approved; not deployed)
+### Corrections to the published English article (applied 2026-11-24 in the source, owner-approved; deployed 2026-11-25 with PR #17)
 
 1. Step 2, paragraph 1: "a horizontal line across the circle, close to its
    middle" → "a horizontal line across the circle, a little below its
@@ -237,8 +237,8 @@ corrections (release branch `release/seo-geo-es-loomis`):
 - **Dates:** the English corrections ship with `updatedAt: "2026-11-25"` and
   the Spanish version with `publishedAt: "2026-11-25"`: the UTC date on which
   the release branch was prepared (the build rejects future dates, and it
-  checks them in UTC). **Before merging, change both to the UTC date of the
-  production deploy** if it is later.
+  checks them in UTC). Deployed on 2026-11-25 (UTC) with PR #17 (merge
+  commit `0b75f9e`), so both dates match the release date.
 
 **Still open after publication (not resolved by this check):**
 

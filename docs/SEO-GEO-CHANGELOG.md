@@ -14,13 +14,22 @@ indexable content or crawler access.
 
 ---
 
+## 2026-11-25: Post-release documentation update
+
+- **What:** `CLAUDE.md`, `docs/SEO-GEO-STATUS.md`, this changelog,
+  `docs/CONTENT-ROADMAP.md` and the face article review notes now describe
+  PR #17 as merged and deployed, with the verified production details.
+  Documentation only.
+
 ## 2026-11-25: Release: portrait homepage, Spanish face article, project docs
 
 - **Branch / PR:** `release/seo-geo-es-loomis`. It merges
   `feature/geo-homepage-facts` and `feature/es-content-seo` into `main` at
   59b6e15, plus final commits. PR #17:
   https://github.com/recepcanakdemir/sketch_steps_landing/pull/17
-- **Deployment:** **not deployed.** It waits for review and owner approval.
+- **Deployment:** **deployed.** Merge commit `0b75f9e`, merged 2026-11-25
+  17:59 UTC; Vercel production deployment finished 2026-11-25 18:00 UTC
+  (2026-11-26 01:00 Vietnam time). Live on https://sketchsteps.app.
 
 **What changed:**
 - **Homepage (all languages):**
@@ -58,14 +67,29 @@ indexable content or crawler access.
 - Mobile at 375–1280 px in all five languages: hero label on one line, no
   horizontal scroll.
 
-**Before merging:** set the Spanish `publishedAt` and English `updatedAt` to
-the UTC deploy date if it is later than 2026-11-25.
+**Dates:** deployed on 2026-11-25 (UTC), so the Spanish `publishedAt` and
+English `updatedAt` (both 2026-11-25) match the release date. The English
+`publishedAt` stays 2026-11-18.
+
+**Production verification (live site, 2026-11-25 UTC):**
+- All five homepages, `/blog`, `/es/blog` and the three articles return 200;
+  the Spanish article is `index, follow`.
+- Sitemap: 14 URLs, each live, indexable and self-canonical.
+- `check-seo.py` on the live HTML: canonical and hreflang correct (face
+  article en ↔ es + x-default; turkey none; homepages all five languages).
+- New homepage text live in all five languages; no Google tag on any page.
+- Google Rich Results Test: passed with only optional warnings (article dates
+  without a time zone; homepage `aggregateRating` missing, deliberately).
+- `CLAUDE.md` and the SEO/GEO docs are on `main`.
+
+**Still open:** www HTTPS redirect, native-language reviews, drawing-accuracy
+review, Search Console indexing checks, Bing Webmaster Tools submission
+(`SEO-GEO-STATUS.md` §7).
 
 ## 2026-11-24: GEO homepage facts (feature/geo-homepage-facts)
 
 - **Commits:** f64f68f, eab7b71 (2026-11-24).
-- **Deployment:** not deployed on its own; included in the 2026-11-25
-  release.
+- **Deployment:** deployed with the 2026-11-25 release (PR #17, `0b75f9e`).
 
 **What changed:**
 - **English homepage:** portrait H1.
@@ -147,8 +171,7 @@ so every claim must match the store listings and the privacy policies.
   - 8f65a12 (2026-11-23): Spanish draft;
   - 85a2225 (2026-11-24): wording and line-position fixes;
   - 9441afa (2026-11-24): English corrections.
-- **Deployment:** not deployed on its own; included in the 2026-11-25
-  release.
+- **Deployment:** deployed with the 2026-11-25 release (PR #17, `0b75f9e`).
 
 **What changed:**
 - **Spanish draft** `content/blog/how-to-draw-a-face/es.ts`:

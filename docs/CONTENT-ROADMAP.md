@@ -19,14 +19,9 @@ publish one: `docs/blog.md`.
 
 | Article | URL | Language | Status | Target keyword | Research |
 |---|---|---|---|---|---|
-| How to Draw a Face Step by Step (Loomis Method) | `/blog/how-to-draw-a-face` | en | Published 2026-11-18. Update with corrections in the release PR. Drawing review open. | how to draw a face step by step; Loomis method | **Speculative:** no competitor or keyword research was done (`docs/editorial/how-to-draw-a-face/outline.md`). |
+| How to Draw a Face Step by Step (Loomis Method) | `/blog/how-to-draw-a-face` | en | Published 2026-11-18; updated 2026-11-25 (step-2 line corrections, PR #17). Drawing review open. | how to draw a face step by step; Loomis method | **Speculative:** no competitor or keyword research was done (`docs/editorial/how-to-draw-a-face/outline.md`). |
 | How to Draw a Turkey Step by Step (Realistic Pencil) | `/blog/how-to-draw-a-turkey` | en | Published 2026-11-24 (PR #16) | how to draw a turkey (realistic) | **Researched (relative only):** Google Trends rising queries, US, past 7 days, 24 Nov 2026. "Easy", "cute" and "hand turkey" are deliberately not targeted, because the images don't support them (`docs/editorial/how-to-draw-a-turkey/review.md`). Seasonal: Thanksgiving. |
-
-## New (in the release PR)
-
-| Article | URL | Language | Status | Target keyword | Research |
-|---|---|---|---|---|---|
-| Cómo dibujar una cara paso a paso: método Loomis | `/es/blog/como-dibujar-una-cara` | es (Spain + Mexico) | Published in the release PR (`publishedAt` = deploy date). Native and drawing reviews open. | cómo dibujar una cara paso a paso; método Loomis | **Researched (qualitative):** Google Trends (ES) and autocomplete (ES, MX), 23 Nov 2026. Strong demand signal, high competition. Seasonality: peak late Nov to early Dec, strong mid-Jan to Mar. `docs/reports/2026-11/es-keyword-research.md` |
+| Cómo dibujar una cara paso a paso: método Loomis | `/es/blog/como-dibujar-una-cara` | es (Spain + Mexico) | Published 2026-11-25 (PR #17). Native Spanish and drawing reviews open. | cómo dibujar una cara paso a paso; método Loomis | **Researched (qualitative):** Google Trends (ES) and autocomplete (ES, MX), 23 Nov 2026. Strong demand signal, high competition. Seasonality: peak late Nov to early Dec, strong mid-Jan to Mar. `docs/reports/2026-11/es-keyword-research.md` |
 
 ## Potential future content
 
